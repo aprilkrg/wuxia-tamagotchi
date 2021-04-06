@@ -26,7 +26,6 @@ class Cultivator {
         return `I am ${this.name} from ${this.sect} Sect`;
     }
     trainUprightPath() {
-        // if statement to check golden core status
         if (this.goldenCore === true) {
             if (this.trainingLevel < 10 && this.hunger < 6) {
                 return this.trainingLevel += 1;
@@ -53,20 +52,12 @@ class Cultivator {
         };
         return `${this.name} is getting hungry, they won't be able to train if the hunger level reaches 5`;
     }
+    getSomeSleep() {
+        if (this.sleep < 10) {
+            this.sleep += 1;
+        }
+        return `${this.name} got some rest!`
+    }
 };
 
 const weiYing = new Cultivator("Wei Ying", "Yunmeng Jiang");
-
-
-
-
-
-
-
-
-
-
-// snippets
-// if (trainingLevel > 0) {
-//     goldenCore = true;
-// }

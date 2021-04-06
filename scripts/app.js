@@ -20,29 +20,32 @@ class Cultivator {
     }
 
     trainUprightPath() {
-        if (this.trainingLevel < 10) {
+        if (this.trainingLevel < 10 && this.hunger < 6) {
             return this.trainingLevel += 1;
-        }
+        } else {
+            return 'Your cultivator is to hungry to train today.'
+        };
     }
 
     removeCore() {
         if (this.goldenCore !== false) {
             this.goldenCore = false;
-        }
-        return 'Your Cultivator sacrificed their Golden Core.'
+        };
+        return 'Your Cultivator sacrificed their Golden Core.';
     }
 
     stopBoredom() {
         if (this.boredom < 10) {
             this.boredom += 1;
-        }
-        return "Your cultivator is getting bored... I hope they don't make trouble..."
+        };
+        return "Your cultivator is getting bored... I hope they don't make trouble...";
     }
 
     stopHunger() {
         if (this.hunger < 10) {
             this.hunger += 1;
-        }
+        };
+        return `${this.name} is getting hungry, they won't be able to train if the hunger level reaches 5`;
     }
 
 

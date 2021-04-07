@@ -1,13 +1,13 @@
 console.log("grandmaster of monstrous cultivation")
 /**
- * create a cultivator
+ * Create a cultivator
+ * @param {string} name - The name of this cultivator
+ * @param {string} sect - The sect this cultivator belongs to
  * @param {boolean} goldenCore - A cultivator has a goldenCore by default
- * @param {number} trainingLevel - This cultivator starts at 1 if goldenCore = true, will increment to 10
+ * @param {number} trainingLevel - The power level of this cultivator starts at 1 if goldenCore = true, will increment up to 10
  * @param {number} boredom - The interest level of this cultivator, 0 being interested, 10 being distracted
  * @param {number} hunger - The hunger level of this cultivator, 0 being not hungry, 10 being ravenous
  * @param {number} sleep - The energy level of this cultivator, 10 being rested, 0 being exhausted
- * @param {string} name - The name of this cultivator
- * @param {string} sect - The sect this cultivator belongs to
  */
 class Cultivator {
     // === ! Constructor ! === //
@@ -61,3 +61,26 @@ class Cultivator {
 };
 
 const weiYing = new Cultivator("Wei Ying", "Yunmeng Jiang");
+
+/**
+ * Create a monstrous cultivator
+ * @param {string} name - The name of this cultivator
+ * @param {string} sect - The sect this cultivator belongs to
+ * @param {boolean} goldenCore - A monstrous cultivator does not have a goldenCore by default
+ * @param {number} boredom - The interest level of this cultivator, 0 being interested, 10 being distracted
+ * @param {number} hunger - The hunger level of this cultivator, 0 being not hungry, 10 being ravenous
+ * @param {number} sleep - The energy level of this cultivator, 10 being rested, 0 being exhausted
+ * @param {number} publicAnimosityLevel - The public approval rating of this monstrous cultivator, 0 being accepted, 10 being persecuted
+ * @param {number} craftinessLevel - The power level of this monstrous cultivator, starts at 0, increments up to 10
+ */
+class MonstrousCultivation extends Cultivator {
+    // === ! Constructor ! === //
+    constructor(name, sect, goldenCore, boredom, hunger, sleep) {
+        super(name, sect, goldenCore, boredom, hunger, sleep);
+    // === ! Attributes ! === //
+        this.publicAnimosityLevel = publicAnimosityLevel;
+        this.craftinessLevel = craftinessLevel;
+        this.goldenCore = false;
+    }
+    // === ! Methods ! === //
+};

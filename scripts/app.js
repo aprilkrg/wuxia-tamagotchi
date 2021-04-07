@@ -73,14 +73,15 @@ const weiYing = new Cultivator("Wei Ying", "Yunmeng Jiang");
  * @param {number} publicAnimosityLevel - The public approval rating of this monstrous cultivator, 0 being accepted, 10 being persecuted
  * @param {number} craftinessLevel - The power level of this monstrous cultivator, starts at 0, increments up to 10
  */
-class MonstrousCultivation extends Cultivator {
+class MonstrousCultivator extends Cultivator {
     // === ! Constructor ! === //
     constructor(name, sect, goldenCore, boredom, hunger, sleep) {
         super(name, sect, goldenCore, boredom, hunger, sleep);
     // === ! Attributes ! === //
-        this.publicAnimosityLevel = publicAnimosityLevel;
-        this.craftinessLevel = craftinessLevel;
+        this.publicAnimosityLevel = 0;
+        this.craftinessLevel = 0;
         this.goldenCore = false;
     }
     // === ! Methods ! === //
 };
+const weiWuxian = new MonstrousCultivator(weiYing.name, weiYing.sect, weiYing.goldenCore, weiYing.boredom, weiYing.hunger, weiYing.sleep)

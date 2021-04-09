@@ -75,14 +75,12 @@ class Cultivator {
             $metricUl.append($metricInfo);
         };
     }
-    updateName() {
-        console.log(this.name, '<<<')
-        const $nameInput = $("<input type='text' placeholder='name'><input type='submit' value='submit'>");
-        $('body').prepend($nameInput);
-        const $inputValue = $nameInput.val();
-        console.log($inputValue);
-        $(".name").text(`${$inputValue}`)
-    }
+    // updateName() {
+    //     const $nameInput = $("<input type='text' placeholder='name'><input type='submit' value='submit'>");
+    //     $('body').prepend($nameInput);
+    //     const $inputValue = $nameInput.val();
+    //     $(".name").text(`${$inputValue}`)
+    // }
 };
 
 const weiYing = new Cultivator("Wei Ying", "Yunmeng Jiang");
@@ -140,20 +138,13 @@ class MonstrousCultivator extends Cultivator {
 };
 const weiWuxian = new MonstrousCultivator("Wei Ying");
 
-// // next thing:
-// // I want the displayed information to be updating every second
-// // updateInformation method ?
-// // 
-
-const getName = function getName() {
-    console.log(this.name, '<<<')
-    const $nameInput = $("<input type='text' placeholder='name'><input type='submit' value='submit'>");
+const createGameBoard = function() {
+    const $nameInput = $("<input type='text' placeholder='Name your cultivator'><button class='submit__name'>Submit</button>");
     $('body').prepend($nameInput);
-    const $inputValue = $nameInput.val();
-    console.log($inputValue);
 
-}
+};
 
-const updateName = function updateName() {
-    $(".name").text(`${$inputValue}`)
-}
+createGameBoard();
+$(".submit__name").on("click", function() {
+    console.log('click');
+});

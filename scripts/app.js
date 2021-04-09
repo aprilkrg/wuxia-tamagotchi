@@ -4,7 +4,7 @@ console.log("grandmaster of monstrous cultivation")
  * @param {string} name - The name of this cultivator
  * @param {string} sect - The sect this cultivator belongs to
  * @param {boolean} goldenCore - A cultivator has a goldenCore by default
- * @param {number} trainingLevel - The power level of this cultivator starts at 1 if goldenCore = true, will increment up to 10
+ * @param {number} trainingLevel - The power level of this cultivator starts at 1 if goldenCore = true, will increment up to 10 - a riff off of age
  * @param {number} boredom - The interest level of this cultivator, 0 being interested, 10 being distracted
  * @param {number} hunger - The hunger level of this cultivator, 0 being not hungry, 10 being ravenous
  * @param {number} sleep - The energy level of this cultivator, 10 being rested, 0 being exhausted
@@ -56,7 +56,7 @@ class Cultivator {
         if (this.sleep < 10) {
             this.sleep += 1;
         }
-        return `${this.name} got some rest!`
+        return `${this.name} got some rest!`;
     }
 };
 
@@ -70,18 +70,47 @@ const weiYing = new Cultivator("Wei Ying", "Yunmeng Jiang");
  * @param {number} boredom - The interest level of this cultivator, 0 being interested, 10 being distracted
  * @param {number} hunger - The hunger level of this cultivator, 0 being not hungry, 10 being ravenous
  * @param {number} sleep - The energy level of this cultivator, 10 being rested, 0 being exhausted
+ * @param {string} title - The title this monstrous cultivator is known by
  * @param {number} publicAnimosityLevel - The public approval rating of this monstrous cultivator, 0 being accepted, 10 being persecuted
- * @param {number} craftinessLevel - The power level of this monstrous cultivator, starts at 0, increments up to 10
+ * @param {number} craftinessLevel - The power level of this monstrous cultivator, starts at 0, increments up to 10 - a riff off of age
  */
 class MonstrousCultivator extends Cultivator {
     // === ! Constructor ! === //
-    constructor(name, sect, goldenCore, boredom, hunger, sleep) {
-        super(name, sect, goldenCore, boredom, hunger, sleep);
+    constructor(name, sect, goldenCore, hunger, sleep) {
+        // super(name, sect, goldenCore, hunger, sleep); // what's the point of super, how do I use it?
+        // I don't want monstrous cultivators to inheirit boredom or trainingLevel - how?
+        super(name, sect, goldenCore, hunger, sleep);
+        this.name = name;
+        this.sect = "Yunmeng Jiang";
+        this.goldenCore = false;
+        this.hunger = 5;
+        this.sleep = 5;
     // === ! Attributes ! === //
+        this.title = "Yiling Laozhu";
         this.publicAnimosityLevel = 0;
         this.craftinessLevel = 0;
-        this.goldenCore = false;
+        delete this.trainingLevel;
+        delete this.boredom;
     }
-    // === ! Methods ! === //
+    getSomeSleep() {
+        if (this.sleep < 10) {
+            this.sleep += 0.5;
+        }
+        return `${this.title} rests in the Demon's Rest Palace`;
+    }
+    stopHunger() {
+        if (this.hunger < 10) {
+            this.hunger += 0.5;
+        }
+    }
+    defectFromSect() {
+        delete this.sect;
+        return this;
+        // set new value of where he lives = burial mounds cave/ demon subdue palace
+    }
+    becomePublicEnemy() {
+        this.publicAnimosityLevel += 2;
+        return this.publicAnimosityLevel;
+    }
 };
-const weiWuxian = new MonstrousCultivator(weiYing.name, weiYing.sect, weiYing.goldenCore, weiYing.boredom, weiYing.hunger, weiYing.sleep)
+const weiWuxian = new MonstrousCultivator("Wei Ying")

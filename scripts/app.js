@@ -59,12 +59,19 @@ class Cultivator {
         return `${this.name} got some rest!`;
     }
     displayCultivator() {
-        const $metricDiv = $("<div></div>").addClass("cultivator");
+        // let className = "Wei Ying";
+        // console.log(className, '<<<<<<<');
+        // className.replace(/ /g,'');
+        // console.log(className, '>>>>>>>>>>');
+        // const $metricDiv = $("<div></div>").addClass(`cultivator ${this.name}`);
+        // // ^^^ I want to take the space out of this.name ("Wei Ying") so that I can interpolate the name string into the addClass method below
+        const $metricDiv = $("<div></div>").addClass(`cultivator`);
         const $metricUl = $("<ul></ul>").addClass("metrics");
         $("body").append($metricDiv);
         $metricDiv.append($metricUl);
-        for (property in this) {
-            let $metricInfo = $(`<li>${property}: ${this[property]}</li>`).addClass(`metric ${property}`);
+        for(const [key, value] of Object.entries(this)) {
+            console.log(`${key}: ${value}`)
+            let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
             $metricUl.append($metricInfo);
         };
     }
@@ -125,22 +132,3 @@ class MonstrousCultivator extends Cultivator {
 };
 const weiWuxian = new MonstrousCultivator("Wei Ying");
 
-/**
- * 
- * @param {object} character - an object created from the Cultivator class or an extension of the class
- */
-// this is a functional approach below right? if I convert this to a method for Cultivator is that more object oriented?
-const displayCultivator = function displayCultivator(character) {
-    const $metricDiv = $("<div></div>").addClass("cultivator");
-    const $metricUl = $("<ul></ul>").addClass("metrics");
-    $("body").append($metricDiv);
-    $metricDiv.append($metricUl);
-
-    for (property in character) {
-        // console.log(`${property}, property -- ${character[property]}`); // name, Wei Ying
-        let $metricInfo = $(`<li>${property}: ${character[property]}</li>`).addClass(`metric ${property}`);
-        $metricUl.append($metricInfo);
-    }
-}
-displayCultivator(weiYing);
-// displayCultivator(weiWuxian);

@@ -144,6 +144,16 @@ const weiWuxian = new MonstrousCultivator("Wei Ying");
 // // I want the displayed information to be updating every second
 // // updateInformation method ?
 // // 
-const updateName = function updateName(weiYing) {
-    console.log(weiYing)
+
+const getName = function getName() {
+    console.log(this.name, '<<<')
+    const $nameInput = $("<input type='text' placeholder='name'><input type='submit' value='submit'>");
+    $('body').prepend($nameInput);
+    const $inputValue = $nameInput.val();
+    console.log($inputValue);
+
+}
+
+const updateName = function updateName() {
+    $(".name").text(`${$inputValue}`)
 }

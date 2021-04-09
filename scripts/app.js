@@ -58,6 +58,16 @@ class Cultivator {
         }
         return `${this.name} got some rest!`;
     }
+    displayCultivator() {
+        const $metricDiv = $("<div></div>").addClass("cultivator");
+        const $metricUl = $("<ul></ul>").addClass("metrics");
+        $("body").append($metricDiv);
+        $metricDiv.append($metricUl);
+        for (property in this) {
+            let $metricInfo = $(`<li>${property}: ${this[property]}</li>`).addClass(`metric ${property}`);
+            $metricUl.append($metricInfo);
+        };
+    }
 };
 
 const weiYing = new Cultivator("Wei Ying", "Yunmeng Jiang");
@@ -119,6 +129,7 @@ const weiWuxian = new MonstrousCultivator("Wei Ying");
  * 
  * @param {object} character - an object created from the Cultivator class or an extension of the class
  */
+// this is a functional approach below right? if I convert this to a method for Cultivator is that more object oriented?
 const displayCultivator = function displayCultivator(character) {
     const $metricDiv = $("<div></div>").addClass("cultivator");
     const $metricUl = $("<ul></ul>").addClass("metrics");

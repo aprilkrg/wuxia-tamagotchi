@@ -75,6 +75,12 @@ class Cultivator {
             $metricUl.append($metricInfo);
         };
     }
+    updateName() {
+        console.log(this.name, '<<<')
+        const $nameInput = $("<input type='text' placeholder='name'><input type='submit' value='submit'>");
+        $('body').prepend($nameInput);
+        
+    }
 };
 
 const weiYing = new Cultivator("Wei Ying", "Yunmeng Jiang");
@@ -132,3 +138,10 @@ class MonstrousCultivator extends Cultivator {
 };
 const weiWuxian = new MonstrousCultivator("Wei Ying");
 
+// // next thing:
+// // I want the displayed information to be updating every second
+// // updateInformation method ?
+// // 
+const updateName = function updateName(weiYing) {
+    console.log(weiYing)
+}

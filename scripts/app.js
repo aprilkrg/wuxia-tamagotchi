@@ -1,4 +1,4 @@
-console.log("grandmaster of monstrous cultivation")
+console.log("grandmaster of monstrous cultivation");
 /**
  * Create a cultivator
  * @param {string} name - The name of this cultivator
@@ -113,4 +113,10 @@ class MonstrousCultivator extends Cultivator {
         return this.publicAnimosityLevel;
     }
 };
-const weiWuxian = new MonstrousCultivator("Wei Ying")
+const weiWuxian = new MonstrousCultivator("Wei Ying");
+
+
+const $weiYingDiv = $("<div>Wei Ying</div>");
+$weiYingDiv.addClass("cultivator aYing");
+$("body").append($weiYingDiv);
+console.log($weiYingDiv);

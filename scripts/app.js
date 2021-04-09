@@ -79,7 +79,9 @@ class Cultivator {
         console.log(this.name, '<<<')
         const $nameInput = $("<input type='text' placeholder='name'><input type='submit' value='submit'>");
         $('body').prepend($nameInput);
-        
+        const $inputValue = $nameInput.val();
+        console.log($inputValue);
+        $(".name").text(`${$inputValue}`)
     }
 };
 

@@ -116,7 +116,31 @@ class MonstrousCultivator extends Cultivator {
 const weiWuxian = new MonstrousCultivator("Wei Ying");
 
 
-const $weiYingDiv = $("<div>Wei Ying</div>");
-$weiYingDiv.addClass("cultivator aYing");
-$("body").append($weiYingDiv);
-console.log($weiYingDiv);
+// // how I made a div ul and lis to display metrics => hardcode mode
+// const $weiYingDiv = $("<div>Wei Ying</div>").addClass("cultivator aYing");
+// $("body").append($weiYingDiv);
+
+// const $weiYingUl = $("<ul></ul>");
+// $weiYingDiv.append($weiYingUl);
+
+// for (property in weiYing) {
+//     console.log(`${property}, property -- ${weiYing[property]}`); // name, Wei Ying
+//     let $info = $(`<li>${property}: ${weiYing[property]}</li>`);
+//     $weiYingUl.append($info);
+// }
+// // now convert from hardcode to programatic mode
+
+const displayCultivator = function displayCultivator(character) {
+    const $metricDiv = $("<div></div>").addClass("cultivator");
+    const $metricUl = $("<ul></ul>").addClass("metrics");
+    $("body").append($metricDiv);
+    $metricDiv.append($metricUl);
+
+    for (property in character) {
+        // console.log(`${property}, property -- ${character[property]}`); // name, Wei Ying
+        let $metricInfo = $(`<li>${property}: ${character[property]}</li>`).addClass(`metric ${property}`);
+        $metricUl.append($metricInfo);
+    }
+}
+displayCultivator(weiYing);
+// displayCultivator(weiWuxian);

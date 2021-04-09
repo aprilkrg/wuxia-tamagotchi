@@ -115,21 +115,10 @@ class MonstrousCultivator extends Cultivator {
 };
 const weiWuxian = new MonstrousCultivator("Wei Ying");
 
-
-// // how I made a div ul and lis to display metrics => hardcode mode
-// const $weiYingDiv = $("<div>Wei Ying</div>").addClass("cultivator aYing");
-// $("body").append($weiYingDiv);
-
-// const $weiYingUl = $("<ul></ul>");
-// $weiYingDiv.append($weiYingUl);
-
-// for (property in weiYing) {
-//     console.log(`${property}, property -- ${weiYing[property]}`); // name, Wei Ying
-//     let $info = $(`<li>${property}: ${weiYing[property]}</li>`);
-//     $weiYingUl.append($info);
-// }
-// // now convert from hardcode to programatic mode
-
+/**
+ * 
+ * @param {object} character - an object created from the Cultivator class or an extension of the class
+ */
 const displayCultivator = function displayCultivator(character) {
     const $metricDiv = $("<div></div>").addClass("cultivator");
     const $metricUl = $("<ul></ul>").addClass("metrics");

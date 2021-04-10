@@ -145,6 +145,20 @@ const createGameBoard = function() {
 };
 
 createGameBoard();
-$(".submit__name").on("click", function() {
-    console.log('click');
-});
+
+const grabName = function() {
+    
+    
+    $(".submit__name").on("click", function() {
+        console.log('click');
+        const $name = $("input").val();
+        console.log(
+            $name
+            );
+        const $nameDiv = $("<div></div>");
+        
+
+    });
+};
+
+grabName();

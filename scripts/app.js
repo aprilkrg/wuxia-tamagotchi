@@ -81,7 +81,7 @@ class Cultivator {
         console.log('clickyyy');
         let $name = $("input").val();
         // $nameDiv.append($name);
-        $(".name").html($name)
+        $(".name").html(`name: ${$name}`)
     }
     grabName() {
         $(".submit__name").on("click", function() {
@@ -164,7 +164,7 @@ class MonstrousCultivator extends Cultivator {
 const weiWuxian = new MonstrousCultivator("Wei Ying");
 
 const createGameBoard = function() {
-    const $nameInput = $("<input type='text' placeholder='Name your cultivator'><button class='submit__name'>Submit</button>");
+    const $nameInput = $("<input type='text' placeholder='Name your cultivator'>");
     $('body').prepend($nameInput);
 };
 

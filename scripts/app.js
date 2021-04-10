@@ -10,8 +10,8 @@ console.log("grandmaster of monstrous cultivation");
  * @param {number} sleep - The energy level of this cultivator, 10 being rested, 0 being exhausted
  */
 class Cultivator {
-    static staticTrainingLevel;
-    static staticHungerLevel = 0;
+    // static staticTrainingLevel;
+    // static staticHungerLevel = 0;
     // === ! Constructor ! === //
     constructor(name) {
         this.name = name;
@@ -27,6 +27,10 @@ class Cultivator {
     sayHello() {
         return `I am ${this.name} from ${this.sect} Sect`;
     }
+    // setStatics() {
+    //     Cultivator.staticTrainingLevel = 0;
+    //     Cultivator.staticHungerLevel = 0;
+    //  }
     displayCultivator() {
         // setInterval(function(){
 
@@ -51,28 +55,20 @@ class Cultivator {
         this.setTimer();
     }
     setTimer() {
-        // setInterval(function(){console.log("click")}, 1000);
-        setInterval(this.trainUprightPath, 1000);
+        setInterval(function(){console.log("click")}, 8000);
+        // setInterval(this.trainUprightPath, 3000);
     }
-    setStatics() {
-       Cultivator.staticTrainingLevel = 0;
-    }
+    // get trainingLevel() {
+    //     return this._trainingLevel;
+    // }
+    // set trainingLevel(value) {
+    //     this._trainingLevel = value;
+    // }
     trainUprightPath() {
         Cultivator.staticTrainingLevel += 1;
         let trainingLevel = Cultivator.staticTrainingLevel;
         console.log(trainingLevel);
-
-        // let trainingLevel = Cultivator.staticTrainingLevel;
-        // let hungerLevel = Cultivator.staticHungerLevel;
-        // console.log(trainingLevel);
-        // // if (this.goldenCore === true) {
-        //     if (trainingLevel < 10 && hungerLevel < 6) {
-        //         trainingLevel += 1;
-        //     } else {
-        //         return 'Your cultivator is to hungry to train today.'
-        //     };
-        //     // } else return `You have no Golden Core.`
-        // console.log(trainingLevel,'2');
+        // console.log(Cultivator.constructor.arguments);
     }
     removeCore() {
         if (this.goldenCore !== false) {
@@ -105,7 +101,7 @@ const weiYing = new Cultivator("Wei Ying");
 const $displayCharacterBtn = $("<button id='display'>Display</button>");
 $("body").append($displayCharacterBtn);
 $("#display").on("click", function() {weiYing.displayCultivator()});
-weiYing.setStatics();
+// weiYing.setStatics();
 /**
  * The above 4 lines of code is hardcoding the display button to display an instance of the cultivator object I've already created. progromatic approach => display button is what creates the new Cultivator.
  */

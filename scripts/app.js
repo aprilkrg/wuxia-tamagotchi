@@ -65,11 +65,9 @@ class Cultivator {
         // console.log(className, '>>>>>>>>>>');
         // const $metricDiv = $("<div></div>").addClass(`cultivator ${this.name}`);
         // // ^^^ I want to take the space out of this.name ("Wei Ying") so that I can interpolate the name string into the addClass method below
-        console.log('click');
-        const $name = $("input").val();
+        console.log('clicked');
         const $nameDiv = $("<div></div>");
         $("body").append($nameDiv);
-        $nameDiv.append($name);
         const $metricDiv = $("<div></div>").addClass(`cultivator`);
         const $metricUl = $("<ul></ul>").addClass("metrics");
         $("body").append($metricDiv);
@@ -78,8 +76,12 @@ class Cultivator {
             console.log(`${key}: ${value}`)
             let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
             $metricUl.append($metricInfo);
-            $(".metric name").html($name);
         };
+        // $(".name").css({"backgound-color": "green", "border": "solid 5px red"});
+        console.log('clickyyy');
+        let $name = $("input").val();
+        // $nameDiv.append($name);
+        $(".name").html($name)
     }
     grabName() {
         $(".submit__name").on("click", function() {
@@ -88,16 +90,25 @@ class Cultivator {
             const $nameDiv = $("<div></div>");
             $("body").append($nameDiv);
             $nameDiv.append($name);
-            // $("input").attr("placeholder", "Name your cultivator");
-            $("input").remove()
-            $(" .submit__name").remove()
+            // $("input").remove();
+            // $(" .submit__name").remove();
+            /**
+             * commenting out the above code, even though I like it for a tamagotchi game, it would guard against renaming or endless button clicks.
+             */
+            const $metricDiv = $("<div></div>").addClass(`cultivator`);
+            const $metricUl = $("<ul></ul>").addClass("metrics");
+            $("body").append($metricDiv);
+            $metricDiv.append($metricUl);
+            // console.log(Object.displayCultivator,"<<<this")
+            // this.displayCultivator();
         });
-        // $("input").val().remove();
-        // this.displayCultivator();
     }
 };
 
 const weiYing = new Cultivator("Wei Ying");
+const $displayCharacterBtn = $("<button id='display'>Display</button>");
+$("body").append($displayCharacterBtn);
+$("#display").on("click", function() {weiYing.displayCultivator()});
 
 /**
  * Create a monstrous cultivator
@@ -158,3 +169,5 @@ const createGameBoard = function() {
 };
 
 createGameBoard();
+weiYing.grabName();
+// $(".submit__name").click(weiYing.displayCultivator);

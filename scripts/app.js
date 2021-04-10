@@ -59,13 +59,6 @@ class Cultivator {
         return `${this.name} got some rest!`;
     }
     displayCultivator() {
-        // let className = "Wei Ying";
-        // console.log(className, '<<<<<<<');
-        // className.replace(/ /g,'');
-        // console.log(className, '>>>>>>>>>>');
-        // const $metricDiv = $("<div></div>").addClass(`cultivator ${this.name}`);
-        // // ^^^ I want to take the space out of this.name ("Wei Ying") so that I can interpolate the name string into the addClass method below
-        console.log('clicked');
         const $nameDiv = $("<div></div>");
         $("body").append($nameDiv);
         const $metricDiv = $("<div></div>").addClass(`cultivator`);
@@ -73,14 +66,16 @@ class Cultivator {
         $("body").append($metricDiv);
         $metricDiv.append($metricUl);
         for(const [key, value] of Object.entries(this)) {
-            console.log(`${key}: ${value}`)
             let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
             $metricUl.append($metricInfo);
         };
-        // $(".name").css({"backgound-color": "green", "border": "solid 5px red"});
-        console.log('clickyyy');
         let $name = $("input").val();
-        $(".name").html(`name: ${$name}`)
+        $(".name").html(`name: ${$name}`);
+        $("input").remove();
+        $("#display").remove();
+        /**
+         * commenting out the above 2 lines of code will get rid of the input and display button, which I like it for a tamagotchi game, since it would guard against renaming or endless button clicks.
+         */
     }
     grabName() {
         $(".submit__name").on("click", function() {
@@ -89,11 +84,6 @@ class Cultivator {
             const $nameDiv = $("<div></div>");
             $("body").append($nameDiv);
             $nameDiv.append($name);
-            // $("input").remove();
-            // $(" .submit__name").remove();
-            /**
-             * commenting out the above code, even though I like it for a tamagotchi game, it would guard against renaming or endless button clicks.
-             */
             const $metricDiv = $("<div></div>").addClass(`cultivator`);
             const $metricUl = $("<ul></ul>").addClass("metrics");
             $("body").append($metricDiv);
@@ -169,4 +159,4 @@ const createGameBoard = function() {
 };
 
 createGameBoard();
-weiYing.grabName();
+// weiYing.grabName();

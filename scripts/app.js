@@ -1,5 +1,9 @@
 console.log("grandmaster of monstrous cultivation");
 /**
+ * objects & classes below ~
+ * 
+ */
+/**
  * Create a cultivator
  * @param {string} name - The name of this cultivator
  * @param {string} sect - The sect this cultivator belongs to
@@ -10,8 +14,6 @@ console.log("grandmaster of monstrous cultivation");
  * @param {number} sleep - The energy level of this cultivator, 10 being rested, 0 being exhausted
  */
 class Cultivator {
-    // static staticTrainingLevel;
-    // static staticHungerLevel = 0;
     // === ! Constructor ! === //
     constructor(name) {
         this.name = name;
@@ -27,10 +29,6 @@ class Cultivator {
     sayHello() {
         return `I am ${this.name} from ${this.sect} Sect`;
     }
-    // setStatics() {
-    //     Cultivator.staticTrainingLevel = 0;
-    //     Cultivator.staticHungerLevel = 0;
-    //  }
     displayCultivator() {
         const $nameDiv = $("<div></div>");
         $("body").append($nameDiv);
@@ -55,19 +53,10 @@ class Cultivator {
     }
     setTimer() {
         setInterval(function(){console.log("click")}, 8000);
-        // setInterval(this.trainUprightPath, 3000);
+        setInterval(this.trainUprightPath, 3000);
     }
-    // get trainingLevel() {
-    //     return this._trainingLevel;
-    // }
-    // set trainingLevel(value) {
-    //     this._trainingLevel = value;
-    // }
     trainUprightPath() {
-        Cultivator.staticTrainingLevel += 1;
-        let trainingLevel = Cultivator.staticTrainingLevel;
-        console.log(trainingLevel);
-        // console.log(Cultivator.constructor.arguments);
+        console.log("train upright path");
     }
     removeCore() {
         if (this.goldenCore !== false) {
@@ -147,6 +136,13 @@ class MonstrousCultivator extends Cultivator {
 };
 const weiWuxian = new MonstrousCultivator("Wei Ying");
 
+/**
+ * functions below ~
+ * 
+ */
+/**
+ * @summary createGameBoard uses jQuery to create an input box and a submit button.
+ */
 const createGameBoard = function() {
     const $nameInput = $("<input type='text' placeholder='Name your cultivator'>");
     $('body').prepend($nameInput);
@@ -156,11 +152,13 @@ const createGameBoard = function() {
 };
 createGameBoard();
 
+/**
+ * @summary createCharacter will instantiate a new object of the Cultivator class.
+ */
 const createCharacter = function() {
     const name = $("input").val();
     const newCharacter = new Cultivator(`${name}`);
     console.log(newCharacter);
     newCharacter.displayCultivator();
 }
-
 $("#display").on("click", createCharacter);

@@ -156,7 +156,8 @@ const grabName = function() {
             $name
             );
         const $nameDiv = $("<div></div>");
-        
+        $("body").append($nameDiv);
+        $nameDiv.append($name);
 
     });
 };

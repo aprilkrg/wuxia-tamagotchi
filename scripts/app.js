@@ -11,10 +11,10 @@ console.log("grandmaster of monstrous cultivation");
  */
 class Cultivator {
     // === ! Constructor ! === //
-    constructor(name, sect) {
+    constructor(name) {
         this.name = name;
-        this.sect = sect;
-    // === ! Attributes ! === //
+        // === ! Attributes ! === //
+        this.sect = "Yunmeng Jiang";
         this.trainingLevel = 1;
         this.goldenCore = true;
         this.boredom = 0;
@@ -83,7 +83,7 @@ class Cultivator {
     // }
 };
 
-const weiYing = new Cultivator("Wei Ying", "Yunmeng Jiang");
+const weiYing = new Cultivator("Wei Ying");
 
 /**
  * Create a monstrous cultivator

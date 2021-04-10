@@ -10,6 +10,7 @@ console.log("grandmaster of monstrous cultivation");
  * @param {number} sleep - The energy level of this cultivator, 10 being rested, 0 being exhausted
  */
 class Cultivator {
+    static staticTrainingLevel = 1;
     // === ! Constructor ! === //
     constructor(name) {
         this.name = name;
@@ -25,14 +26,46 @@ class Cultivator {
     sayHello() {
         return `I am ${this.name} from ${this.sect} Sect`;
     }
+    displayCultivator() {
+        // setInterval(function(){
+
+            const $nameDiv = $("<div></div>");
+            $("body").append($nameDiv);
+            const $metricDiv = $("<div></div>").addClass(`cultivator`);
+            const $metricUl = $("<ul></ul>").addClass("metrics");
+            $("body").append($metricDiv);
+            $metricDiv.append($metricUl);
+            for(const [key, value] of Object.entries(this)) {
+                let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
+                $metricUl.append($metricInfo);
+            };
+            let $name = $("input").val();
+            $(".name").html(`name: ${$name}`);
+            $("input").remove();
+            $("#display").remove();
+            /**
+             * commenting out the above 2 lines of code will get rid of the input and display button, which I like it for a tamagotchi game, since it would guard against renaming or endless button clicks.
+             */
+        // }, 1000);
+        this.setTimer();
+    }
+    setTimer() {
+        // setInterval(function(){console.log("click")}, 1000);
+        setInterval(this.trainUprightPath, 1000);
+    }
+
     trainUprightPath() {
-        if (this.goldenCore === true) {
+        // console.log(Cultivator.staticTrainingLevel);
+        const trainingLevel = Cultivator.staticTrainingLevel;
+        console.log(trainingLevel)
+
+        // if (this.goldenCore === true) {
             if (this.trainingLevel < 10 && this.hunger < 6) {
-                return this.trainingLevel += 1;
+                this.trainingLevel += 1;
             } else {
                 return 'Your cultivator is to hungry to train today.'
             };
-        } else return `You have no Golden Core.`
+        // } else return `You have no Golden Core.`
     }
     removeCore() {
         if (this.goldenCore !== false) {
@@ -40,6 +73,7 @@ class Cultivator {
         };
         return 'Your Cultivator sacrificed their Golden Core.';
     }
+
     stopBoredom() {
         if (this.boredom < 10) {
             this.boredom += 1;
@@ -58,34 +92,16 @@ class Cultivator {
         }
         return `${this.name} got some rest!`;
     }
-    displayCultivator() {
-        const $nameDiv = $("<div></div>");
-        $("body").append($nameDiv);
-        const $metricDiv = $("<div></div>").addClass(`cultivator`);
-        const $metricUl = $("<ul></ul>").addClass("metrics");
-        $("body").append($metricDiv);
-        $metricDiv.append($metricUl);
-        for(const [key, value] of Object.entries(this)) {
-            let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
-            $metricUl.append($metricInfo);
-        };
-        let $name = $("input").val();
-        $(".name").html(`name: ${$name}`);
-        $("input").remove();
-        $("#display").remove();
-        /**
-         * commenting out the above 2 lines of code will get rid of the input and display button, which I like it for a tamagotchi game, since it would guard against renaming or endless button clicks.
-         */
-    }
 };
-
 const weiYing = new Cultivator("Wei Ying");
+
 const $displayCharacterBtn = $("<button id='display'>Display</button>");
 $("body").append($displayCharacterBtn);
 $("#display").on("click", function() {weiYing.displayCultivator()});
 /**
- * The above click function is hardcoding the display button to display an instance of the cultivator object I've already created. progromatic approach => display button is what creates the new Cultivator.
+ * The above 3 lines of code is hardcoding the display button to display an instance of the cultivator object I've already created. progromatic approach => display button is what creates the new Cultivator.
  */
+
 
 /**
  * Create a monstrous cultivator

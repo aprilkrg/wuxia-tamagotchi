@@ -65,6 +65,11 @@ class Cultivator {
         // console.log(className, '>>>>>>>>>>');
         // const $metricDiv = $("<div></div>").addClass(`cultivator ${this.name}`);
         // // ^^^ I want to take the space out of this.name ("Wei Ying") so that I can interpolate the name string into the addClass method below
+        console.log('click');
+        const $name = $("input").val();
+        const $nameDiv = $("<div></div>");
+        $("body").append($nameDiv);
+        $nameDiv.append($name);
         const $metricDiv = $("<div></div>").addClass(`cultivator`);
         const $metricUl = $("<ul></ul>").addClass("metrics");
         $("body").append($metricDiv);
@@ -73,33 +78,24 @@ class Cultivator {
             console.log(`${key}: ${value}`)
             let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
             $metricUl.append($metricInfo);
+            $(".metric name").html($name);
         };
-        console.log('click');
-        const $name = $("input").val();
-        const $nameDiv = $("<div></div>");
-        $("body").append($nameDiv);
-        $nameDiv.append($name);
     }
-
-
     grabName() {
         $(".submit__name").on("click", function() {
             console.log('click');
-            const $name = $("input").val();
+            let $name = $("input").val();
             const $nameDiv = $("<div></div>");
             $("body").append($nameDiv);
             $nameDiv.append($name);
+            // $("input").attr("placeholder", "Name your cultivator");
+            $("input").remove()
+            $(" .submit__name").remove()
         });
-        this.displayCultivator();
+        // $("input").val().remove();
+        // this.displayCultivator();
     }
-    // updateName() {
-        //     const $nameInput = $("<input type='text' placeholder='name'><input type='submit' value='submit'>");
-        //     $('body').prepend($nameInput);
-        //     const $inputValue = $nameInput.val();
-        //     $(".name").text(`${$inputValue}`)
-        // }
 };
-// grabName();
 
 const weiYing = new Cultivator("Wei Ying");
 
@@ -159,25 +155,6 @@ const weiWuxian = new MonstrousCultivator("Wei Ying");
 const createGameBoard = function() {
     const $nameInput = $("<input type='text' placeholder='Name your cultivator'><button class='submit__name'>Submit</button>");
     $('body').prepend($nameInput);
-
 };
 
 createGameBoard();
-
-// const grabName = function() {
-    
-    
-//     $(".submit__name").on("click", function() {
-//         console.log('click');
-//         const $name = $("input").val();
-//         console.log(
-//             $name
-//             );
-//         const $nameDiv = $("<div></div>");
-//         $("body").append($nameDiv);
-//         $nameDiv.append($name);
-
-//     });
-// };
-
-// grabName();

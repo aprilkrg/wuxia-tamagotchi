@@ -74,14 +74,32 @@ class Cultivator {
             let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
             $metricUl.append($metricInfo);
         };
+        console.log('click');
+        const $name = $("input").val();
+        const $nameDiv = $("<div></div>");
+        $("body").append($nameDiv);
+        $nameDiv.append($name);
+    }
+
+
+    grabName() {
+        $(".submit__name").on("click", function() {
+            console.log('click');
+            const $name = $("input").val();
+            const $nameDiv = $("<div></div>");
+            $("body").append($nameDiv);
+            $nameDiv.append($name);
+        });
+        this.displayCultivator();
     }
     // updateName() {
-    //     const $nameInput = $("<input type='text' placeholder='name'><input type='submit' value='submit'>");
-    //     $('body').prepend($nameInput);
-    //     const $inputValue = $nameInput.val();
-    //     $(".name").text(`${$inputValue}`)
-    // }
+        //     const $nameInput = $("<input type='text' placeholder='name'><input type='submit' value='submit'>");
+        //     $('body').prepend($nameInput);
+        //     const $inputValue = $nameInput.val();
+        //     $(".name").text(`${$inputValue}`)
+        // }
 };
+// grabName();
 
 const weiYing = new Cultivator("Wei Ying");
 
@@ -146,20 +164,20 @@ const createGameBoard = function() {
 
 createGameBoard();
 
-const grabName = function() {
+// const grabName = function() {
     
     
-    $(".submit__name").on("click", function() {
-        console.log('click');
-        const $name = $("input").val();
-        console.log(
-            $name
-            );
-        const $nameDiv = $("<div></div>");
-        $("body").append($nameDiv);
-        $nameDiv.append($name);
+//     $(".submit__name").on("click", function() {
+//         console.log('click');
+//         const $name = $("input").val();
+//         console.log(
+//             $name
+//             );
+//         const $nameDiv = $("<div></div>");
+//         $("body").append($nameDiv);
+//         $nameDiv.append($name);
 
-    });
-};
+//     });
+// };
 
-grabName();
+// grabName();

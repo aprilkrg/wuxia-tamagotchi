@@ -1,6 +1,6 @@
 console.log("grandmaster of monstrous cultivation");
 /**
- * objects & classes below ~
+ * //  ===  !  objects & classes below  !  ===  //
  * 
  */
 /**
@@ -30,33 +30,47 @@ class Cultivator {
         return `I am ${this.name} from ${this.sect} Sect`;
     }
     displayCultivator() {
+        /** data preparation */
+        let $name = $("input").val();
+        /** new instance of class */
+        const newCharacter = new Cultivator(`${$name}`);
+        /**jQuery DOM manipulation */
+        $(".name").html(`name: ${$name}`);
+        $("#display").remove();
+        $("input").remove();
         const $nameDiv = $("<div></div>");
         $("body").append($nameDiv);
         const $metricDiv = $("<div></div>").addClass(`cultivator`);
         const $metricUl = $("<ul></ul>").addClass("metrics");
         $("body").append($metricDiv);
         $metricDiv.append($metricUl);
+        /**printing the data */
         for(const [key, value] of Object.entries(this)) {
             let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
             $metricUl.append($metricInfo);
         };
-        let $name = $("input").val();
-        $(".name").html(`name: ${$name}`);
-        $("input").remove();
-        $("#display").remove();
         /**
-         * commenting out the above 2 lines of code will get rid of the input and display button, which I like it for a tamagotchi game, since it would guard against renaming or endless button clicks.
+         * @summary commenting out the above 2 lines of code will preserve the input and display button, however I like .remove() for a tamagotchi game since it would guard against renaming or endless button clicks.
          */
-        const newCharacter = new Cultivator(`${$name}`);
-        this.setTimer();
+        newCharacter.setTimer();
         return newCharacter;
     }
     setTimer() {
         setInterval(function(){console.log("click")}, 8000);
-        setInterval(this.trainUprightPath, 3000);
+        // setInterval(this.trainUprightPath, 3000);
+        setInterval(this.getCultivatorStats, 500);
     }
     trainUprightPath() {
         console.log("train upright path");
+        console.log(Cultivator.self); // 
+    }
+    getCultivatorStats() {
+        // /**printing the data */
+        // console.log("fetching statses")
+        // for(const [key, value] of Object.entries(this)) {
+        //     let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
+        //     $(".metrics").append($metricInfo);
+        // };
     }
     removeCore() {
         if (this.goldenCore !== false) {
@@ -137,7 +151,7 @@ class MonstrousCultivator extends Cultivator {
 const weiWuxian = new MonstrousCultivator("Wei Ying");
 
 /**
- * functions below ~
+ * //  ===  !  functions & DOM below  !  ===  //
  * 
  */
 /**

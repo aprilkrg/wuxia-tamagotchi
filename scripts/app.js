@@ -52,7 +52,9 @@ class Cultivator {
              * commenting out the above 2 lines of code will get rid of the input and display button, which I like it for a tamagotchi game, since it would guard against renaming or endless button clicks.
              */
         // }, 1000);
+        const newCharacter = new Cultivator(`${$name}`);
         this.setTimer();
+        return newCharacter;
     }
     setTimer() {
         setInterval(function(){console.log("click")}, 8000);
@@ -96,12 +98,12 @@ class Cultivator {
         return `${this.name} got some rest!`;
     }
 };
-const weiYing = new Cultivator("Wei Ying");
+// const weiYing = new Cultivator("Wei Ying");
 
-const $displayCharacterBtn = $("<button id='display'>Display</button>");
-$("body").append($displayCharacterBtn);
-$("#display").on("click", function() {weiYing.displayCultivator()});
+// const $displayCharacterBtn = $("<button id='display'>Display</button>");
+// $("body").append($displayCharacterBtn);
 // weiYing.setStatics();
+
 /**
  * The above 4 lines of code is hardcoding the display button to display an instance of the cultivator object I've already created. progromatic approach => display button is what creates the new Cultivator.
  */
@@ -163,7 +165,19 @@ const weiWuxian = new MonstrousCultivator("Wei Ying");
 const createGameBoard = function() {
     const $nameInput = $("<input type='text' placeholder='Name your cultivator'>");
     $('body').prepend($nameInput);
+    const $displayCharacterBtn = $("<button id='display'>Display</button>");
+    $("body").append($displayCharacterBtn);
 
 };
-
 createGameBoard();
+
+const createCharacter = function() {
+    // console.log("create a character");
+    console.log($("input").val())
+    const name = $("input").val();
+    const newCharacter = new Cultivator(`${name}`);
+    console.log(newCharacter);
+    newCharacter.displayCultivator();
+}
+
+$("#display").on("click", createCharacter);

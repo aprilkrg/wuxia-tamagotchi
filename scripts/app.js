@@ -33,44 +33,29 @@ class Cultivator {
         /** data preparation */
         let $name = $("input").val();
         /** new instance of class */
-        const newCharacter = new Cultivator(`${$name}`);
+        const newCharacter = () => new Cultivator(`${$name}`);
         /**jQuery DOM manipulation */
-        $(".name").html(`name: ${$name}`);
-        $("#display").remove();
         $("input").remove();
-        const $nameDiv = $("<div></div>");
-        $("body").append($nameDiv);
-        const $metricDiv = $("<div></div>").addClass(`cultivator`);
-        const $metricUl = $("<ul></ul>").addClass("metrics");
-        $("body").append($metricDiv);
-        $metricDiv.append($metricUl);
+        $("#display").remove();
+        $(".name").html(`name: ${$name}`);
+        
         /**printing the data */
         for(const [key, value] of Object.entries(this)) {
             let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
-            $metricUl.append($metricInfo);
+            $(".metrics").append($metricInfo);
         };
-        /**
-         * @summary commenting out the above 2 lines of code will preserve the input and display button, however I like .remove() for a tamagotchi game since it would guard against renaming or endless button clicks.
-         */
-        newCharacter.setTimer();
+        this.setTimer();
         return newCharacter;
     }
     setTimer() {
         setInterval(function(){console.log("click")}, 8000);
-        // setInterval(this.trainUprightPath, 3000);
-        setInterval(this.getCultivatorStats, 500);
+        // setInterval(this.increaseHunger, 1000);
     }
-    trainUprightPath() {
-        console.log("train upright path");
-        console.log(Cultivator.self); // 
-    }
-    getCultivatorStats() {
-        // /**printing the data */
-        // console.log("fetching statses")
-        // for(const [key, value] of Object.entries(this)) {
-        //     let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
-        //     $(".metrics").append($metricInfo);
-        // };
+    increaseHunger() {
+        // console.log("train upright path");
+        // console.log(this); // 
+        // console.log(this.hunger) // NaN
+        // this.hunger++;
     }
     removeCore() {
         if (this.goldenCore !== false) {
@@ -162,7 +147,12 @@ const createGameBoard = function() {
     $('body').prepend($nameInput);
     const $displayCharacterBtn = $("<button id='display'>Display</button>");
     $("body").append($displayCharacterBtn);
-
+    const $nameDiv = $("<div></div>");
+    $("body").append($nameDiv);
+    const $metricDiv = $("<div></div>").addClass(`cultivator`);
+    const $metricUl = $("<ul></ul>").addClass("metrics");
+    $("body").append($metricDiv);
+    $metricDiv.append($metricUl);
 };
 createGameBoard();
 
@@ -172,7 +162,6 @@ createGameBoard();
 const createCharacter = function() {
     const name = $("input").val();
     const newCharacter = new Cultivator(`${name}`);
-    console.log(newCharacter);
     newCharacter.displayCultivator();
 }
 $("#display").on("click", createCharacter);

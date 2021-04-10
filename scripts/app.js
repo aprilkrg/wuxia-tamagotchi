@@ -32,26 +32,23 @@ class Cultivator {
     //     Cultivator.staticHungerLevel = 0;
     //  }
     displayCultivator() {
-        // setInterval(function(){
-
-            const $nameDiv = $("<div></div>");
-            $("body").append($nameDiv);
-            const $metricDiv = $("<div></div>").addClass(`cultivator`);
-            const $metricUl = $("<ul></ul>").addClass("metrics");
-            $("body").append($metricDiv);
-            $metricDiv.append($metricUl);
-            for(const [key, value] of Object.entries(this)) {
-                let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
-                $metricUl.append($metricInfo);
-            };
-            let $name = $("input").val();
-            $(".name").html(`name: ${$name}`);
-            $("input").remove();
-            $("#display").remove();
-            /**
-             * commenting out the above 2 lines of code will get rid of the input and display button, which I like it for a tamagotchi game, since it would guard against renaming or endless button clicks.
-             */
-        // }, 1000);
+        const $nameDiv = $("<div></div>");
+        $("body").append($nameDiv);
+        const $metricDiv = $("<div></div>").addClass(`cultivator`);
+        const $metricUl = $("<ul></ul>").addClass("metrics");
+        $("body").append($metricDiv);
+        $metricDiv.append($metricUl);
+        for(const [key, value] of Object.entries(this)) {
+            let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
+            $metricUl.append($metricInfo);
+        };
+        let $name = $("input").val();
+        $(".name").html(`name: ${$name}`);
+        $("input").remove();
+        $("#display").remove();
+        /**
+         * commenting out the above 2 lines of code will get rid of the input and display button, which I like it for a tamagotchi game, since it would guard against renaming or endless button clicks.
+         */
         const newCharacter = new Cultivator(`${$name}`);
         this.setTimer();
         return newCharacter;
@@ -98,16 +95,6 @@ class Cultivator {
         return `${this.name} got some rest!`;
     }
 };
-// const weiYing = new Cultivator("Wei Ying");
-
-// const $displayCharacterBtn = $("<button id='display'>Display</button>");
-// $("body").append($displayCharacterBtn);
-// weiYing.setStatics();
-
-/**
- * The above 4 lines of code is hardcoding the display button to display an instance of the cultivator object I've already created. progromatic approach => display button is what creates the new Cultivator.
- */
-
 
 /**
  * Create a monstrous cultivator
@@ -124,8 +111,6 @@ class Cultivator {
 class MonstrousCultivator extends Cultivator {
     // === ! Constructor ! === //
     constructor(name, sect, goldenCore, hunger, sleep) {
-        // super(name, sect, goldenCore, hunger, sleep); // what's the point of super, how do I use it?
-        // I don't want monstrous cultivators to inheirit boredom or trainingLevel - how?
         super(name, sect, goldenCore, hunger, sleep);
         this.name = name;
         this.sect = "Yunmeng Jiang";
@@ -172,8 +157,6 @@ const createGameBoard = function() {
 createGameBoard();
 
 const createCharacter = function() {
-    // console.log("create a character");
-    console.log($("input").val())
     const name = $("input").val();
     const newCharacter = new Cultivator(`${name}`);
     console.log(newCharacter);

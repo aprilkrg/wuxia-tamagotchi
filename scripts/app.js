@@ -80,7 +80,6 @@ class Cultivator {
         // $(".name").css({"backgound-color": "green", "border": "solid 5px red"});
         console.log('clickyyy');
         let $name = $("input").val();
-        // $nameDiv.append($name);
         $(".name").html(`name: ${$name}`)
     }
     grabName() {
@@ -99,8 +98,6 @@ class Cultivator {
             const $metricUl = $("<ul></ul>").addClass("metrics");
             $("body").append($metricDiv);
             $metricDiv.append($metricUl);
-            // console.log(Object.displayCultivator,"<<<this")
-            // this.displayCultivator();
         });
     }
 };
@@ -109,6 +106,9 @@ const weiYing = new Cultivator("Wei Ying");
 const $displayCharacterBtn = $("<button id='display'>Display</button>");
 $("body").append($displayCharacterBtn);
 $("#display").on("click", function() {weiYing.displayCultivator()});
+/**
+ * The above click function is hardcoding the display button to display an instance of the cultivator object I've already created. progromatic approach => display button is what creates the new Cultivator.
+ */
 
 /**
  * Create a monstrous cultivator
@@ -170,4 +170,3 @@ const createGameBoard = function() {
 
 createGameBoard();
 weiYing.grabName();
-// $(".submit__name").click(weiYing.displayCultivator);

@@ -20,3 +20,21 @@
 AAU:
 - Entering the site displays a background image, and there is text overlaid inviting a user to name their Cultivator and set them on the upright path. A text box will accept the new name; default is "Wei Ying". After selecting to contiune with Wei Ying, or after hitting submit/enter on the text box, then the avatar will appear and animate across the screen to stay on one side. 
 - Feed Wei Ying so he can grow into Wei Wuxian!
+
+
+
+
+
+grabName() {
+        $(".submit__name").on("click", function() {
+            console.log('click');
+            let $name = $("input").val();
+            const $nameDiv = $("<div></div>");
+            $("body").append($nameDiv);
+            $nameDiv.append($name);
+            const $metricDiv = $("<div></div>").addClass(`cultivator`);
+            const $metricUl = $("<ul></ul>").addClass("metrics");
+            $("body").append($metricDiv);
+            $metricDiv.append($metricUl);
+        });
+    }

@@ -77,19 +77,6 @@ class Cultivator {
          * commenting out the above 2 lines of code will get rid of the input and display button, which I like it for a tamagotchi game, since it would guard against renaming or endless button clicks.
          */
     }
-    grabName() {
-        $(".submit__name").on("click", function() {
-            console.log('click');
-            let $name = $("input").val();
-            const $nameDiv = $("<div></div>");
-            $("body").append($nameDiv);
-            $nameDiv.append($name);
-            const $metricDiv = $("<div></div>").addClass(`cultivator`);
-            const $metricUl = $("<ul></ul>").addClass("metrics");
-            $("body").append($metricDiv);
-            $metricDiv.append($metricUl);
-        });
-    }
 };
 
 const weiYing = new Cultivator("Wei Ying");
@@ -159,4 +146,3 @@ const createGameBoard = function() {
 };
 
 createGameBoard();
-// weiYing.grabName();

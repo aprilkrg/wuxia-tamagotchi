@@ -168,14 +168,17 @@ const createCharacter = function() {
     $start.css("visibility", "visible");
     $(".cultivator").append($start);
 
-    const $train = $("#train");
-    $train.css("visibility", "visible");
-    $(".metrics").append($train);
+
+
 };
 const startGame = function(){
-    // setInterval(function() {newCharacter.decrementMetrics()}, 2500);
-    newCharacter.increaseTrainingLevel();
-
+    setInterval(function() {newCharacter.decrementMetrics()}, 2500);
+    // newCharacter.increaseTrainingLevel();
+    $("#train").on("click", newCharacter.increaseTrainingLevel);
+    
+    const $train = $("#train");
+    $train.css("visibility", "visible");
+    $(".trainingLevel").append($train);
 };
 
 /**
@@ -186,7 +189,6 @@ const startGame = function(){
 createGameBoard();
 $("#display").on("click", createCharacter);
 $("#start").on("click", startGame);
-
 
 
 

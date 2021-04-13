@@ -49,30 +49,29 @@ class Cultivator {
         console.log(this.boredom, 'boredom level');
         console.log(this.hunger, 'hunger level');
         console.log(this.sleep, 'sleep level');
-        const cultivatorMetrics = [this.trainingLevel, this.boredom, this.hunger, this.sleep];
-        if (this.trainingLevel < 10) {
-            this.trainingLevel += 1;
-        };
-        if (this.boredom < 10) {
-            this.boredom += 1;
-        };
-        if (this.hunger < 10) {
-            this.hunger += 5;  
-        };
-        if (this.sleep > 0) {
-            this.sleep -= 1;
-        };
-        if (this.sleep === 0 ){
-            return 'you cant sleep';
-        };
-        if (this.hunger === 10){
-            return 'you starve'
-        };
-        if (this.boredom === 10){
-            return 'bored to death'
-        };
+            // if (this.trainingLevel < 10) {
+            //     this.trainingLevel += 1;
+            // };
+            // if (this.boredom < 10) {
+            //     this.boredom += 1;
+            // };
+            // if (this.hunger < 10) {
+            //     this.hunger += 5;  
+            // };
+            // if (this.sleep > 0) {
+            //     this.sleep -= 1;
+            // };
+            // if (this.sleep === 0 ){
+            //     return 'you cant sleep';
+            // };
+            // if (this.hunger === 10){
+            //     return 'you starve'
+            // };
+            // if (this.boredom === 10){
+            //     return 'bored to death'
+            // };
     }
-
+                                
     // removeCore() {
     //     if (this.goldenCore !== false) {
     //         this.goldenCore = false;
@@ -175,8 +174,9 @@ const createGameBoard = function() {
 };
 
 /**
- * @summary createCharacter will instantiate a new object of the Cultivator class.
- * newCharacter is a global variable that will be assigned the values for the created cultivator
+ * @var newCharacter is a global variable that will be assigned the values for the created cultivator
+ * @function createCharacter will instantiate a new object of the Cultivator class.
+ * @function startGame will start the timers and start mutating the metrics
  */
 let newCharacter;
 const createCharacter = function() {
@@ -186,21 +186,15 @@ const createCharacter = function() {
     const $start = $("#start");
     $start.css("visibility", "visible");
     $(".cultivator").append($start);
-    return newCharacter;
 };
-
-/**
- * @summary startGame will start the timers and start mutating the metrics
- */
 const startGame = function(){
-    setInterval(function(){
-        console.log(newCharacter.decrementMetrics());
-    }, 1000);    
-    // newCharacter.decrementMetrics();
+    setInterval(function() {newCharacter.decrementMetrics()}, 1000);    
 };
 
 /**
+ * 
  * @summary invoked functions and event listeners
+ * 
  */
 createGameBoard();
 $("#display").on("click", createCharacter);

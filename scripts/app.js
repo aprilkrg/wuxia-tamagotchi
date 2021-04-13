@@ -45,38 +45,58 @@ class Cultivator {
     }
 
     decrementMetrics() {
-        console.log(this,'this<<<<');
-        console.log(this.trainingLevel, 'training level');
+        console.log(this.trainingLevel, 'training level')
         console.log(this.boredom, 'boredom level');
         console.log(this.hunger, 'hunger level');
         console.log(this.sleep, 'sleep level');
-    }
-
-    removeCore() {
-        if (this.goldenCore !== false) {
-            this.goldenCore = false;
+        const cultivatorMetrics = [this.trainingLevel, this.boredom, this.hunger, this.sleep];
+        if (this.trainingLevel < 10) {
+            this.trainingLevel += 1;
         };
-        return 'Your Cultivator sacrificed their Golden Core.';
-    }
-
-    stopBoredom() {
         if (this.boredom < 10) {
             this.boredom += 1;
         };
-        return "Your cultivator is getting bored... I hope they don't make trouble...";
-    }
-    stopHunger() {
         if (this.hunger < 10) {
-            this.hunger += 1;
+            this.hunger += 5;  
         };
-        return `${this.name} is getting hungry, they won't be able to train if the hunger level reaches 5`;
+        if (this.sleep > 0) {
+            this.sleep -= 1;
+        };
+        if (this.sleep === 0 ){
+            return 'you cant sleep';
+        };
+        if (this.hunger === 10){
+            return 'you starve'
+        };
+        if (this.boredom === 10){
+            return 'bored to death'
+        };
     }
-    getSomeSleep() {
-        if (this.sleep < 10) {
-            this.sleep += 1;
-        }
-        return `${this.name} got some rest!`;
-    }
+
+    // removeCore() {
+    //     if (this.goldenCore !== false) {
+    //         this.goldenCore = false;
+    //     };
+    //     return 'Your Cultivator sacrificed their Golden Core.';
+    // }
+    // stopBoredom() {
+    //     if (this.boredom < 10) {
+    //         this.boredom += 1;
+    //     };
+    //     return "Your cultivator is getting bored... I hope they don't make trouble...";
+    // }
+    // stopHunger() {
+    //     if (this.hunger < 10) {
+    //         this.hunger += 1;
+    //     };
+    //     return `${this.name} is getting hungry, they won't be able to train if the hunger level reaches 5`;
+    // }
+    // getSomeSleep() {
+    //     if (this.sleep < 10) {
+    //         this.sleep += 1;
+    //     }
+    //     return `${this.name} got some rest!`;
+    // }
 };
 
 /**

@@ -44,6 +44,11 @@ class Cultivator {
         };
     }
 
+    increaseTrainingLevel() {
+        const $trainingLi = $(".trainingLevel");
+        $trainingLi.css("border", "solid 5px purple");
+    }
+
     decrementMetrics() {
         /**
          * instead of going further into the automatic decreasing of metric values, I want to work on getting a button that will increase the value shown on the cultivator display
@@ -156,7 +161,8 @@ const createCharacter = function() {
     $(".cultivator").append($start);
 };
 const startGame = function(){
-    setInterval(function() {newCharacter.decrementMetrics()}, 2500);    
+    setInterval(function() {newCharacter.decrementMetrics()}, 2500);
+    newCharacter.increaseTrainingLevel();
 };
 
 /**

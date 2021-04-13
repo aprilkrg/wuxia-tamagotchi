@@ -1,5 +1,6 @@
 console.log("grandmaster of monstrous cultivation");
 /**
+ * 
  * //  ===  !  objects & classes below  !  ===  //
  * 
  */
@@ -33,7 +34,7 @@ class Cultivator {
         /** data preparation */
         let $name = $("input").val();
         /** new instance of class */
-        const newCharacter = new Cultivator(`${$name}`);
+        // const newCharacter = new Cultivator(`${$name}`);
         /**jQuery DOM manipulation */
         $("input").remove();
         $("#display").remove();
@@ -43,19 +44,9 @@ class Cultivator {
             let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
             $(".metrics").append($metricInfo);
         };
-        // this.setTimer();
-        // // instead move the starting of time to the start game button
-        // console.log(newCharacter, 'newwww');
-        let test = newCharacter;
-        // console.log(test, 'test')
-        return test;
+        // let testCharacter = newCharacter;
+        // return testCharacter;
     }
-
-    setTimer() {
-        setInterval(function(){console.log("click")}, 3000);
-    }
-
-
 
     removeCore() {
         if (this.goldenCore !== false) {
@@ -136,6 +127,7 @@ class MonstrousCultivator extends Cultivator {
 const weiWuxian = new MonstrousCultivator("Wei Ying");
 
 /**
+ * 
  * //  ===  !  functions & DOM below  !  ===  //
  * 
  */

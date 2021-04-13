@@ -44,6 +44,14 @@ class Cultivator {
         };
     }
 
+    decrementMetrics() {
+        console.log(this,'this<<<<');
+        console.log(this.trainingLevel, 'training level');
+        console.log(this.boredom, 'boredom level');
+        console.log(this.hunger, 'hunger level');
+        console.log(this.sleep, 'sleep level');
+    }
+
     removeCore() {
         if (this.goldenCore !== false) {
             this.goldenCore = false;
@@ -145,14 +153,15 @@ const createGameBoard = function() {
     $("body").append($start);
     $start.css("visibility", "hidden");
 };
-createGameBoard();
 
 /**
  * @summary createCharacter will instantiate a new object of the Cultivator class.
+ * newCharacter is a global variable that will be assigned the values for the created cultivator
  */
+let newCharacter;
 const createCharacter = function() {
     const name = $("input").val();
-    const newCharacter = new Cultivator(`${name}`);
+    newCharacter = new Cultivator(`${name}`);
     newCharacter.displayCultivator();
     const $start = $("#start");
     $start.css("visibility", "visible");
@@ -169,5 +178,9 @@ const startGame = function(){
     }, 1000);    
 };
 
+/**
+ * @summary invoked functions and event listeners
+ */
+createGameBoard();
 $("#display").on("click", createCharacter);
 $("#start").on("click", startGame);

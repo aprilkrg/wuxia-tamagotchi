@@ -47,7 +47,7 @@ class Cultivator {
     increaseTrainingLevel() {
         const $trainingLi = $(".trainingLevel");
         $trainingLi.css("border", "solid 5px purple");
-        const $trainingLiNum = $trainingLi.html();
+        let $trainingLiNum = $trainingLi.text().replace(/trainingLevel: /g, ' ');
         console.log($trainingLiNum);
     }
 
@@ -148,13 +148,13 @@ const createGameBoard = function() {
     $("body").append($start);
     $start.css("visibility", "hidden");
 
-    const $train = $("<button id='train'>Train</button>");
+    const $train = $("<button id='train' class='btn'> Train</button>");
     $metricDiv.append($train);
     $train.css("visibility", "hidden");
-    const $hunger = $("<button id='hunger'>hunger</button>");
+    const $hunger = $("<button id='hunger' class='btn'>Eat</button>");
     $metricDiv.append($hunger);
     $hunger.css("visibility", "hidden");
-    const $sleep = $("<button id='sleep'>sleep</button>");
+    const $sleep = $("<button id='sleep' class='btn'>Sleep</button>");
     $metricDiv.append($sleep);
     $sleep.css("visibility", "hidden");
 };
@@ -176,13 +176,10 @@ const createCharacter = function() {
 
 };
 const startGame = function(){
-    setInterval(function() {newCharacter.decrementMetrics()}, 2500);
-    // newCharacter.increaseTrainingLevel();
-    $("#train").on("click", newCharacter.increaseTrainingLevel);
-
+    /** change button visibility */
     const $start = $("#start");
     $start.css("visibility", "hidden");
-    
+
     const $train = $("#train");
     $train.css("visibility", "visible");
     $(".trainingLevel").append($train);
@@ -192,6 +189,13 @@ const startGame = function(){
     const $sleep = $("#sleep");
     $sleep.css("visibility", "visible");
     $(".sleep").append($sleep);
+
+    /** interval timers */
+    // setInterval(function() {newCharacter.decrementMetrics()}, 2500);
+
+    /** click event listeners */
+    $("#train").on("click", newCharacter.increaseTrainingLevel);
+
 };
 
 /**
@@ -202,46 +206,3 @@ const startGame = function(){
 createGameBoard();
 $("#display").on("click", createCharacter);
 $("#start").on("click", startGame);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * below code was written out but not trashed 
- * */                            
-// removeCore() {
-//     if (this.goldenCore !== false) {
-//         this.goldenCore = false;
-//     };
-//     return 'Your Cultivator sacrificed their Golden Core.';
-// }
-// stopBoredom() {
-//     if (this.boredom < 10) {
-//         this.boredom += 1;
-//     };
-//     return "Your cultivator is getting bored... I hope they don't make trouble...";
-// }
-// stopHunger() {
-//     if (this.hunger < 10) {
-//         this.hunger += 1;
-//     };
-//     return `${this.name} is getting hungry, they won't be able to train if the hunger level reaches 5`;
-// }
-// getSomeSleep() {
-//     if (this.sleep < 10) {
-//         this.sleep += 1;
-//     }
-//     return `${this.name} got some rest!`;
-// }

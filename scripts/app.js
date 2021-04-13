@@ -47,6 +47,8 @@ class Cultivator {
     increaseTrainingLevel() {
         const $trainingLi = $(".trainingLevel");
         $trainingLi.css("border", "solid 5px purple");
+        const $trainingLiNum = $trainingLi.html();
+        console.log($trainingLiNum);
     }
 
     decrementMetrics() {
@@ -141,9 +143,14 @@ const createGameBoard = function() {
     const $metricUl = $("<ul></ul>").addClass("metrics");
     $("body").append($metricDiv);
     $metricDiv.append($metricUl);
+
     const $start = $("<button id='start' class='btn'>Start Game</button>");
     $("body").append($start);
     $start.css("visibility", "hidden");
+
+    const $train = $("<button id='train'>Train</button>");
+    $metricDiv.append($train);
+    $train.css("visibility", "hidden");
 };
 
 /**
@@ -156,13 +163,19 @@ const createCharacter = function() {
     const name = $("input").val();
     newCharacter = new Cultivator(`${name}`);
     newCharacter.displayCultivator();
+
     const $start = $("#start");
     $start.css("visibility", "visible");
     $(".cultivator").append($start);
+
+    const $train = $("#train");
+    $train.css("visibility", "visible");
+    $(".metrics").append($train);
 };
 const startGame = function(){
-    setInterval(function() {newCharacter.decrementMetrics()}, 2500);
+    // setInterval(function() {newCharacter.decrementMetrics()}, 2500);
     newCharacter.increaseTrainingLevel();
+
 };
 
 /**

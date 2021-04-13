@@ -33,30 +33,30 @@ class Cultivator {
         /** data preparation */
         let $name = $("input").val();
         /** new instance of class */
-        const newCharacter = () => new Cultivator(`${$name}`);
+        const newCharacter = new Cultivator(`${$name}`);
         /**jQuery DOM manipulation */
         $("input").remove();
         $("#display").remove();
         $(".name").html(`name: ${$name}`);
-        
         /**printing the data */
         for(const [key, value] of Object.entries(this)) {
             let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
             $(".metrics").append($metricInfo);
         };
-        this.setTimer();
-        return newCharacter;
+        // this.setTimer();
+        // // instead move the starting of time to the start game button
+        // console.log(newCharacter, 'newwww');
+        let test = newCharacter;
+        // console.log(test, 'test')
+        return test;
     }
+
     setTimer() {
-        setInterval(function(){console.log("click")}, 8000);
-        // setInterval(this.increaseHunger, 1000);
+        setInterval(function(){console.log("click")}, 3000);
     }
-    increaseHunger() {
-        // console.log("train upright path");
-        // console.log(this); // 
-        // console.log(this.hunger) // NaN
-        // this.hunger++;
-    }
+
+
+
     removeCore() {
         if (this.goldenCore !== false) {
             this.goldenCore = false;
@@ -143,9 +143,9 @@ const weiWuxian = new MonstrousCultivator("Wei Ying");
  * @summary createGameBoard uses jQuery to create an input box and a submit button.
  */
 const createGameBoard = function() {
-    const $nameInput = $("<input type='text' placeholder='Name your cultivator'>");
+    const $nameInput = $("<input type='text' placeholder='Name your cultivator'></input>");
     $('body').prepend($nameInput);
-    const $displayCharacterBtn = $("<button id='display'>Display</button>");
+    const $displayCharacterBtn = $("<button id='display' class='btn'>Display</button>");
     $("body").append($displayCharacterBtn);
     const $nameDiv = $("<div></div>");
     $("body").append($nameDiv);
@@ -153,6 +153,9 @@ const createGameBoard = function() {
     const $metricUl = $("<ul></ul>").addClass("metrics");
     $("body").append($metricDiv);
     $metricDiv.append($metricUl);
+    const $start = $("<button id='start' class='btn'>Start Game</button>");
+    $("body").append($start);
+    $start.css("visibility", "hidden");
 };
 createGameBoard();
 
@@ -163,5 +166,20 @@ const createCharacter = function() {
     const name = $("input").val();
     const newCharacter = new Cultivator(`${name}`);
     newCharacter.displayCultivator();
-}
+    const $start = $("#start");
+    $start.css("visibility", "visible");
+    $(".cultivator").append($start);
+    return newCharacter;
+};
+
+/**
+ * @summary startGame will start the timers and start mutating the metrics
+ */
+const startGame = function(){
+    setInterval(function(){
+        console.log('play ball');
+    }, 1000);    
+};
+
 $("#display").on("click", createCharacter);
+$("#start").on("click", startGame);

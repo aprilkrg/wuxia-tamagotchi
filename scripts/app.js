@@ -182,13 +182,13 @@ const startGame = function(){
 
     const $train = $("#train");
     $train.css("visibility", "visible");
-    $(".trainingLevel").append($train);
+    $(".cultivator").append($train);
     const $hunger = $("#hunger");
     $hunger.css("visibility", "visible");
-    $(".hunger").append($hunger);
+    $(".cultivator").append($hunger);
     const $sleep = $("#sleep");
     $sleep.css("visibility", "visible");
-    $(".sleep").append($sleep);
+    $(".cultivator").append($sleep);
 
     /** interval timers */
     // setInterval(function() {newCharacter.decrementMetrics()}, 2500);

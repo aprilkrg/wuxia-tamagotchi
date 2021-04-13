@@ -151,6 +151,12 @@ const createGameBoard = function() {
     const $train = $("<button id='train'>Train</button>");
     $metricDiv.append($train);
     $train.css("visibility", "hidden");
+    const $hunger = $("<button id='hunger'>hunger</button>");
+    $metricDiv.append($hunger);
+    $hunger.css("visibility", "hidden");
+    const $sleep = $("<button id='sleep'>sleep</button>");
+    $metricDiv.append($sleep);
+    $sleep.css("visibility", "hidden");
 };
 
 /**
@@ -166,19 +172,26 @@ const createCharacter = function() {
 
     const $start = $("#start");
     $start.css("visibility", "visible");
-    $(".cultivator").append($start);
-
-
+    $(".metrics").append($start);
 
 };
 const startGame = function(){
     setInterval(function() {newCharacter.decrementMetrics()}, 2500);
     // newCharacter.increaseTrainingLevel();
     $("#train").on("click", newCharacter.increaseTrainingLevel);
+
+    const $start = $("#start");
+    $start.css("visibility", "hidden");
     
     const $train = $("#train");
     $train.css("visibility", "visible");
     $(".trainingLevel").append($train);
+    const $hunger = $("#hunger");
+    $hunger.css("visibility", "visible");
+    $(".hunger").append($hunger);
+    const $sleep = $("#sleep");
+    $sleep.css("visibility", "visible");
+    $(".sleep").append($sleep);
 };
 
 /**

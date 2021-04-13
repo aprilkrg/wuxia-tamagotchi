@@ -45,57 +45,25 @@ class Cultivator {
     }
 
     decrementMetrics() {
-        console.log(this.trainingLevel, 'training level')
+        /**
+         * instead of going further into the automatic decreasing of metric values, I want to work on getting a button that will increase the value shown on the cultivator display
+         */
+        // console.log(this.trainingLevel, 'training level')
+        // if (this.boredom > 10) {
+        //      this.boredom += 1;
+        //     }
+        // if (this.hunger > 10) {
+        //      this.hunger += 1;
+        //     }
+        // if (this.sleep < 0) {
+        //      this.sleep -= 1;
+        //     }
         console.log(this.boredom, 'boredom level');
         console.log(this.hunger, 'hunger level');
         console.log(this.sleep, 'sleep level');
-            // if (this.trainingLevel < 10) {
-            //     this.trainingLevel += 1;
-            // };
-            // if (this.boredom < 10) {
-            //     this.boredom += 1;
-            // };
-            // if (this.hunger < 10) {
-            //     this.hunger += 5;  
-            // };
-            // if (this.sleep > 0) {
-            //     this.sleep -= 1;
-            // };
-            // if (this.sleep === 0 ){
-            //     return 'you cant sleep';
-            // };
-            // if (this.hunger === 10){
-            //     return 'you starve'
-            // };
-            // if (this.boredom === 10){
-            //     return 'bored to death'
-            // };
+
     }
-                                
-    // removeCore() {
-    //     if (this.goldenCore !== false) {
-    //         this.goldenCore = false;
-    //     };
-    //     return 'Your Cultivator sacrificed their Golden Core.';
-    // }
-    // stopBoredom() {
-    //     if (this.boredom < 10) {
-    //         this.boredom += 1;
-    //     };
-    //     return "Your cultivator is getting bored... I hope they don't make trouble...";
-    // }
-    // stopHunger() {
-    //     if (this.hunger < 10) {
-    //         this.hunger += 1;
-    //     };
-    //     return `${this.name} is getting hungry, they won't be able to train if the hunger level reaches 5`;
-    // }
-    // getSomeSleep() {
-    //     if (this.sleep < 10) {
-    //         this.sleep += 1;
-    //     }
-    //     return `${this.name} got some rest!`;
-    // }
+
 };
 
 /**
@@ -188,7 +156,7 @@ const createCharacter = function() {
     $(".cultivator").append($start);
 };
 const startGame = function(){
-    setInterval(function() {newCharacter.decrementMetrics()}, 1000);    
+    setInterval(function() {newCharacter.decrementMetrics()}, 2500);    
 };
 
 /**
@@ -199,3 +167,47 @@ const startGame = function(){
 createGameBoard();
 $("#display").on("click", createCharacter);
 $("#start").on("click", startGame);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * below code was written out but not trashed 
+ * */                            
+// removeCore() {
+//     if (this.goldenCore !== false) {
+//         this.goldenCore = false;
+//     };
+//     return 'Your Cultivator sacrificed their Golden Core.';
+// }
+// stopBoredom() {
+//     if (this.boredom < 10) {
+//         this.boredom += 1;
+//     };
+//     return "Your cultivator is getting bored... I hope they don't make trouble...";
+// }
+// stopHunger() {
+//     if (this.hunger < 10) {
+//         this.hunger += 1;
+//     };
+//     return `${this.name} is getting hungry, they won't be able to train if the hunger level reaches 5`;
+// }
+// getSomeSleep() {
+//     if (this.sleep < 10) {
+//         this.sleep += 1;
+//     }
+//     return `${this.name} got some rest!`;
+// }

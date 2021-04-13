@@ -174,8 +174,9 @@ const createCharacter = function() {
  */
 const startGame = function(){
     setInterval(function(){
-        console.log('play ball');
+        console.log(newCharacter.decrementMetrics());
     }, 1000);    
+    // newCharacter.decrementMetrics();
 };
 
 /**

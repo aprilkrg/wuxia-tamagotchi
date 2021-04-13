@@ -33,8 +33,6 @@ class Cultivator {
     displayCultivator() {
         /** data preparation */
         let $name = $("input").val();
-        /** new instance of class */
-        // const newCharacter = new Cultivator(`${$name}`);
         /**jQuery DOM manipulation */
         $("input").remove();
         $("#display").remove();
@@ -44,8 +42,6 @@ class Cultivator {
             let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
             $(".metrics").append($metricInfo);
         };
-        // let testCharacter = newCharacter;
-        // return testCharacter;
     }
 
     removeCore() {

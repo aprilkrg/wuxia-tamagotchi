@@ -93,8 +93,7 @@ class Cultivator {
             over = true;
         };
         if (over === true) {
-            $(".cultivator").remove();
-            $("body").replaceWith($failMessage);
+            $(".cultivator").replaceWith($failMessage);
         };
     };
 };
@@ -172,17 +171,18 @@ const createGameBoard = function() {
     $metricDiv.append($metricUl);
     /** hide buttons */
     const $start = $("<button id='start' class='btn'>Start Game</button>");
-    $("body").append($start);
+    $(".cultivator").append($start);
     $start.css("visibility", "hidden");
-    const $boredom = $("<button id='boredom' class='btn'>Play</button>");
-    $metricDiv.append($boredom);
-    $boredom.css("visibility", "hidden");
-    const $hunger = $("<button id='hunger' class='btn'>Eat</button>");
-    $metricDiv.append($hunger);
-    $hunger.css("visibility", "hidden");
-    const $sleep = $("<button id='sleep' class='btn'>Sleep</button>");
-    $metricDiv.append($sleep);
-    $sleep.css("visibility", "hidden");
+
+    // const $boredom = $("<button id='boredom' class='btn'>Play</button>");
+    // $metricDiv.append($boredom);
+    // $boredom.css("visibility", "hidden");
+    // const $hunger = $("<button id='hunger' class='btn'>Eat</button>");
+    // $metricDiv.append($hunger);
+    // $hunger.css("visibility", "hidden");
+    // const $sleep = $("<button id='sleep' class='btn'>Sleep</button>");
+    // $metricDiv.append($sleep);
+    // $sleep.css("visibility", "hidden");
 };
 
 /**
@@ -205,6 +205,17 @@ const createCharacter = function() {
     $(".cultivator").append($start);
     const $avatar = $(`<img class="img" src=${newCharacter.imgUrl} alt="image of Wei Wuxian, drawn in a chibi style. He looks adorable.">`);
     $(".cultivator").prepend($avatar);
+    
+    const $metricDiv = $(".metrics");
+    const $boredom = $("<button id='boredom' class='btn'>Play</button>");
+    $metricDiv.append($boredom);
+    $boredom.css("visibility", "hidden");
+    const $hunger = $("<button id='hunger' class='btn'>Eat</button>");
+    $metricDiv.append($hunger);
+    $hunger.css("visibility", "hidden");
+    const $sleep = $("<button id='sleep' class='btn'>Sleep</button>");
+    $metricDiv.append($sleep);
+    $sleep.css("visibility", "hidden");
 };
 const startGame = function(){
     /** change button visibility */
@@ -243,6 +254,7 @@ $("#start").on("click", startGame);
 /**
  * TODO 
  * get a picture!!
+ * buttons don't respect value boundaries
  * get 'enter' to submit name input
  * clean up wet code in displayCultivator and in the increase/clickMetricLevel functions
  * 

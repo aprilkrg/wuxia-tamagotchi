@@ -220,7 +220,7 @@ const startGame = function(){
     $(".cultivator").append($sleep);
 
     /** interval timers */
-    // setInterval(function() {newCharacter.decrementMetrics()}, 2500);
+    setInterval(function() {newCharacter.increaseTrainingLevel()}, 3000);
 
     /** click event listeners */
     // newCharacter.increaseTrainingLevel();

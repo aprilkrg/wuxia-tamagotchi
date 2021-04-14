@@ -202,7 +202,7 @@ const createCharacter = function() {
     /** DOM manipulation */
     const $start = $("#start");
     $start.css("visibility", "visible");
-    $(".metrics").append($start);
+    $(".cultivator").append($start);
     const $avatar = $(`<img class="img" src=${newCharacter.imgUrl} alt="image of Wei Wuxian, drawn in a chibi style. He looks adorable.">`);
     $(".cultivator").prepend($avatar);
 };

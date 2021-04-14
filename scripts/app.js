@@ -102,7 +102,8 @@ class Cultivator {
         if (over === true) {
             console.log('game is over = true')
             $(".cultivator").remove();
-            $("body").append($failMessage);
+            // $("body").append($failMessage);
+            $("body").replaceWith($failMessage);
         }
     };
 };

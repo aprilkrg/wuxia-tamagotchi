@@ -73,15 +73,21 @@ class Cultivator {
         $(".sleep").text(`sleep: ${this.sleep}`);
     }
     clickBoredomLevel = () => {
-        this.boredom -= 1;
+        if (this.boredom > 0) {
+            this.boredom -= 1;
+        };
         $(".boredom").text(`boredom: ${this.boredom}`);
     }
     clickHungerLevel = () => {
-        this.hunger -= 1;
+        if (this.hunger > 0) {
+            this.hunger -= 1;
+        };
         $(".hunger").text(`hunger: ${this.hunger}`);
     }
     clickSleepLevel = () => {
-        this.sleep += 1;
+        if (this.sleep < 10) {
+            this.sleep += 1;
+        };
         $(".sleep").text(`sleep: ${this.sleep}`);
     }
     checkGameEnd() {
@@ -253,7 +259,6 @@ $("#start").on("click", startGame);
 
 /**
  * TODO 
- * get a picture!!
  * buttons don't respect value boundaries
  * get 'enter' to submit name input
  * clean up wet code in displayCultivator and in the increase/clickMetricLevel functions

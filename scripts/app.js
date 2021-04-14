@@ -78,6 +78,21 @@ class Cultivator {
         this.sleep += 1;
         $(".sleep").text(`sleep: ${this.sleep}`);
     }
+
+    checkGameEnd() {
+        // console.log(this.name, 'this<<<<<<');
+        // console.log(newCharacter.name, 'newbie')
+        const $failMessage = $("<h1>You lose</h1>");
+        console.log(this.boredom, this.hunger, this.sleep);
+        if (this.boredom > 9 || this.hunger > 9) {
+            console.log(this.boredom, 'boredom')
+            console.log(this.hunger, 'thungerrrrr')
+            $("body").remove();
+            $("body").append($failMessage);
+        } else if(this.sleep < 1) {
+            console.log(this.sleep, 'sleeeepy')
+        }
+    };
 };
 
 /**
@@ -170,6 +185,7 @@ const createGameBoard = function() {
  * @var newCharacter is a global variable that will be assigned the values for the created cultivator
  * @function createCharacter will instantiate a new object of the Cultivator class.
  * @function startGame will start the timers and start mutating the metrics
+ * @function checkGameEnd will check the metrics on the character, and if they are out of bounds, will end the game
  */
 let newCharacter;
 const createCharacter = function() {
@@ -199,10 +215,13 @@ const startGame = function(){
     setInterval(function() {newCharacter.increaseBoredomLevel()}, 6000);
     setInterval(function() {newCharacter.increaseHungerLevel()}, 4000);
     setInterval(function() {newCharacter.increaseSleepLevel()}, 8000);
+
+    setInterval(function() {newCharacter.checkGameEnd()}, 1000);
     /** click event listeners */
     $("#boredom").on("click", newCharacter.clickBoredomLevel);
     $("#hunger").on("click", newCharacter.clickHungerLevel);
     $("#sleep").on("click", newCharacter.clickSleepLevel);
+    // checkGameEnd();
 };
 
 /**
@@ -213,11 +232,16 @@ const startGame = function(){
 createGameBoard();
 $("#display").on("click", createCharacter);
 $("#start").on("click", startGame);
-
+// checkGameEnd();
 
 /**
  * TODO 
- * guard against metric values outside of 0-10
+ * guard against metric values outside of 0-10 ie game logic
  * clean up wet code in displayCultivator and in the increase/clickMetricLevel functions
  * get 'enter' to submit name input
+ * 
+ * 
+ * NOTE 
+ * where to go from here?
+ * programatically interested in: after a cultivator reaches a certain age, a button appears to morph your cultivator from the upright path to the monstrous path (which will create a new instance of the MonstrousCultivator class)
  */

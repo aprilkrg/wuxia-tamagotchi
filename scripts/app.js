@@ -203,7 +203,7 @@ const createCharacter = function() {
     const $start = $("#start");
     $start.css("visibility", "visible");
     $(".metrics").append($start);
-    const $avatar = $(`<img src=${newCharacter.imgUrl} alt="image of Wei Wuxian, drawn in a chibi style. He looks adorable.">`);
+    const $avatar = $(`<img class="img" src=${newCharacter.imgUrl} alt="image of Wei Wuxian, drawn in a chibi style. He looks adorable.">`);
     $("body").prepend($avatar);
 };
 const startGame = function(){

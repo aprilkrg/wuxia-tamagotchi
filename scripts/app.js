@@ -54,13 +54,9 @@ class Cultivator {
         this.trainingLevel += 1;
         $(".trainingLevel").text(`trainingLevel: ${this.trainingLevel}`);
         let $avatar = $(".img");
-        console.log($avatar, 'srccc');
-        if (this.trainingLevel > 3) {
-            // console.log(this.imgUrl, 'train')
-            // this.imgUrl = "../images/chibi-cultivator.png";
-            // console.log(this.imgUrl, 'chiiiiiiiiii')
-            $avatar.attr("src", "./images/chibi-cultivator.png");
-            console.log($avatar, 'in if ');
+        if (this.trainingLevel >= 5) {
+            // $avatar.attr("src", "./images/chibi-cultivator.png"); //cheeb
+            $avatar.attr("src", "./images/grown-cultivator.png"); //cheeb
         };
     }
     increaseBoredomLevel = () => {
@@ -212,7 +208,8 @@ const createCharacter = function() {
     const name = $("input").val();
     newCharacter = new Cultivator(`${name}`);
     newCharacter.displayCultivator();
-    newCharacter.imgUrl = "https://picsum.photos/200";
+    // newCharacter.imgUrl = "https://picsum.photos/200";
+    newCharacter.imgUrl = "./images/chibi-cultivator.png";
 
     /** DOM manipulation */
     const $start = $("#start");

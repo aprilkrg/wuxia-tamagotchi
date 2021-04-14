@@ -4,9 +4,9 @@
 body{
     margin: 0;
     background-color: #1f1f1f1f;
-    display: flex;
 }
 .cultivator{
+    display: flex;
     flex-direction:row;
 
 }

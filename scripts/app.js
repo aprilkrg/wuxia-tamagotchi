@@ -160,15 +160,15 @@ const weiWuxian = new MonstrousCultivator("Wei Ying");
  */
 const createGameBoard = function() {
     /** beginning display on page */
-    const $nameInput = $("<input type='text' placeholder='Name your cultivator'></input>");
-    $('body').prepend($nameInput);
-    const $displayCharacterBtn = $("<button id='display' class='btn'>Display</button>");
-    $("body").append($displayCharacterBtn);
-    const $nameDiv = $("<div></div>");
-    $("body").append($nameDiv);
     const $metricDiv = $("<div></div>").addClass(`cultivator`);
     const $metricUl = $("<ul></ul>").addClass("metrics");
+    const $nameInput = $("<input type='text' placeholder='Name your cultivator'></input>");
     $("body").append($metricDiv);
+    $('.cultivator').prepend($nameInput);
+    const $displayCharacterBtn = $("<button id='display' class='btn'>Display</button>");
+    $(".cultivator").append($displayCharacterBtn);
+    const $nameDiv = $("<div></div>");
+    $(".cultivator").append($nameDiv);
     $metricDiv.append($metricUl);
     /** hide buttons */
     const $start = $("<button id='start' class='btn'>Start Game</button>");
@@ -204,7 +204,7 @@ const createCharacter = function() {
     $start.css("visibility", "visible");
     $(".metrics").append($start);
     const $avatar = $(`<img class="img" src=${newCharacter.imgUrl} alt="image of Wei Wuxian, drawn in a chibi style. He looks adorable.">`);
-    $("body").prepend($avatar);
+    $(".cultivator").prepend($avatar);
 };
 const startGame = function(){
     /** change button visibility */

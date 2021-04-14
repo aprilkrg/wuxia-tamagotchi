@@ -69,7 +69,7 @@ class Cultivator {
     }
     increaseSleepLevel = () => {
         // console.log("clicked");
-        this.sleep += 1;
+        this.sleep -= 1;
         // console.log(this.sleep, 'sleep level');
         $(".sleep").text(`sleep: ${this.sleep}`);
     }
@@ -170,9 +170,12 @@ const createGameBoard = function() {
     const $start = $("<button id='start' class='btn'>Start Game</button>");
     $("body").append($start);
     $start.css("visibility", "hidden");
-    const $train = $("<button id='train' class='btn'> Train</button>");
+    const $train = $("<button id='train' class='btn'>Train</button>");
     $metricDiv.append($train);
     $train.css("visibility", "hidden");
+    const $boredom = $("<button id='boredom' class='btn'>Play</button>");
+    $metricDiv.append($boredom);
+    $boredom.css("visibility", "hidden");
     const $hunger = $("<button id='hunger' class='btn'>Eat</button>");
     $metricDiv.append($hunger);
     $hunger.css("visibility", "hidden");
@@ -206,6 +209,9 @@ const startGame = function(){
     const $train = $("#train");
     $train.css("visibility", "visible");
     $(".cultivator").append($train);
+    const $boredom = $("#boredom");
+    $boredom.css("visibility", "visible");
+    $(".cultivator").append($boredom);
     const $hunger = $("#hunger");
     $hunger.css("visibility", "visible");
     $(".cultivator").append($hunger);
@@ -219,6 +225,9 @@ const startGame = function(){
     /** click event listeners */
     // newCharacter.increaseTrainingLevel();
     $("#train").on("click", newCharacter.increaseTrainingLevel);
+    $("#boredom").on("click", newCharacter.increaseBoredomLevel);
+    $("#hunger").on("click", newCharacter.increaseHungerLevel);
+    $("#sleep").on("click", newCharacter.increaseSleepLevel);
 };
 
 /**

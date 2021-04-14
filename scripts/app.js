@@ -53,6 +53,15 @@ class Cultivator {
     increaseTrainingLevel = () => {
         this.trainingLevel += 1;
         $(".trainingLevel").text(`trainingLevel: ${this.trainingLevel}`);
+        let $avatar = $(".img");
+        console.log($avatar, 'srccc');
+        if (this.trainingLevel > 3) {
+            // console.log(this.imgUrl, 'train')
+            // this.imgUrl = "../images/chibi-cultivator.png";
+            // console.log(this.imgUrl, 'chiiiiiiiiii')
+            $avatar.attr("src", "./images/chibi-cultivator.png");
+            console.log($avatar, 'in if ');
+        };
     }
     increaseBoredomLevel = () => {
         if (this.boredom < 10) {
@@ -204,14 +213,13 @@ const createCharacter = function() {
     newCharacter = new Cultivator(`${name}`);
     newCharacter.displayCultivator();
     newCharacter.imgUrl = "https://picsum.photos/200";
-    console.log(newCharacter, "new character attributes <<<<")
+
     /** DOM manipulation */
     const $start = $("#start");
     $start.css("visibility", "visible");
     $(".cultivator").append($start);
     const $avatar = $(`<img class="img" src=${newCharacter.imgUrl} alt="image of Wei Wuxian, drawn in a chibi style. He looks adorable.">`);
     $(".cultivator").prepend($avatar);
-    
     const $metricDiv = $(".metrics");
     const $boredom = $("<button id='boredom' class='btn'>Play</button>");
     $metricDiv.append($boredom);
@@ -242,6 +250,8 @@ const startGame = function(){
     setInterval(function() {newCharacter.increaseHungerLevel()}, 4000);
     setInterval(function() {newCharacter.increaseSleepLevel()}, 8000);
     setInterval(function() {newCharacter.checkGameEnd()}, 1000);
+    
+    // setInterval(function() {newCharacter.changePhoto()}, 1000);
     /** click event listeners */
     $("#boredom").on("click", newCharacter.clickBoredomLevel);
     $("#hunger").on("click", newCharacter.clickHungerLevel);
@@ -259,7 +269,7 @@ $("#start").on("click", startGame);
 
 /**
  * TODO 
- * buttons don't respect value boundaries
+ * change photos at certain trainingLevel
  * get 'enter' to submit name input
  * clean up wet code in displayCultivator and in the increase/clickMetricLevel functions
  * 

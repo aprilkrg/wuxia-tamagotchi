@@ -47,6 +47,9 @@ class Cultivator {
         $(".increaseBoredomLevel").remove();
         $(".increaseHungerLevel").remove();
         $(".increaseSleepLevel").remove();
+        $(".clickBoredomLevel").remove();
+        $(".clickHungerLevel").remove();
+        $(".clickSleepLevel").remove();
     }
 
     increaseTrainingLevel = () => {
@@ -70,6 +73,24 @@ class Cultivator {
     increaseSleepLevel = () => {
         // console.log("clicked");
         this.sleep -= 1;
+        // console.log(this.sleep, 'sleep level');
+        $(".sleep").text(`sleep: ${this.sleep}`);
+    }
+    clickBoredomLevel = () => {
+        // console.log("clicked");
+        this.boredom -= 1;
+        // console.log(this.trainingLevel, 'training level');
+        $(".boredom").text(`boredom: ${this.boredom}`);
+    }
+    clickHungerLevel = () => {
+        // console.log("clicked");
+        this.hunger -= 1;
+        // console.log(this.hunger, 'hunger level');
+        $(".hunger").text(`hunger: ${this.hunger}`);
+    }
+    clickSleepLevel = () => {
+        // console.log("clicked");
+        this.sleep += 1;
         // console.log(this.sleep, 'sleep level');
         $(".sleep").text(`sleep: ${this.sleep}`);
     }
@@ -222,10 +243,9 @@ const startGame = function(){
 
     /** click event listeners */
     // newCharacter.increaseTrainingLevel();
-    $("#train").on("click", newCharacter.increaseTrainingLevel);
-    $("#boredom").on("click", newCharacter.increaseBoredomLevel);
-    $("#hunger").on("click", newCharacter.increaseHungerLevel);
-    $("#sleep").on("click", newCharacter.increaseSleepLevel);
+    $("#boredom").on("click", newCharacter.clickBoredomLevel);
+    $("#hunger").on("click", newCharacter.clickHungerLevel);
+    $("#sleep").on("click", newCharacter.clickSleepLevel);
 };
 
 /**

@@ -20,7 +20,7 @@ class Cultivator {
         this.name = name;
         // === ! Attributes ! === //
         this.sect = "Yunmeng Jiang";
-        this.trainingLevel = 1;
+        this.trainingLevel = 0;
         this.goldenCore = true;
         this.boredom = 0;
         this.hunger = 0;
@@ -33,7 +33,6 @@ class Cultivator {
     displayCultivator() {
         /** data preparation */
         let $name = $("input").val();
-        // console.log($name, 'this is he jquery name')
         /**jQuery DOM manipulation */
         $("input").remove();
         $("#display").remove();
@@ -51,70 +50,34 @@ class Cultivator {
         $(".clickHungerLevel").remove();
         $(".clickSleepLevel").remove();
     }
-
     increaseTrainingLevel = () => {
-        // console.log("clicked");
         this.trainingLevel += 1;
-        // console.log(this.trainingLevel, 'training level');
         $(".trainingLevel").text(`trainingLevel: ${this.trainingLevel}`);
     }
     increaseBoredomLevel = () => {
-        // console.log("clicked");
         this.boredom += 1;
-        // console.log(this.trainingLevel, 'training level');
         $(".boredom").text(`boredom: ${this.boredom}`);
     }
     increaseHungerLevel = () => {
-        // console.log("clicked");
         this.hunger += 1;
-        // console.log(this.hunger, 'hunger level');
         $(".hunger").text(`hunger: ${this.hunger}`);
     }
     increaseSleepLevel = () => {
-        // console.log("clicked");
         this.sleep -= 1;
-        // console.log(this.sleep, 'sleep level');
         $(".sleep").text(`sleep: ${this.sleep}`);
     }
     clickBoredomLevel = () => {
-        // console.log("clicked");
         this.boredom -= 1;
-        // console.log(this.trainingLevel, 'training level');
         $(".boredom").text(`boredom: ${this.boredom}`);
     }
     clickHungerLevel = () => {
-        // console.log("clicked");
         this.hunger -= 1;
-        // console.log(this.hunger, 'hunger level');
         $(".hunger").text(`hunger: ${this.hunger}`);
     }
     clickSleepLevel = () => {
-        // console.log("clicked");
         this.sleep += 1;
-        // console.log(this.sleep, 'sleep level');
         $(".sleep").text(`sleep: ${this.sleep}`);
     }
-
-    decrementMetrics() {
-        /**
-         * instead of going further into the automatic decreasing of metric values, I want to work on getting a button that will increase the value shown on the cultivator display
-         */
-        // console.log(this.trainingLevel, 'training level')
-        // if (this.boredom > 10) {
-        //      this.boredom += 1;
-        //     }
-        // if (this.hunger > 10) {
-        //      this.hunger += 1;
-        //     }
-        // if (this.sleep < 0) {
-        //      this.sleep -= 1;
-        //     }
-        console.log(this.boredom, 'boredom level');
-        console.log(this.hunger, 'hunger level');
-        console.log(this.sleep, 'sleep level');
-
-    }
-
 };
 
 /**
@@ -177,6 +140,7 @@ const weiWuxian = new MonstrousCultivator("Wei Ying");
  * @summary createGameBoard uses jQuery to create an input box and a submit button.
  */
 const createGameBoard = function() {
+    /** beginning display on page */
     const $nameInput = $("<input type='text' placeholder='Name your cultivator'></input>");
     $('body').prepend($nameInput);
     const $displayCharacterBtn = $("<button id='display' class='btn'>Display</button>");
@@ -187,11 +151,10 @@ const createGameBoard = function() {
     const $metricUl = $("<ul></ul>").addClass("metrics");
     $("body").append($metricDiv);
     $metricDiv.append($metricUl);
-
+    /** hide buttons */
     const $start = $("<button id='start' class='btn'>Start Game</button>");
     $("body").append($start);
     $start.css("visibility", "hidden");
-
     const $boredom = $("<button id='boredom' class='btn'>Play</button>");
     $metricDiv.append($boredom);
     $boredom.css("visibility", "hidden");
@@ -211,20 +174,17 @@ const createGameBoard = function() {
 let newCharacter;
 const createCharacter = function() {
     const name = $("input").val();
-    // console.log(name, 'this is the name')
     newCharacter = new Cultivator(`${name}`);
     newCharacter.displayCultivator();
 
     const $start = $("#start");
     $start.css("visibility", "visible");
     $(".metrics").append($start);
-
 };
 const startGame = function(){
     /** change button visibility */
     const $start = $("#start");
     $start.remove();
-
     const $boredom = $("#boredom");
     $boredom.css("visibility", "visible");
     $(".cultivator").append($boredom);
@@ -234,15 +194,12 @@ const startGame = function(){
     const $sleep = $("#sleep");
     $sleep.css("visibility", "visible");
     $(".cultivator").append($sleep);
-
     /** interval timers */
     setInterval(function() {newCharacter.increaseTrainingLevel()}, 3000);
     setInterval(function() {newCharacter.increaseBoredomLevel()}, 6000);
     setInterval(function() {newCharacter.increaseHungerLevel()}, 4000);
     setInterval(function() {newCharacter.increaseSleepLevel()}, 8000);
-
     /** click event listeners */
-    // newCharacter.increaseTrainingLevel();
     $("#boredom").on("click", newCharacter.clickBoredomLevel);
     $("#hunger").on("click", newCharacter.clickHungerLevel);
     $("#sleep").on("click", newCharacter.clickSleepLevel);
@@ -256,3 +213,11 @@ const startGame = function(){
 createGameBoard();
 $("#display").on("click", createCharacter);
 $("#start").on("click", startGame);
+
+
+/**
+ * TODO 
+ * guard against metric values outside of 0-10
+ * clean up wet code in displayCultivator and in the increase/clickMetricLevel functions
+ * get 'enter' to submit name input
+ */

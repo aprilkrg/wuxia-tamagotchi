@@ -84,7 +84,6 @@ class Cultivator {
         this.sleep += 1;
         $(".sleep").text(`sleep: ${this.sleep}`);
     }
-
     checkGameEnd() {
         let over = Boolean();
         const $failMessage = $("<h1>You lose</h1>");
@@ -194,10 +193,11 @@ const createGameBoard = function() {
  */
 let newCharacter;
 const createCharacter = function() {
+    /** data creation */
     const name = $("input").val();
     newCharacter = new Cultivator(`${name}`);
     newCharacter.displayCultivator();
-
+    /** DOM manipulation */
     const $start = $("#start");
     $start.css("visibility", "visible");
     $(".metrics").append($start);
@@ -220,7 +220,6 @@ const startGame = function(){
     setInterval(function() {newCharacter.increaseBoredomLevel()}, 6000);
     setInterval(function() {newCharacter.increaseHungerLevel()}, 4000);
     setInterval(function() {newCharacter.increaseSleepLevel()}, 8000);
-
     setInterval(function() {newCharacter.checkGameEnd()}, 1000);
     /** click event listeners */
     $("#boredom").on("click", newCharacter.clickBoredomLevel);
@@ -239,7 +238,6 @@ $("#start").on("click", startGame);
 
 /**
  * TODO 
- * guard against metric values outside of 0-10 ie game logic: in DOM manipulation √ in actual character data NOTYET
  * clean up wet code in displayCultivator and in the increase/clickMetricLevel functions
  * get 'enter' to submit name input
  * 

@@ -170,9 +170,7 @@ const createGameBoard = function() {
     const $start = $("<button id='start' class='btn'>Start Game</button>");
     $("body").append($start);
     $start.css("visibility", "hidden");
-    const $train = $("<button id='train' class='btn'>Train</button>");
-    $metricDiv.append($train);
-    $train.css("visibility", "hidden");
+
     const $boredom = $("<button id='boredom' class='btn'>Play</button>");
     $metricDiv.append($boredom);
     $boredom.css("visibility", "hidden");
@@ -204,11 +202,8 @@ const createCharacter = function() {
 const startGame = function(){
     /** change button visibility */
     const $start = $("#start");
-    $start.css("visibility", "hidden");
+    $start.remove();
 
-    const $train = $("#train");
-    $train.css("visibility", "visible");
-    $(".cultivator").append($train);
     const $boredom = $("#boredom");
     $boredom.css("visibility", "visible");
     $(".cultivator").append($boredom);

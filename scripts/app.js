@@ -55,7 +55,6 @@ class Cultivator {
         $(".trainingLevel").text(`trainingLevel: ${this.trainingLevel}`);
         let $avatar = $(".img");
         if (this.trainingLevel >= 5) {
-            // $avatar.attr("src", "./images/chibi-cultivator.png"); //cheeb
             $avatar.attr("src", "./images/grown-cultivator.png"); //cheeb
         };
     }
@@ -140,13 +139,13 @@ class MonstrousCultivator extends Cultivator {
     getSomeSleep() {
         if (this.sleep < 10) {
             this.sleep += 0.5;
-        }
+        };
         return `${this.title} rests in the Demon's Rest Palace`;
     }
     stopHunger() {
         if (this.hunger < 10) {
             this.hunger += 0.5;
-        }
+        };
     }
     defectFromSect() {
         delete this.sect;
@@ -184,16 +183,6 @@ const createGameBoard = function() {
     const $start = $("<button id='start' class='btn'>Start Game</button>");
     $(".cultivator").append($start);
     $start.css("visibility", "hidden");
-
-    // const $boredom = $("<button id='boredom' class='btn'>Play</button>");
-    // $metricDiv.append($boredom);
-    // $boredom.css("visibility", "hidden");
-    // const $hunger = $("<button id='hunger' class='btn'>Eat</button>");
-    // $metricDiv.append($hunger);
-    // $hunger.css("visibility", "hidden");
-    // const $sleep = $("<button id='sleep' class='btn'>Sleep</button>");
-    // $metricDiv.append($sleep);
-    // $sleep.css("visibility", "hidden");
 };
 
 /**
@@ -247,8 +236,6 @@ const startGame = function(){
     setInterval(function() {newCharacter.increaseHungerLevel()}, 4000);
     setInterval(function() {newCharacter.increaseSleepLevel()}, 8000);
     setInterval(function() {newCharacter.checkGameEnd()}, 1000);
-    
-    // setInterval(function() {newCharacter.changePhoto()}, 1000);
     /** click event listeners */
     $("#boredom").on("click", newCharacter.clickBoredomLevel);
     $("#hunger").on("click", newCharacter.clickHungerLevel);
@@ -266,7 +253,6 @@ $("#start").on("click", startGame);
 
 /**
  * TODO 
- * change photos at certain trainingLevel
  * get 'enter' to submit name input
  * clean up wet code in displayCultivator and in the increase/clickMetricLevel functions
  * 

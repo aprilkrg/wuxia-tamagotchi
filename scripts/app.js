@@ -197,10 +197,14 @@ const createCharacter = function() {
     const name = $("input").val();
     newCharacter = new Cultivator(`${name}`);
     newCharacter.displayCultivator();
+    newCharacter.imgUrl = "https://picsum.photos/200";
+    console.log(newCharacter, "new character attributes <<<<")
     /** DOM manipulation */
     const $start = $("#start");
     $start.css("visibility", "visible");
     $(".metrics").append($start);
+    const $avatar = $(`<img src=${newCharacter.imgUrl} alt="image of Wei Wuxian, drawn in a chibi style. He looks adorable.">`);
+    $("body").prepend($avatar);
 };
 const startGame = function(){
     /** change button visibility */
@@ -238,8 +242,9 @@ $("#start").on("click", startGame);
 
 /**
  * TODO 
- * clean up wet code in displayCultivator and in the increase/clickMetricLevel functions
+ * get a picture!!
  * get 'enter' to submit name input
+ * clean up wet code in displayCultivator and in the increase/clickMetricLevel functions
  * 
  * 
  * NOTE 

@@ -81,30 +81,16 @@ class Cultivator {
 
     checkGameEnd() {
         let over = Boolean();
-        // console.log(this.name, 'this<<<<<<');
-        // console.log(newCharacter.name, 'newbie')
         const $failMessage = $("<h1>You lose</h1>");
-        console.log(this.boredom, this.hunger, this.sleep);
-        console.log(over, 'game over bool');
         if (this.boredom > 9 || this.hunger > 9) {
-            console.log(this.boredom, 'boredom')
-            console.log(this.hunger, 'thungerrrrr')
-            // $(".cultivator").remove();
-            // $("body").append($failMessage);
             over = true;
         } else if(this.sleep < 1) {
-            console.log(this.sleep, 'sleeeepy');
-            // $(".cultivator").remove();
-            // $("body").append($failMessage);
             over = true;
         };
-
         if (over === true) {
-            console.log('game is over = true')
             $(".cultivator").remove();
-            // $("body").append($failMessage);
             $("body").replaceWith($failMessage);
-        }
+        };
     };
 };
 

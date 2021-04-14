@@ -44,18 +44,34 @@ class Cultivator {
             $(".metrics").append($metricInfo);
         };
         $(".increaseTrainingLevel").remove();
+        $(".increaseBoredomLevel").remove();
+        $(".increaseHungerLevel").remove();
+        $(".increaseSleepLevel").remove();
     }
 
     increaseTrainingLevel = () => {
-        console.log("clicked");
+        // console.log("clicked");
         this.trainingLevel += 1;
-        console.log(this.trainingLevel, 'training level');
-        
-        $(".trainingLevel").text(`trainingLevel: ${this.trainingLevel}`)
-        // const $trainingLi = $(".trainingLevel");
-        // $trainingLi.css("border", "solid 5px purple");
-        // let $trainingLiNum = $trainingLi.text().replace(/trainingLevel: /g, ' ');
-        // console.log($trainingLiNum);
+        // console.log(this.trainingLevel, 'training level');
+        $(".trainingLevel").text(`trainingLevel: ${this.trainingLevel}`);
+    }
+    increaseBoredomLevel = () => {
+        // console.log("clicked");
+        this.boredom += 1;
+        // console.log(this.trainingLevel, 'training level');
+        $(".boredom").text(`boredom: ${this.boredom}`);
+    }
+    increaseHungerLevel = () => {
+        // console.log("clicked");
+        this.hunger += 1;
+        // console.log(this.hunger, 'hunger level');
+        $(".hunger").text(`hunger: ${this.hunger}`);
+    }
+    increaseSleepLevel = () => {
+        // console.log("clicked");
+        this.sleep += 1;
+        // console.log(this.sleep, 'sleep level');
+        $(".sleep").text(`sleep: ${this.sleep}`);
     }
 
     decrementMetrics() {

@@ -87,10 +87,12 @@ class Cultivator {
         if (this.boredom > 9 || this.hunger > 9) {
             console.log(this.boredom, 'boredom')
             console.log(this.hunger, 'thungerrrrr')
-            $("body").remove();
+            $(".cultivator").remove();
             $("body").append($failMessage);
         } else if(this.sleep < 1) {
-            console.log(this.sleep, 'sleeeepy')
+            console.log(this.sleep, 'sleeeepy');
+            $(".cultivator").remove();
+            $("body").append($failMessage);
         }
     };
 };

@@ -55,15 +55,21 @@ class Cultivator {
         $(".trainingLevel").text(`trainingLevel: ${this.trainingLevel}`);
     }
     increaseBoredomLevel = () => {
-        this.boredom += 1;
+        if (this.boredom < 10) {
+            this.boredom += 1;
+        };
         $(".boredom").text(`boredom: ${this.boredom}`);
     }
     increaseHungerLevel = () => {
-        this.hunger += 1;
+        if (this.hunger < 10) {
+            this.hunger += 1;
+        };
         $(".hunger").text(`hunger: ${this.hunger}`);
     }
     increaseSleepLevel = () => {
-        this.sleep -= 1;
+        if (this.sleep > 0) {
+            this.sleep -= 1;
+        };
         $(".sleep").text(`sleep: ${this.sleep}`);
     }
     clickBoredomLevel = () => {
@@ -220,7 +226,6 @@ const startGame = function(){
     $("#boredom").on("click", newCharacter.clickBoredomLevel);
     $("#hunger").on("click", newCharacter.clickHungerLevel);
     $("#sleep").on("click", newCharacter.clickSleepLevel);
-    // checkGameEnd();
 };
 
 /**
@@ -231,11 +236,10 @@ const startGame = function(){
 createGameBoard();
 $("#display").on("click", createCharacter);
 $("#start").on("click", startGame);
-// checkGameEnd();
 
 /**
  * TODO 
- * guard against metric values outside of 0-10 ie game logic
+ * guard against metric values outside of 0-10 ie game logic: in DOM manipulation √ in actual character data NOTYET
  * clean up wet code in displayCultivator and in the increase/clickMetricLevel functions
  * get 'enter' to submit name input
  * 

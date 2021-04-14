@@ -33,6 +33,7 @@ class Cultivator {
     displayCultivator() {
         /** data preparation */
         let $name = $("input").val();
+        // console.log($name, 'this is he jquery name')
         /**jQuery DOM manipulation */
         $("input").remove();
         $("#display").remove();
@@ -42,13 +43,17 @@ class Cultivator {
             let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
             $(".metrics").append($metricInfo);
         };
+        $(".increaseTrainingLevel").remove();
     }
 
-    increaseTrainingLevel() {
-        const $trainingLi = $(".trainingLevel");
-        $trainingLi.css("border", "solid 5px purple");
-        let $trainingLiNum = $trainingLi.text().replace(/trainingLevel: /g, ' ');
-        console.log($trainingLiNum);
+    increaseTrainingLevel = () => {
+        console.log("clicked");
+        console.log(this.trainingLevel, 'training level');
+
+        // const $trainingLi = $(".trainingLevel");
+        // $trainingLi.css("border", "solid 5px purple");
+        // let $trainingLiNum = $trainingLi.text().replace(/trainingLevel: /g, ' ');
+        // console.log($trainingLiNum);
     }
 
     decrementMetrics() {
@@ -147,7 +152,6 @@ const createGameBoard = function() {
     const $start = $("<button id='start' class='btn'>Start Game</button>");
     $("body").append($start);
     $start.css("visibility", "hidden");
-
     const $train = $("<button id='train' class='btn'> Train</button>");
     $metricDiv.append($train);
     $train.css("visibility", "hidden");
@@ -167,6 +171,7 @@ const createGameBoard = function() {
 let newCharacter;
 const createCharacter = function() {
     const name = $("input").val();
+    // console.log(name, 'this is the name')
     newCharacter = new Cultivator(`${name}`);
     newCharacter.displayCultivator();
 
@@ -194,8 +199,8 @@ const startGame = function(){
     // setInterval(function() {newCharacter.decrementMetrics()}, 2500);
 
     /** click event listeners */
+    // newCharacter.increaseTrainingLevel();
     $("#train").on("click", newCharacter.increaseTrainingLevel);
-
 };
 
 /**

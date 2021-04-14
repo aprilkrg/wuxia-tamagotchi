@@ -105,6 +105,9 @@ class Cultivator {
         if (over === true) {
             $(".cultivator").replaceWith($failMessage);
         };
+        if (this.trainingLevel > 20) {
+            $(".metrics").replaceWith($("<h2>Your cultivator has finished training and is ready to go night hunting!</h2>"))
+        }
     };
 };
 

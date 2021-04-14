@@ -48,8 +48,10 @@ class Cultivator {
 
     increaseTrainingLevel = () => {
         console.log("clicked");
+        this.trainingLevel += 1;
         console.log(this.trainingLevel, 'training level');
-
+        
+        $(".trainingLevel").text(`trainingLevel: ${this.trainingLevel}`)
         // const $trainingLi = $(".trainingLevel");
         // $trainingLi.css("border", "solid 5px purple");
         // let $trainingLiNum = $trainingLi.text().replace(/trainingLevel: /g, ' ');

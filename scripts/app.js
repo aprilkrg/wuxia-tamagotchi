@@ -191,6 +191,14 @@ const createGameBoard = function() {
     $("body").append($inputDiv);
     $inputDiv.append($nameInput);
     $inputDiv.append($displayCharacterBtn);
+    $("input").keyup(function(event) {
+        if (event.originalEvent.code === "Enter") {
+            console.log('this is the enter button');
+            event.preventDefault();
+            $('form').submit();
+            createCharacter();
+        }
+    });
 };
 
 /**
@@ -211,7 +219,7 @@ const createCharacter = function() {
     /** DOM manipulation */
     const $start = $("#start");
     $start.css("visibility", "visible");
-    $(".cultivator").append($start);
+    // $(".cultivator").append($start);
     const $avatar = $(`<img class="img" src=${newCharacter.imgUrl} alt="image of Wei Wuxian, drawn in a chibi style. He looks adorable.">`);
     $(".cultivator").prepend($avatar);
     const $metricDiv = $(".metrics");
@@ -224,6 +232,7 @@ const createCharacter = function() {
     const $sleep = $("<button id='sleep' class='btn'>Sleep</button>");
     $metricDiv.append($sleep);
     $sleep.css("visibility", "hidden");
+    $(".cultivator").append($start);
 };
 const startGame = function(){
     /** change button visibility */

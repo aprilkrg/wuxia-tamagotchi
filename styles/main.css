@@ -9,19 +9,26 @@ body{
 .cultivator{
     display: flex;
     flex-direction:row;
-
+    background-color: rebeccapurple;
+}
+.display__input {
+    background-color: tomato;
 }
 li{
-    /* line-height: 1.5; */
     list-style: none;
-    /* margin: 10px; */
+    background-color: springgreen;
+}
+input {
+    border-radius: 20px;
+    margin: 10px 10px;
+    padding: 5px;
 }
 .img{
     border-radius: 50%;
     margin: 5px;
     height:200px;
     width:200px;
-
+    background-color: seagreen;
 }
 .btn{
     margin: 5px;
@@ -29,8 +36,4 @@ li{
     height: fit-content;
     border-radius: 20px;
 }
-input {
-    border-radius: 20px;
-    margin: 10px 10px;
-    padding: 5px;
-}
+

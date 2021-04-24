@@ -175,11 +175,12 @@ const createGameBoard = function() {
     /** beginning display on page */
     const $metricDiv = $("<div></div>").addClass(`cultivator`);
     const $metricUl = $("<ul></ul>").addClass("metrics");
+    const $inputDiv = $("<div></div>").addClass("display__input");
     const $nameInput = $("<input type='text' placeholder='Name your cultivator'></input>");
     $("body").append($metricDiv);
-    $('.cultivator').prepend($nameInput);
+    // $('.cultivator').prepend($nameInput);
     const $displayCharacterBtn = $("<button id='display' class='btn'>Display</button>");
-    $(".cultivator").append($displayCharacterBtn);
+    // $(".cultivator").append($displayCharacterBtn);
     const $nameDiv = $("<div></div>");
     $(".cultivator").append($nameDiv);
     $metricDiv.append($metricUl);
@@ -187,6 +188,9 @@ const createGameBoard = function() {
     const $start = $("<button id='start' class='btn'>Start Game</button>");
     $(".cultivator").append($start);
     $start.css("visibility", "hidden");
+    $("body").append($inputDiv);
+    $inputDiv.append($nameInput);
+    $inputDiv.append($displayCharacterBtn);
 };
 
 /**

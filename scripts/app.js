@@ -193,9 +193,6 @@ const createGameBoard = function() {
     $inputDiv.append($displayCharacterBtn);
     $("input").keyup(function(event) {
         if (event.originalEvent.code === "Enter") {
-            console.log('this is the enter button');
-            event.preventDefault();
-            $('form').submit();
             createCharacter();
         }
     });

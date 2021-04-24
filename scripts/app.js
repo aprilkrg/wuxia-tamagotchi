@@ -236,8 +236,8 @@ const startGame = function(){
     $(".cultivator").append($sleep);
     /** interval timers */
     setInterval(function() {newCharacter.increaseTrainingLevel()}, 3000);
-    setInterval(function() {newCharacter.increaseBoredomLevel()}, 600);
-    setInterval(function() {newCharacter.increaseHungerLevel()}, 800);
+    setInterval(function() {newCharacter.increaseBoredomLevel()}, 4000);
+    setInterval(function() {newCharacter.increaseHungerLevel()}, 2000);
     setInterval(function() {newCharacter.increaseSleepLevel()}, 6000);
     setInterval(function() {newCharacter.checkGameEnd()}, 1000);
     /** click event listeners */

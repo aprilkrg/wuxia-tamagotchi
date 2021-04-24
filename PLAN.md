@@ -1,4 +1,5 @@
 ---
+# version 1.0
 ### THEME IDEAS
 - tamagotchi < Wei Ying
 - "You've found a young wei ying on the streets, he's hungry! Feed him!"
@@ -22,19 +23,9 @@ AAU:
 - Feed Wei Ying so he can grow into Wei Wuxian!
 
 
-
-
-
-grabName() {
-        $(".submit__name").on("click", function() {
-            console.log('click');
-            let $name = $("input").val();
-            const $nameDiv = $("<div></div>");
-            $("body").append($nameDiv);
-            $nameDiv.append($name);
-            const $metricDiv = $("<div></div>").addClass(`cultivator`);
-            const $metricUl = $("<ul></ul>").addClass("metrics");
-            $("body").append($metricDiv);
-            $metricDiv.append($metricUl);
-        });
-    }
+# version 2.0
+### IMPROVEMENTS
+- animate the avatar to bounce up and down, or slide right and left
+- use progress bars to display character stats
+- color coordinate the buttons with the progress tickets
+- give everything padding

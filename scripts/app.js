@@ -6,7 +6,7 @@ console.log("grandmaster of monstrous cultivation");
  */
 /**
  * Create a cultivator
- * @param {string} name - The name of this cultivator
+ * @param {string} Name - The name of this cultivator
  * @param {string} sect - The sect this cultivator belongs to
  * @param {boolean} goldenCore - A cultivator has a goldenCore by default
  * @param {number} trainingLevel - The power level of this cultivator starts at 1 if goldenCore = true, will increment up to 10 - a riff off of age
@@ -174,21 +174,21 @@ const weiWuxian = new MonstrousCultivator("Wei Ying");
 const createGameBoard = function() {
     /** beginning display on page */
     const $metricDiv = $("<div></div>").addClass(`cultivator`);
-    const $metricUl = $("<ul></ul>").addClass("metrics");
-    const $inputDiv = $("<div></div>").addClass("display__input");
-    const $nameInput = $("<input type='text' placeholder='Name your cultivator'></input>");
-    $("body").append($metricDiv);
+    const $metricUl = $("<ul></ul>").addClass("metrics cultivator__ul");
+    const $inputDiv = $("<div></div>").addClass("input");
+    const $nameInput = $("<input class='input input__textbox' type='text' placeholder='Name your cultivator'></input>");
     // $('.cultivator').prepend($nameInput);
-    const $displayCharacterBtn = $("<button id='display' class='btn'>Display</button>");
+    const $displayCharacterBtn = $("<button id='display' class='input input__btn'>Display</button>");
     // $(".cultivator").append($displayCharacterBtn);
+    $(".cultivator__card").append($inputDiv);
+    $(".cultivator__card").append($metricDiv);
     const $nameDiv = $("<div></div>");
     $(".cultivator").append($nameDiv);
     $metricDiv.append($metricUl);
     /** hide buttons */
-    const $start = $("<button id='start' class='btn'>Start Game</button>");
+    const $start = $("<button id='start' class='input cultivator__btn'>Start Game</button>");
     $(".cultivator").append($start);
     $start.css("visibility", "hidden");
-    $("body").append($inputDiv);
     $inputDiv.append($nameInput);
     $inputDiv.append($displayCharacterBtn);
     $("input").keyup(function(event) {
@@ -217,7 +217,7 @@ const createCharacter = function() {
     const $start = $("#start");
     $start.css("visibility", "visible");
     // $(".cultivator").append($start);
-    const $avatar = $(`<img class="img" src=${newCharacter.imgUrl} alt="image of Wei Wuxian, drawn in a chibi style. He looks adorable.">`);
+    const $avatar = $(`<img class="cultivator__img" src=${newCharacter.imgUrl} alt="image of Wei Wuxian, drawn in a chibi style. He looks adorable.">`);
     $(".cultivator").prepend($avatar);
     const $metricDiv = $(".metrics");
     const $boredom = $("<button id='boredom' class='btn'>Play</button>");
@@ -235,13 +235,13 @@ const startGame = function(){
     /** change button visibility */
     const $start = $("#start");
     $start.remove();
-    const $boredom = $("#boredom");
+    const $boredom = $("#boredom").addClass("input");
     $boredom.css("visibility", "visible");
     $(".cultivator").append($boredom);
-    const $hunger = $("#hunger");
+    const $hunger = $("#hunger").addClass("input");
     $hunger.css("visibility", "visible");
     $(".cultivator").append($hunger);
-    const $sleep = $("#sleep");
+    const $sleep = $("#sleep").addClass("input");
     $sleep.css("visibility", "visible");
     $(".cultivator").append($sleep);
     /** interval timers */

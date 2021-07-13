@@ -1,39 +1,90 @@
-*{
+* {
     box-sizing: border-box;
 }
-body{
+
+/* color palette https://coolors.co/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529 */
+
+body {
     margin: 0;
-    background-color: #1f1f1f1f;
     display: flex;
-}
-.cultivator{
-    display: flex;
-    flex-direction:row;
-    background-color: rebeccapurple;
-}
-.display__input {
-    background-color: tomato;
-}
-li{
-    list-style: none;
-    background-color: springgreen;
-}
-input {
-    border-radius: 20px;
-    margin: 10px 10px;
-    padding: 5px;
-}
-.img{
-    border-radius: 50%;
-    margin: 5px;
-    height:200px;
-    width:200px;
-    background-color: seagreen;
-}
-.btn{
-    margin: 5px;
-    padding: 5px 15px;
-    height: fit-content;
-    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: whitesmoke;
+
+    
+    background: 
+    linear-gradient(165deg, rgba(33,37,41,1) 20%, rgba(52,58,64,1) 79%, rgba(73,80,87,1) 93%);
+    height: 100vh;
+
+    /* background: rgb(33,37,41); */
+    /* background: linear-gradient(117deg, 
+    rgba(33,37,41,1) 1%, rgba(52,58,64,1) 77%, rgba(73,80,87,1) 100%); */
 }
 
+.cultivator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+}
+
+/* input {
+    border-radius: 5px;
+    margin: 10px 10px;
+    padding: 20px;
+} */
+
+.btn {
+    background-color: violet;
+}
+
+.cultivator__card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.metrics {
+    line-height: 1.4;
+    /* height: 150px; */
+    font-size: large;
+}
+
+#display {
+    background: #FCE97F;
+    /* opacity: 50%; */
+}
+
+#display:hover {
+    animation: fadebackground 500ms ease-in-out;
+    /* opacity: 100%; */
+}
+
+/* fadebackground the work of Christina Perricone https://codepen.io/hubspot/pen/eYvYwzy */
+@keyframes fadebackground {
+    from {background-color: #FCE97F;}
+    to {background-color: #2EB07B;}
+  }
+/* BEM = Block Element Modifier */
+.input {
+    /* background: linear-gradient(117deg,  */
+    /* rgba(33,37,41,1) 1%, rgba(52,58,64,1) 77%, rgba(73,80,87,1) 100%); */
+    font-size: large;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    border-radius: 5px;
+    margin: 10px 20px;
+    padding: 20px;
+}
+
+.cultivator__img {
+    border-radius: 50%;
+    margin: 5px;
+    height: 250px;
+    width: 250px;
+    background-color: seagreen;
+}

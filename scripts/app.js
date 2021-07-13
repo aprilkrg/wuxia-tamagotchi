@@ -61,8 +61,7 @@ class Cultivator {
         $(".trainingLevel").text(`trainingLevel: ${this.trainingLevel}`);
         let $avatar = $(".cultivator__img");
         if (this.trainingLevel >= 5) {
-            console.log("time for wei ying to grow!")
-            $avatar.attr("src", "./images/grown-cultivator.png"); //cheeb
+            $avatar.attr("src", "./images/grown-cultivator.png"); 
         };
     }
     increaseBoredomLevel = () => {
@@ -264,7 +263,7 @@ const startGame = function(){
     setInterval(function() {newCharacter.increaseBoredomLevel()}, 4000);
     setInterval(function() {newCharacter.increaseHungerLevel()}, 2000);
     setInterval(function() {newCharacter.increaseSleepLevel()}, 6000);
-    setInterval(function() {newCharacter.checkGameEnd()}, 1000);
+    // setInterval(function() {newCharacter.checkGameEnd()}, 1000);
     // === !CHANGE INTERVAL TIME FOR TESTING! === //
     // setInterval(function() {newCharacter.checkGameEnd()}, 100000);
     /** click event listeners */
@@ -289,7 +288,7 @@ $("#start").on("click", startGame);
  * dear god why did I choose to make all the html elements with jQuery == BIG DUMB
  * 
  * 
- * put interaction buttons in a column
+ * put interaction buttons in a column √
  * add color coordination to buttons and progress bars
  * 
  * 

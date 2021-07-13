@@ -232,13 +232,13 @@ const createCharacter = function() {
     const $avatar = $(`<img class="cultivator__img" src=${newCharacter.imgUrl} alt="image of Wei Wuxian, drawn in a chibi style. He looks adorable.">`);
     $(".cultivator").prepend($avatar);
     const $metricDiv = $(".metrics");
-    const $boredom = $("<button id='boredom' class='btn'>Play</button>");
+    const $boredom = $("<button id='boredom' class='metrics__btn'>Play</button>");
     $metricDiv.append($boredom);
     $boredom.css("visibility", "hidden");
-    const $hunger = $("<button id='hunger' class='btn'>Eat</button>");
+    const $hunger = $("<button id='hunger' class='metrics__btn'>Eat</button>");
     $metricDiv.append($hunger);
     $hunger.css("visibility", "hidden");
-    const $sleep = $("<button id='sleep' class='btn'>Sleep</button>");
+    const $sleep = $("<button id='sleep' class='metrics__btn'>Sleep</button>");
     $metricDiv.append($sleep);
     $sleep.css("visibility", "hidden");
     $(".cultivator").append($start);
@@ -247,15 +247,17 @@ const startGame = function(){
     /** change button visibility */
     const $start = $("#start");
     $start.remove();
+    const $playBtns = $("<section class='interaction'></section>")
     const $boredom = $("#boredom").addClass("input");
     $boredom.css("visibility", "visible");
-    $(".cultivator").append($boredom);
+   $playBtns.append($boredom);
     const $hunger = $("#hunger").addClass("input");
     $hunger.css("visibility", "visible");
-    $(".cultivator").append($hunger);
+   $playBtns.append($hunger);
     const $sleep = $("#sleep").addClass("input");
     $sleep.css("visibility", "visible");
-    $(".cultivator").append($sleep);
+   $playBtns.append($sleep);
+   $(".cultivator").append($playBtns);
     /** interval timers */
     setInterval(function() {newCharacter.increaseTrainingLevel()}, 3000);
     setInterval(function() {newCharacter.increaseBoredomLevel()}, 4000);
@@ -263,7 +265,7 @@ const startGame = function(){
     setInterval(function() {newCharacter.increaseSleepLevel()}, 6000);
     // setInterval(function() {newCharacter.checkGameEnd()}, 1000);
     // === !CHANGE INTERVAL TIME FOR TESTING! === //
-    setInterval(function() {newCharacter.checkGameEnd()}, 100000);
+    // setInterval(function() {newCharacter.checkGameEnd()}, 100000);
     /** click event listeners */
     $("#boredom").on("click", newCharacter.clickBoredomLevel);
     $("#hunger").on("click", newCharacter.clickHungerLevel);
@@ -282,9 +284,12 @@ $("#start").on("click", startGame);
 /**
  * TODO 
  * clean up wet code in displayCultivator and in the increase/clickMetricLevel functions
- * progress bars instead of numbers
+ * progress bars instead of numbers √
  * dear god why did I choose to make all the html elements with jQuery == BIG DUMB
  * 
+ * 
+ * put interaction buttons in a column
+ * add color coordination to buttons and progress bars
  * 
  * 
  * NOTE 

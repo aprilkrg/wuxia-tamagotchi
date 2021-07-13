@@ -116,13 +116,20 @@ li {
     #display {
         /* flex-direction: column; */
         align-items: center;
-
     }
 
     .cultivator {
         width: 100vw;
         /* width: 100%; */
         justify-content: space-evenly;
+    }
+    .interaction {
+        display: flex;
+        flex-direction: row;
+        position:absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%);
     }
 
 }
@@ -156,5 +163,17 @@ li {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+    .interaction {
+        display: flex;
+        flex-direction: row;
+        position:absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%);
+    }
+    .metrics {
+   
+        top: 60%;
     }
 }

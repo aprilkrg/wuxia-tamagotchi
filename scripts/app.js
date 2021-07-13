@@ -41,7 +41,7 @@ class Cultivator {
         for(const [key, value] of Object.entries(this)) {
             if(key == "boredom" || key == "hunger" || key == "sleep") {
                 console.log(key, 'this should be a progress bar')
-                let $metricBar = $(`<label for=${key}> ${key}: </label> <progress id=${key} max="10" value=${value}></progress><br>`);
+                let $metricBar = $(`<label for=${key}> ${key}: </label> <progress class='metric ${key}' max="10" value=${value}></progress><br>`);
                 $(".metrics").append($metricBar);
             } else {
                 let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
@@ -69,6 +69,7 @@ class Cultivator {
             this.boredom += 1;
         };
         $(".boredom").text(`boredom: ${this.boredom}`);
+        // $(".boredom").attr("value", this.boredom);
     }
     increaseHungerLevel = () => {
         if (this.hunger < 10) {

@@ -36,11 +36,17 @@ class Cultivator {
         /**jQuery DOM manipulation */
         $("input").remove();
         $("#display").remove();
-        $(".name").html(`name: ${$name}`);
+        // $(".name").html(`name: ${$name}`);
         /**printing the data */
         for(const [key, value] of Object.entries(this)) {
-            let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
-            $(".metrics").append($metricInfo);
+            if(key == "boredom" || key == "hunger" || key == "sleep") {
+                console.log(key, 'this should be a progress bar')
+                let $metricBar = $(`<label for=${key}> ${key}: </label> <progress id=${key} max="10" value=${value}></progress><br>`);
+                $(".metrics").append($metricBar);
+            } else {
+                let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
+                $(".metrics").append($metricInfo);
+            };
         };
         $(".increaseTrainingLevel").remove();
         $(".increaseBoredomLevel").remove();
@@ -182,8 +188,8 @@ const createGameBoard = function() {
     // $(".cultivator").append($displayCharacterBtn);
     $(".cultivator__card").append($inputDiv);
     $(".cultivator__card").append($metricDiv);
-    const $nameDiv = $("<div></div>");
-    $(".cultivator").append($nameDiv);
+    // const $nameDiv = $("<div id='why'></div>");
+    // $(".cultivator").append($nameDiv);
     $metricDiv.append($metricUl);
     /** hide buttons */
     const $start = $("<button id='start' class='input cultivator__btn'>Start Game</button>");
@@ -267,8 +273,10 @@ $("#start").on("click", startGame);
 
 /**
  * TODO 
- * get 'enter' to submit name input
  * clean up wet code in displayCultivator and in the increase/clickMetricLevel functions
+ * progress bars instead of numbers
+ * dear god why did I choose to make all the html elements with jQuery == BIG DUMB
+ * 
  * 
  * 
  * NOTE 

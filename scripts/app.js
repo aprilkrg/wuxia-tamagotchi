@@ -69,37 +69,42 @@ class Cultivator {
             this.boredom += 1;
         };
         $(".boredom").text(`boredom: ${this.boredom}`);
-        // $(".boredom").attr("value", this.boredom);
+        $(".boredom").attr("value", this.boredom);
     }
     increaseHungerLevel = () => {
         if (this.hunger < 10) {
             this.hunger += 1;
         };
         $(".hunger").text(`hunger: ${this.hunger}`);
+        $(".hunger").attr("value", this.hunger);
     }
     increaseSleepLevel = () => {
         if (this.sleep > 0) {
             this.sleep -= 1;
         };
         $(".sleep").text(`sleep: ${this.sleep}`);
+        $(".sleep").attr("value", this.sleep);
     }
     clickBoredomLevel = () => {
         if (this.boredom > 0) {
             this.boredom -= 1;
         };
         $(".boredom").text(`boredom: ${this.boredom}`);
+        $(".boredom").attr("value", this.boredom);
     }
     clickHungerLevel = () => {
         if (this.hunger > 0) {
             this.hunger -= 1;
         };
         $(".hunger").text(`hunger: ${this.hunger}`);
+        $(".hunger").attr("value", this.hunger);
     }
     clickSleepLevel = () => {
         if (this.sleep < 10) {
             this.sleep += 1;
         };
         $(".sleep").text(`sleep: ${this.sleep}`);
+        $(".sleep").attr("value", this.sleep);
     }
     checkGameEnd() {
         let over = Boolean();
@@ -256,7 +261,9 @@ const startGame = function(){
     setInterval(function() {newCharacter.increaseBoredomLevel()}, 4000);
     setInterval(function() {newCharacter.increaseHungerLevel()}, 2000);
     setInterval(function() {newCharacter.increaseSleepLevel()}, 6000);
-    setInterval(function() {newCharacter.checkGameEnd()}, 1000);
+    // setInterval(function() {newCharacter.checkGameEnd()}, 1000);
+    // === !CHANGE INTERVAL TIME FOR TESTING! === //
+    setInterval(function() {newCharacter.checkGameEnd()}, 100000);
     /** click event listeners */
     $("#boredom").on("click", newCharacter.clickBoredomLevel);
     $("#hunger").on("click", newCharacter.clickHungerLevel);

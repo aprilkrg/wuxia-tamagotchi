@@ -24,6 +24,9 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100vw;
+    justify-content: space-evenly;
+
 }
 
 li {
@@ -52,23 +55,22 @@ li {
     line-height: 1.4;
     /* height: 150px; */
     font-size: large;
+    padding-inline-start: 0px;
+    padding-left: 0px;
 }
 
 #display {
     background: #FCE97F;
-    /* opacity: 50%; */
+    opacity: 80%;
 }
 
 #display:hover {
-    animation: fadebackground 500ms ease-in-out;
-    /* opacity: 100%; */
+    background-color: #2EB07B;
+    transition: ease-in-out 300ms;
+    opacity: 90%;
 }
 
-/* fadebackground the work of Christina Perricone https://codepen.io/hubspot/pen/eYvYwzy */
-@keyframes fadebackground {
-    from {background-color: #FCE97F;}
-    to {background-color: #2EB07B;}
-  }
+
 /* BEM = Block Element Modifier */
 .input {
     /* background: linear-gradient(117deg,  */
@@ -79,6 +81,10 @@ li {
     border-radius: 5px;
     margin: 10px 20px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* width: max-content; */
+    align-items: center;
 }
 
 .cultivator__img {
@@ -86,5 +92,37 @@ li {
     margin: 5px;
     height: 250px;
     width: 250px;
-    background-color: seagreen;
+    background-color: #2EB07B;
+}
+
+@media screen and (max-width: 1100px) {
+    body {
+        border: #FCE97F 5px inset;
+    }
+
+    .input {
+        display: flex;
+        flex-direction: column;
+        /* width: max-content; */
+        align-items: center;
+        
+    }
+    .input__img, .input__text {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    #display {
+        /* flex-direction: column; */
+        align-items: center;
+
+    }
+
+    .cultivator {
+        width: 100vw;
+        /* width: 100%; */
+        justify-content: space-evenly;
+    }
+
 }

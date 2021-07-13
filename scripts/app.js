@@ -178,7 +178,7 @@ const createGameBoard = function() {
     const $inputDiv = $("<div></div>").addClass("input");
     const $nameInput = $("<input class='input input__textbox' type='text' placeholder='Name your cultivator'></input>");
     // $('.cultivator').prepend($nameInput);
-    const $displayCharacterBtn = $("<button id='display' class='input input__btn'>Display</button>");
+    const $displayCharacterBtn = $("<button id='display' class='input input__btn'>DISPLAY</button>");
     // $(".cultivator").append($displayCharacterBtn);
     $(".cultivator__card").append($inputDiv);
     $(".cultivator__card").append($metricDiv);

@@ -263,7 +263,7 @@ const startGame = function(){
     setInterval(function() {newCharacter.increaseBoredomLevel()}, 4000);
     setInterval(function() {newCharacter.increaseHungerLevel()}, 2000);
     setInterval(function() {newCharacter.increaseSleepLevel()}, 6000);
-    // setInterval(function() {newCharacter.checkGameEnd()}, 1000);
+    setInterval(function() {newCharacter.checkGameEnd()}, 1000);
     // === !CHANGE INTERVAL TIME FOR TESTING! === //
     // setInterval(function() {newCharacter.checkGameEnd()}, 100000);
     /** click event listeners */
@@ -290,6 +290,7 @@ $("#start").on("click", startGame);
  * 
  * put interaction buttons in a column √
  * add color coordination to buttons and progress bars
+ * animate (bounce) avatar
  * 
  * 
  * NOTE 

@@ -20,3 +20,5 @@ As A User:
 - Game Page
 ![Game play page wireframe](./images/game_page.png)
 
+- Losing Page
+![Losing page wireframe](./images/losing_page.png)

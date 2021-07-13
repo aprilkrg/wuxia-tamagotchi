@@ -126,3 +126,34 @@ li {
     }
 
 }
+
+@media  screen and (max-width: 900px) {
+    body {
+        border: #2EB07B 5px solid;
+        display: flex;
+    }
+    .cultivator {
+        flex-direction: column;
+        height: 80vh;
+        justify-content: space-evenly;
+    }
+    .input {
+        display: flex;
+        align-items: center;
+        position: fixed;
+    }
+    .input__textbox {
+        /* position: absolute; */
+        /* position: fixed; */
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+    .input__btn{
+        /* position: absolute; */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

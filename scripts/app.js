@@ -59,8 +59,9 @@ class Cultivator {
     increaseTrainingLevel = () => {
         this.trainingLevel += 1;
         $(".trainingLevel").text(`trainingLevel: ${this.trainingLevel}`);
-        let $avatar = $(".img");
+        let $avatar = $(".cultivator__img");
         if (this.trainingLevel >= 5) {
+            console.log("time for wei ying to grow!")
             $avatar.attr("src", "./images/grown-cultivator.png"); //cheeb
         };
     }
@@ -263,7 +264,7 @@ const startGame = function(){
     setInterval(function() {newCharacter.increaseBoredomLevel()}, 4000);
     setInterval(function() {newCharacter.increaseHungerLevel()}, 2000);
     setInterval(function() {newCharacter.increaseSleepLevel()}, 6000);
-    // setInterval(function() {newCharacter.checkGameEnd()}, 1000);
+    setInterval(function() {newCharacter.checkGameEnd()}, 1000);
     // === !CHANGE INTERVAL TIME FOR TESTING! === //
     // setInterval(function() {newCharacter.checkGameEnd()}, 100000);
     /** click event listeners */

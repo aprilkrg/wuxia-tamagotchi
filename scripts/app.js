@@ -263,7 +263,7 @@ const startGame = function(){
     setInterval(function() {newCharacter.increaseBoredomLevel()}, 4000);
     setInterval(function() {newCharacter.increaseHungerLevel()}, 2000);
     setInterval(function() {newCharacter.increaseSleepLevel()}, 6000);
-    setInterval(function() {newCharacter.checkGameEnd()}, 1000);
+    // setInterval(function() {newCharacter.checkGameEnd()}, 1000);
     // === !CHANGE INTERVAL TIME FOR TESTING! === //
     // setInterval(function() {newCharacter.checkGameEnd()}, 100000);
     /** click event listeners */
@@ -287,13 +287,22 @@ $("#start").on("click", startGame);
  * progress bars instead of numbers √
  * dear god why did I choose to make all the html elements with jQuery == BIG DUMB
  * 
- * 
- * put interaction buttons in a column √
- * add color coordination to buttons and progress bars
- * animate (bounce) avatar
+ 
  * 
  * 
  * NOTE 
  * where to go from here?
  * programatically interested in: after a cultivator reaches a certain age, a button appears to morph your cultivator from the upright path to the monstrous path (which will create a new instance of the MonstrousCultivator class)
  */
+
+// $("body").click(function(){
+//     console.log("hello")
+// }) // WORKS √
+
+// $(".cultivator__card").click(function(){
+//     console.log(newCharacter.sayHello())
+// }); // WORKS √
+
+// $("img").click(function(){
+//     console.log("start")
+// }) // won't work

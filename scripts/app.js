@@ -238,7 +238,9 @@ const startGame = function(){
    /** change button visibility */
     const $start = $("#start");
     $start.remove();
-    const $playBtns = $("<section class='interaction'></section>");
+    const $playBtns = $("<section class='interaction'></section>").addClass("play__btns");
+    $(".cultivator__ul").addClass("play__metrics");
+    $(".cultivator__img").addClass("play__img");
 
     const $boredom = $("<button id='sleep' class='metrics__btn'>Sleep</button>").addClass("input");
     $boredom.css("visibility", "visible");

@@ -219,13 +219,13 @@ progress::-moz-progress-bar {
         display: flex;
         flex-direction: row;
         position: absolute;
-        top: 78%;
+        top: 82%;
         left: 50%;
         transform: translate(-50%);
     }
     .metrics {
         /* top: 60%; */
-        /* margin-bottom: 90px; */
+        /* margin-bottom: 0px; */
         /* padding: 30px; */
         height: auto;
     }
@@ -236,7 +236,18 @@ progress::-moz-progress-bar {
         margin-bottom: 70px;
     }
     .cultivator__btn {
-        margin-bottom: 70px;
-
+        margin-bottom: 20px;
+    }
+    .play__metrics {
+        position:fixed;
+        top: 52%;
+    }
+    .cultivator__img {
+        position: relative;
+        top: 5%;
+    }
+    .play__img {
+        position: absolute;
+        top: 15%;
     }
 }

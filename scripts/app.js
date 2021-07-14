@@ -187,7 +187,7 @@ const createGameBoard = function() {
     /** beginning display on page */
     const $metricDiv = $("<div></div>").addClass(`cultivator`);
     const $metricUl = $("<ul></ul>").addClass("metrics cultivator__ul");
-    const $inputDiv = $("<div></div>").addClass("input");
+    const $inputDiv = $("<div></div>").addClass("input__div input");
     const $nameInput = $("<input class='input input__textbox' type='text' placeholder='Name your cultivator'></input>");
     // $('.cultivator').prepend($nameInput);
     const $displayCharacterBtn = $("<button id='display' class='input input__btn'>DISPLAY</button>");
@@ -224,37 +224,29 @@ const createCharacter = function() {
     newCharacter.displayCultivator();
     // newCharacter.imgUrl = "https://picsum.photos/200";
     newCharacter.imgUrl = "./images/chibi-cultivator.png";
-
+    console.log("Ineed to give it a different class name so i dont remove it here")
     /** DOM manipulation */
+    $(".input__div").remove();
     const $start = $("#start");
     $start.css("visibility", "visible");
     // $(".cultivator").append($start);
     const $avatar = $(`<img class="cultivator__img" src=${newCharacter.imgUrl} alt="image of Wei Wuxian, drawn in a chibi style. He looks adorable.">`);
     $(".cultivator").prepend($avatar);
-    const $metricDiv = $(".metrics");
-    const $boredom = $("<button id='boredom' class='metrics__btn'>Play</button>");
-    $metricDiv.append($boredom);
-    $boredom.css("visibility", "hidden");
-    const $hunger = $("<button id='hunger' class='metrics__btn'>Eat</button>");
-    $metricDiv.append($hunger);
-    $hunger.css("visibility", "hidden");
-    const $sleep = $("<button id='sleep' class='metrics__btn'>Sleep</button>");
-    $metricDiv.append($sleep);
-    $sleep.css("visibility", "hidden");
     $(".cultivator").append($start);
 };
 const startGame = function(){
-    /** change button visibility */
+   /** change button visibility */
     const $start = $("#start");
     $start.remove();
-    const $playBtns = $("<section class='interaction'></section>")
-    const $boredom = $("#boredom").addClass("input");
+    const $playBtns = $("<section class='interaction'></section>");
+
+    const $boredom = $("<button id='sleep' class='metrics__btn'>Sleep</button>").addClass("input");
     $boredom.css("visibility", "visible");
    $playBtns.append($boredom);
-    const $hunger = $("#hunger").addClass("input");
+    const $hunger = $("<button id='hunger' class='metrics__btn'>Eat</button>").addClass("input");
     $hunger.css("visibility", "visible");
    $playBtns.append($hunger);
-    const $sleep = $("#sleep").addClass("input");
+    const $sleep = $("<button id='sleep' class='metrics__btn'>Sleep</button>").addClass("input");
     $sleep.css("visibility", "visible");
    $playBtns.append($sleep);
    $(".cultivator").append($playBtns);
@@ -289,6 +281,7 @@ $("#start").on("click", startGame);
  * 
  
  * 
+buttons shouldn't exist until game starts
  * 
  * NOTE 
  * where to go from here?

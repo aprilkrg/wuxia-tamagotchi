@@ -40,8 +40,7 @@ class Cultivator {
         /**printing the data */
         for(const [key, value] of Object.entries(this)) {
             if(key == "boredom" || key == "hunger" || key == "sleep") {
-                console.log(key, 'this should be a progress bar')
-                let $metricBar = $(`<label for=${key}> ${key}: </label> <progress class='metric ${key}' max="10" value=${value}></progress><br>`);
+                let $metricBar = $(`<label for=${key}> ${key}:  </label> <progress class='metric ${key}' max="10" value=${value}></progress><br>`);
                 $(".metrics").append($metricBar);
             } else {
                 let $metricInfo = $(`<li>${key}: ${value}</li>`).addClass(`metric ${key}`);
@@ -224,7 +223,6 @@ const createCharacter = function() {
     newCharacter.displayCultivator();
     // newCharacter.imgUrl = "https://picsum.photos/200";
     newCharacter.imgUrl = "./images/chibi-cultivator.png";
-    console.log("Ineed to give it a different class name so i dont remove it here")
     /** DOM manipulation */
     $(".input__div").remove();
     const $start = $("#start");
@@ -242,7 +240,7 @@ const startGame = function(){
     $(".cultivator__ul").addClass("play__metrics");
     $(".cultivator__img").addClass("play__img");
 
-    const $boredom = $("<button id='sleep' class='metrics__btn'>Sleep</button>").addClass("input");
+    const $boredom = $("<button id='boredom' class='metrics__btn'>Boredom</button>").addClass("input");
     $boredom.css("visibility", "visible");
    $playBtns.append($boredom);
     const $hunger = $("<button id='hunger' class='metrics__btn'>Eat</button>").addClass("input");
@@ -281,6 +279,8 @@ $("#start").on("click", startGame);
  * progress bars instead of numbers √
  * dear god why did I choose to make all the html elements with jQuery == BIG DUMB
  * 
+ * 
+ * should there be a game class that has properties that will hold the interval timers for the game?
  
  * 
 buttons shouldn't exist until game starts

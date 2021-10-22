@@ -21,8 +21,11 @@ class Cultivator {
         }, 1000)
     }
     changeStatLevel(statToChange) {
-        console.log(statToChange, 'this is the stat')
-        weiYing.statToChange += 1;
+        // console.log(statToChange, 'this is the stat passed in')
+        // console.log(weiYing, 'wei ying obj')
+        weiYing[statToChange] += 1;
+        // console.log(weiYing[statToChange], 'this')
+
         // get stat id/name from a button click (passing in a string)
         // loop through the keys on the cultivator object and if one matches the string THEN
         // change the cultivator.stat_id value

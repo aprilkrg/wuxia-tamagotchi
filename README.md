@@ -3,6 +3,8 @@
 
 Modeled after 魔道祖师(Módào Zǔshī) by 墨香铜臭(Mòxiāng Tóngxiù), this game will simulate training your young Cultivator - keep your Cultivator entertained, fed, and rested so they can mature and increase their training level!
 
+[Deployed HERE](https://pages.git.generalassemb.ly/aprilkrgonzales/browser-pet-tamagotchi/)
+
 ### User Stories
 As A User:
 - I want to navigate to the hosted url

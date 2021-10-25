@@ -106,6 +106,7 @@ class Cultivator {
         $(".sleep").attr("value", this.sleep);
     }
     checkGameEnd() {
+        console.log("checking game over?")
         let over = Boolean();
         const $failMessage = $("<h1>You lose</h1>");
         if (this.boredom > 9 || this.hunger > 9) {
@@ -255,7 +256,7 @@ const startGame = function(){
     setInterval(function() {newCharacter.increaseBoredomLevel()}, 4000);
     setInterval(function() {newCharacter.increaseHungerLevel()}, 2000);
     setInterval(function() {newCharacter.increaseSleepLevel()}, 6000);
-    // setInterval(function() {newCharacter.checkGameEnd()}, 1000);
+    setInterval(function() {newCharacter.checkGameEnd()}, 1000);
     // === !CHANGE INTERVAL TIME FOR TESTING! === //
     // setInterval(function() {newCharacter.checkGameEnd()}, 100000);
     /** click event listeners */

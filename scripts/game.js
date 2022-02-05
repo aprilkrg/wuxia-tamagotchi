@@ -1,9 +1,11 @@
-console.log("game.js loaded")
 
 class Game {
+    static gameArr = []
+    static gameObj = {}
     // === ! Constructor ! === //
-    constructor() {
-
+    constructor(name) {
+        this.name = name
+        Game.gameObj[name] = {}
         // === ! Attributes ! === //
         this.gameOn = null;
         this.timer = null;
@@ -23,5 +25,11 @@ class Game {
     }
 }
 
-const game = new Game();
-// console.log(game);
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("game.js loaded")
+    // === ! create new instance on document load ! === //
+    const game = new Game('newGame');
+    Game.gameArr.push(game)
+    // console.log(Game.gameObj, Game.gameArr, game);
+    // return game;
+})

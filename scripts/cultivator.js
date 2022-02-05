@@ -1,4 +1,3 @@
-console.log("cultivator.js loaded")
 
 class Cultivator {
     // === ! Constructor ! === //
@@ -25,5 +24,9 @@ class Cultivator {
         console.log(weiYing, 'stat changed')
     }
 }
-const weiYing = new Cultivator("Wei Ying");
-// console.log(weiYing, 'wei ying');
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("cultivator.js loaded")
+    // === ! create new instance on document load ! === //
+    const weiYing = new Cultivator("Wei Ying");
+    console.log(weiYing, 'wei ying');
+})

@@ -1,4 +1,20 @@
 ---
+# Version 2.0
+### TIME FOR STRUCTURAL OVERHAUL
+back to basics, need to make sure the game works as just a text based javascript game. got so caught up in the dom I'm not sure how to refactor my code.
+Road to progress:
+- simple html, buttons, text, console log
+- javascript that tells the story in text 
+I'll make new html in the index file, and load the specialized js files into that.
+
+### VISUAL IMPROVEMENTS
+- animate the avatar to bounce up and down, or slide right and left
+- use progress bars to display character stats
+- color coordinate the buttons with the progress tickets
+- give everything padding
+
+
+
 # version 1.0
 ### THEME IDEAS
 - tamagotchi < Wei Ying
@@ -23,9 +39,3 @@ AAU:
 - Feed Wei Ying so he can grow into Wei Wuxian!
 
 
-# version 2.0
-### IMPROVEMENTS
-- animate the avatar to bounce up and down, or slide right and left
-- use progress bars to display character stats
-- color coordinate the buttons with the progress tickets
-- give everything padding

@@ -24,7 +24,6 @@ css classes:
 - board
 - card
 - stat
-
 css ids:
 - start
 - messages
@@ -35,6 +34,13 @@ css ids:
 - eatStat
 - sleepStat
 
+Create static variables in the classes so that I can access the current instances elsewhere in the code!!!! === BRAIN BLAST
+
+DOM RENDERING:
+have one function for rendering the dom, so that that function can be called every half second or something, and that can handle updating the stats and stuff
+what needs to be rendered?:
+- messages
+- stats
 
 ### VISUAL IMPROVEMENTS
 - animate the avatar to bounce up and down, or slide right and left

@@ -1,4 +1,5 @@
 class Cultivator {
+    static cultivatorObj = {};
     // === ! Constructor ! === //
     constructor(name) {
         this.name = name;
@@ -13,21 +14,22 @@ class Cultivator {
     }
     // === ! Methods ! === //
     increaseTime() {
-        this.timer = setInterval(function(){
-            console.log("tick")
-        }, 1000)
+        this.timer = setInterval(function () {
+            console.log("tick");
+        }, 1000);
     }
     changeStatLevel(statToChange) {
-        // === ! accepts parameter from play function to change stat ! === //
         // console.log(statToChange, 'this is the stat passed in')
-        weiYing[statToChange] += 1;
-        console.log(weiYing, 'stat changed')
+        // === ! accepts parameter from play function to change stat ! === //
+        this[statToChange] += 1;
     }
 }
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("cultivator.js loaded")
+    console.log("cultivator.js loaded");
     // === ! create new instance on document load ! === //
     const weiYing = new Cultivator("Wei Ying");
-    console.log(weiYing, 'wei ying');
+    // === ! add new character to static variables ! === //
+    Cultivator.cultivatorObj = weiYing;
+    console.log(Cultivator.cultivatorObj, "class obj");
     // return weiYing;
-})
+});

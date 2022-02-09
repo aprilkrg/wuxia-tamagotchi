@@ -28,8 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("game.js loaded")
     // === ! create new instance on document load ! === //
     const game = new Game('first-game');
-    // === ! add new game to static Game array ! === //
-    Game.gameArr.push(game)
-    console.log(game);
+    // === ! add new game to static Game variables ! === //
+    Game.gameArr.push(game);
+    Game.gameObj = game;
+    console.log(Game.gameObj, 'class obj');
     // return game;
 })

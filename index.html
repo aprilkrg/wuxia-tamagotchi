@@ -10,7 +10,7 @@
         rel="stylesheet">
     <!-- personal styles -->
     <!-- <link rel="stylesheet" href="styles/main.css"> -->
-    <link rel="stylesheet" href="./styles/game.css">
+    <!-- <link rel="stylesheet" href="./styles/game.css"> -->
     <!-- vendor scripts -->
     <script defer src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -22,16 +22,22 @@
 </head>
 
 <body>
+    <!-- start game button -->
     <button class="cultivator button" id="start">Start Game</button>
+    <!-- game score and messages -->
     <section class="cultivator score">
-        <div id="messages"></div>
+        <div id="messages">
+            <p id="play"></p>
+            <p id="eat"></p>
+            <p id="sleep"></p>
+        </div>
     </section>
+    <!-- cultivator display and interaction -->
     <section class="cultivator card">
-        <button class="button stat"></button>
-        <button class="button stat"></button>
-        <button class="button stat"></button>
+        <button class="button stat" id="playLevel">Play</button>
+        <button class="button stat" id="eatLevel">Eat</button>
+        <button class="button stat" id="sleepLevel">Sleep</button>
     </section>
-
 </body>
 
 </html>

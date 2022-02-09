@@ -14,7 +14,8 @@ need to know what html elements are necessary for the game to start/run:
 - div: display stats and game messages // id="messages"
 
 containers or wrappers need class "cultivator"
-any buttons needs "button" class
+any buttons needs "button" class, with ids that are their stat/purpose
+NOTE: maybe change div to section? with flex display it might make it weird?
 
 
 

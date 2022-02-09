@@ -7,13 +7,22 @@ Road to progress:
 - javascript that tells the story in text 
 I'll make new html in the index file, and load the specialized js files into that.
 
+need to know what html elements are necessary for the game to start/run:
+- buttons: cultivator stats // class="button stat"
+- button: start game // id="start" class="button"
+- section: feedback from game // class="score"
+- div: display stats and game messages // id="messages"
+
+containers or wrappers need class "cultivator"
+any buttons needs "button" class
+
+
+
 ### VISUAL IMPROVEMENTS
 - animate the avatar to bounce up and down, or slide right and left
 - use progress bars to display character stats
 - color coordinate the buttons with the progress tickets
 - give everything padding
-
-
 
 # version 1.0
 ### THEME IDEAS

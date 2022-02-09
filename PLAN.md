@@ -31,9 +31,9 @@ css ids:
 - play
 - eat
 - sleep
-- playLevel
-- eatLevel
-- sleepLevel
+- playStat
+- eatStat
+- sleepStat
 
 
 ### VISUAL IMPROVEMENTS

@@ -1,45 +1,35 @@
-const startGameFunction = function() {
-    console.log("start game function invoked")
+const startGameFunction = function () {
+    console.log("start game function invoked");
     // // ===== START GAME BUTTON ===== //
-    Game.gameArr[0].gamePowerBtn()
-    console.log("game on:", Game.gameArr[0].gameOn)
+    Game.gameArr[0].gamePowerBtn();
+    console.log("game on:", Game.gameArr[0].gameOn);
+};
+
+const changeStat = function (event) {
+    console.log("change stat function invoked");
+    // === ! stop the click from counting if the game is off ! === //
+    if (Game.gameObj.gameOn === false) {
+        console.log("the game is off");
+        return;
+    }
+    console.log(Game.gameArr[0].gameOn); // click before start === null, after true
+    console.log(Game.gameObj); // click before start === empty object, after empty {}
+
     // // ===== STAT LEVEL BUTTONS ===== //
-    // const buttons = document.getElementById("statBtn__board");
-    // // // problem with adding event listener this way: a user could click outside of the button but inside the #statBtn__board section, which will give a string that won't be useful later
-    // buttons.addEventListener("click", changeStat);
-    // function changeStat(event) {
-    //     const statId = event.target.id + "Level";
-    //     // console.log(statId, 'statid')
-    //     // console.log(weiYing[statId], 'statId value')
-    //     // const statToChange = weiYing[statId];
-    //     weiYing.changeStatLevel(statId)
-    // };
-}
-
-// const gameStart = startBtn.addEventListener("click", function() {
-//     game.gamePowerBtn();
-//     console.log(game.gameOn, "game on status")
-//     console.log(game, 'is the timer running')
-//     game.timer = setInterval(function(){
-//         // game.timer += 1;
-//         // console.log(game.timer)
-//         console.log("click")
-//     }, 1000)
-// });
-
-// const stopBtn = document.getElementById("stop__btn");
-// stopBtn.addEventListener("click", function(){
-//     // console.log(game.timer, 'timer')
-//     clearInterval(game.timer)
-// })
-
-
-
+    const statId = event.target.id + "Level";
+	console.log(statId, 'stat id')
+    //   weiYing.changeStatLevel(statId);
+    // weiYing is undefined - can i solve this by adding it as a static variable, like with the Game.gameArr?
+};
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("play.js loaded");
     // === ! create DOM element variables ! === //
     const startBtn = document.querySelector("#start");
+    const statBtns = document.querySelectorAll(".stat");
     // === ! attach event listeners ! === //
     startBtn.addEventListener("click", startGameFunction);
+    for (let i = 0; i < statBtns.length; i++) {
+        statBtns[i].addEventListener("click", changeStat);
+    }
 });

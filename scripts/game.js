@@ -1,4 +1,3 @@
-
 class Game {
     static gameArr = []
     static gameObj = {}
@@ -12,7 +11,7 @@ class Game {
     }
     // === ! Methods ! === //
     gamePowerBtn = () => {
-        // === toggles the gameOn attribute on or off, returns Boolean === //
+        // === ! toggles the gameOn attribute on or off, returns Boolean ! === //
         if(this.gameOn === null) {
             this.gameOn = true;
         } else {
@@ -28,8 +27,9 @@ class Game {
 document.addEventListener("DOMContentLoaded", () => {
     console.log("game.js loaded")
     // === ! create new instance on document load ! === //
-    const game = new Game('newGame');
+    const game = new Game('first-game');
+    // === ! add new game to static Game array ! === //
     Game.gameArr.push(game)
-    // console.log(Game.gameObj, Game.gameArr, game);
+    console.log(game);
     // return game;
 })

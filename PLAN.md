@@ -17,6 +17,23 @@ containers or wrappers need class "cultivator"
 any buttons needs "button" class, with ids that are their stat/purpose
 NOTE: maybe change div to section? with flex display it might make it weird?
 
+css classes:
+- cultivator
+- button
+- score
+- board
+- card
+- stat
+
+css ids:
+- start
+- messages
+- play
+- eat
+- sleep
+- playLevel
+- eatLevel
+- sleepLevel
 
 
 ### VISUAL IMPROVEMENTS

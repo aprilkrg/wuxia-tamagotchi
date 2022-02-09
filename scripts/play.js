@@ -1,13 +1,8 @@
-
 const startGameFunction = function() {
-    console.log("start game function")
+    console.log("start game function invoked")
     // // ===== START GAME BUTTON ===== //
-    const startBtn = document.querySelector("#start");
-    // console.log(startBtn, 'start button')
-    startBtn.addEventListener("click", function() {
-        console.log("game on", )
-        Game.gameArr[0].gamePowerBtn()
-    });
+    Game.gameArr[0].gamePowerBtn()
+    console.log("game on:", Game.gameArr[0].gameOn)
     // // ===== STAT LEVEL BUTTONS ===== //
     // const buttons = document.getElementById("statBtn__board");
     // // // problem with adding event listener this way: a user could click outside of the button but inside the #statBtn__board section, which will give a string that won't be useful later
@@ -42,7 +37,9 @@ const startGameFunction = function() {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("play.js loaded")
-    // === ! invoke functions ! === //
-    startGameFunction()
-})
+    console.log("play.js loaded");
+    // === ! create DOM element variables ! === //
+    const startBtn = document.querySelector("#start");
+    // === ! attach event listeners ! === //
+    startBtn.addEventListener("click", startGameFunction);
+});

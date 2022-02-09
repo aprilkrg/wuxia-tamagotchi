@@ -1,4 +1,3 @@
-
 class Cultivator {
     // === ! Constructor ! === //
     constructor(name) {
@@ -19,6 +18,7 @@ class Cultivator {
         }, 1000)
     }
     changeStatLevel(statToChange) {
+        // === ! accepts parameter from play function to change stat ! === //
         // console.log(statToChange, 'this is the stat passed in')
         weiYing[statToChange] += 1;
         console.log(weiYing, 'stat changed')
@@ -29,4 +29,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // === ! create new instance on document load ! === //
     const weiYing = new Cultivator("Wei Ying");
     console.log(weiYing, 'wei ying');
+    // return weiYing;
 })

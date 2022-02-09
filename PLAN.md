@@ -26,7 +26,7 @@ css classes:
 - stat
 css ids:
 - start
-- messages
+- timer
 - play
 - eat
 - sleep

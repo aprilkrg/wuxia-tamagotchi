@@ -8,13 +8,45 @@ const startGameFunction = function () {
 	startBtn.remove();
 	// === ! when there is a click, re-render in response to the change ! === //
 	render();
+	// playGame();
+};
 
-	if(Game.gameObj.gameOn === true) {
-		setInterval(function() {handleTimer()}, 1000);
-		setInterval(function() {handleStat()}, 1000);
-		setInterval(function() {stopGameFunction()}, 500);
-	};
+const playGame = function() {
+	console.log("play game invoked");
+	let timerInterval;
+	let statInterval;
+	let stopInterval;
+	// === ! interval timers for gameplay ! === //
+	// === ! have to give a real variable to pass to the functions, or it will error out ! === //
+	setInterval(function() {handleTimer(timerInterval)}, 1000);
+	setInterval(function() {handleStat()}, 1000);
+	setInterval(function() {stopGameFunction(timerInterval)}, 500);
+	// if(Game.gameObj.gameOn === true) {
+	// 	console.log("game on from play game")
+	// 	timerInterval = setInterval(function() {handleTimer()}, 1000);
+	// 	statInterval = setInterval(function() {handleStat()}, 1000);
+	// 	stopInterval = setInterval(function() {stopGameFunction(timerInterval)}, 500);
+	// };
+	// console.log({stopInterval}, 'stoppyyyy')
+	// if(Game.gameObj.gameOn === false) {
+	// 	console.log("game over from play game")
+	// };
+	// stopGameFunction(timerInterval);
 
+	// if(Game.gameObj.gameOn === true) {
+	// 	console.log("entering the if check")
+	// } else if(Game.gameObj.gameOn === false){
+	// 	console.log("entering the else if check")
+	// } else {
+	// 	console.log("game over from start game function")
+	// };
+
+	// do {
+	// 	console.log("entering the do statement")
+	// 	timerInterval = setInterval(function() {handleTimer()}, 1000);
+	// 	statInterval = setInterval(function() {handleStat()}, 1000);
+	// 	stopInterval = setInterval(function() {stopGameFunction()}, 500);
+	// } while(Game.gameObj.gameOn === true);
 };
 
 const clickStat = function (event) {
@@ -43,30 +75,36 @@ const handleStat = function() {
 	};
 };
 
-const handleTimer = function() {
+const handleTimer = function(params) {
 	// console.log(Game.gameObj.timer, 'timer');
+	console.log(params, 'params in handle timer')
 	const timer = document.querySelector("#timer");
 	// === ! if timer is null, set it to a number datatype ! === //
 	if(Game.gameObj.timer === null) {
-		Game.gameObj.timer = 1;
+		// === ! start at 0 so the first number that shows on the dom is a 1 ! === //
+		Game.gameObj.timer = 0;
 	};
 	// === ! set innerHTML ! === //
-	timer.innerHTML = Game.gameObj.timer;
 	Game.gameObj.timer++;
-	// return Game.gameObj.timer;
+	timer.innerHTML = Game.gameObj.timer;
+	console.log(Game.gameObj.timer, 'handle timer timer');
+	return Game.gameObj.timer;
 };
 
-const stopGameFunction = function() {
+const stopGameFunction = function(passedInterval) {
 	// === ! only turn the game off if it's on ! === //
 	if (Game.gameObj.gameOn === false) return;
-	console.log(Game.gameObj.gameOn, 'game on? from stop game function')
+	console.log(Game.gameObj.gameOn, 'game on? checking from stop game')
+	console.log(Game.gameObj.timer, 'timer')
 	// === ! check if relevant obj properties are greater than 1, ie. character is still alive ! === //
 	if (Cultivator.cultivatorObj.playLevel < 1 || Cultivator.cultivatorObj.eatLevel < 1 || Cultivator.cultivatorObj.sleepLevel < 1) {
-		console.log("stop game function invoked");
+		// console.log("stop game function invoked");
 		console.log(Game.gameObj.gameOn, '<= should be true')
 		Game.gameObj.gamePowerBtn();
 		console.log(Game.gameObj.gameOn, '<= should be false')
 	};
+	// clearInterval(Game.gameObj.timer);
+	console.log(passedInterval, 'passeddddddd')
 };
 const render = function() {
 	// console.log("render function invoked");
@@ -87,11 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const statBtns = document.querySelectorAll(".stat");
     // === ! attach event listeners ! === //
     startBtn.addEventListener("click", startGameFunction);
+    startBtn.addEventListener("click", playGame);
     for (let i = 0; i < statBtns.length; i++) {
 		statBtns[i].addEventListener("click", clickStat);
     };
-	// === ! interval timers for gameplay ! === //
-	if (Game.gameObj.gameOn === false) {
-		console.log("game over from the document listener");
-	};
 });

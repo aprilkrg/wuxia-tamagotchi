@@ -3,8 +3,13 @@ const startGameFunction = function () {
     // // ===== START GAME BUTTON ===== //
     Game.gameArr[0].gamePowerBtn();
     console.log("game on:", Game.gameArr[0].gameOn);
+	// === ! interval timers for gameplay ! === //
 	setInterval(function() {handleTimer()}, 1000);
 	setInterval(function() {handleStat()}, 1000);
+	// === ! remove start button ! === //
+	const startBtn = document.querySelector("#start");
+	startBtn.remove();
+	// === ! when there is a click, re-render in response to the change ! === //
 	render();
 };
 
@@ -18,25 +23,29 @@ const changeStat = function (event) {
     // // ===== STAT LEVEL BUTTONS ===== //
     const statId = event.target.id + "Level";
     Cultivator.cultivatorObj.changeStatLevel(statId);
+	// === ! when there is a click, re-render in response to the change ! === //
 	render();
 };
 
 const handleStat = function() {
+	// === ! decrement a value on the cultivatorObj ! === //
 	for(let [key, value] of Object.entries(Cultivator.cultivatorObj)) {
-		if(Number.isInteger(value)) {
+		// === ! Only loop through the numbers, and not trainingLevel ! === //
+		if(Number.isInteger(value) && key !== "trainingLevel") {
 			Cultivator.cultivatorObj[value]--;
 			console.log(key, value);
 		};
 	};
-	render();
 };
 
 const handleTimer = function() {
 	// console.log(Game.gameObj.timer, 'timer');
 	const timer = document.querySelector("#timer");
+	// === ! if timer is null, set it to a number datatype ! === //
 	if(Game.gameObj.timer === null) {
 		Game.gameObj.timer = 1;
 	};
+	// === ! set innerHTML ! === //
 	timer.innerHTML = Game.gameObj.timer;
 	Game.gameObj.timer++;
 };

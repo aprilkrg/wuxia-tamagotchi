@@ -13,7 +13,7 @@ const startGameFunction = function () {
 	render();
 };
 
-const changeStat = function (event) {
+const clickStat = function (event) {
     console.log("change stat function invoked");
     // === ! stop the click from counting if the gameOn is null ! === //
     if (Game.gameObj.gameOn === null) {
@@ -30,11 +30,18 @@ const changeStat = function (event) {
 const handleStat = function() {
 	// === ! decrement a value on the cultivatorObj ! === //
 	for(let [key, value] of Object.entries(Cultivator.cultivatorObj)) {
-		// === ! Only loop through the numbers, and not trainingLevel ! === //
-		if(Number.isInteger(value) && key !== "trainingLevel") {
-			Cultivator.cultivatorObj[value]--;
+		// console.log(key, value);
+		// let selector = key;
+		// === ! Only loop through the numbers ! === //
+		if(Number.isInteger(value)) {
 			console.log(key, value);
-		};
+			Cultivator.cultivatorObj[key]--;
+			console.log(Cultivator.cultivatorObj[key], 'orrrrr')
+			render();
+		} else {
+			console.log("hit the else play.js handleStat")
+			console.log(key, value);
+		}
 	};
 };
 
@@ -53,9 +60,9 @@ const handleTimer = function() {
 const render = function() {
 	console.log("render function invoked");
 	// === ! create DOM element variables ! === //
-	const playStat = document.querySelector("#playStat");
-	const eatStat = document.querySelector("#eatStat");
-	const sleepStat = document.querySelector("#sleepStat");
+	const playStat = document.querySelector("#playLevel");
+	const eatStat = document.querySelector("#eatLevel");
+	const sleepStat = document.querySelector("#sleepLevel");
 	// === ! set innerHTML ! === //
 	playStat.innerHTML = Cultivator.cultivatorObj.playLevel;
 	eatStat.innerHTML = Cultivator.cultivatorObj.eatLevel;
@@ -70,6 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // === ! attach event listeners ! === //
     startBtn.addEventListener("click", startGameFunction);
     for (let i = 0; i < statBtns.length; i++) {
-		statBtns[i].addEventListener("click", changeStat);
+		statBtns[i].addEventListener("click", clickStat);
     };
 });

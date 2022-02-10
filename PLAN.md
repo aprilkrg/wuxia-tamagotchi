@@ -33,6 +33,7 @@ css ids:
 - playStat
 - eatStat
 - sleepStat
+- message
 
 Create static variables in the classes so that I can access the current instances elsewhere in the code!!!! === BRAIN BLAST
 
@@ -42,11 +43,11 @@ what needs to be rendered?:
 - messages
 - stats
 
-game over logic and message!
+- game over logic √ and - message √
 
 current tasks:
-- any stats not at 0 continue decreasing after the timer stops
-- right now the game timer continues for one extra second after the stats hit 0
+- any stats not at 0 continue decreasing after the timer stops √CHECK√
+- right now the game timer continues for one extra second after the stats hit 0 √CHECK√
 
 
 ### VISUAL IMPROVEMENTS

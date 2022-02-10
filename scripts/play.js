@@ -55,30 +55,32 @@ const handleTimer = function() {
 		// === ! start at 0 so the first number that shows on the dom is a 1 ! === //
 		Game.gameObj.timer = 0;
 	};
+	// === ! check for game over condition ! === //
+	if (Game.gameObj.gameOn === false) {
+		console.log("game off from handle timer");
+		clearInterval(timerInterval);
+		const message = document.querySelector("#message");
+		message.innerHTML = "GAME OVER";
+		return;
+	};
 	// === ! increment timer on gameObj ! === //
 	Game.gameObj.timer++;
 	timer.innerHTML = Game.gameObj.timer;
-	console.log(Game.gameObj.timer, 'handle timer timer');
-	if (Game.gameObj.gameOn === false) {
-		clearInterval(timerInterval);
-		console.log("game off from handle timer")
-	};
+	// console.log(Game.gameObj.timer, 'handle timer timer');
 };
 
 const stopGameFunction = function() {
 	// === ! only turn the game off if it's on ! === //
 	if (Game.gameObj.gameOn === false) return;
-	console.log(Game.gameObj.gameOn, 'game on? checking from stop game')
-	console.log(Game.gameObj.timer, 'timer')
+	// console.log(Game.gameObj.gameOn, 'game on? checking from stop game')
+	// console.log(Game.gameObj.timer, 'timer')
 	// === ! check if relevant obj properties are greater than 1, ie. character is still alive ! === //
 	if (Cultivator.cultivatorObj.playLevel < 1 || Cultivator.cultivatorObj.eatLevel < 1 || Cultivator.cultivatorObj.sleepLevel < 1) {
 		// console.log("stop game function invoked");
-		console.log(Game.gameObj.gameOn, '<= should be true')
+		// console.log(Game.gameObj.gameOn, '<= should be true')
 		Game.gameObj.gamePowerBtn();
-		console.log(Game.gameObj.gameOn, '<= should be false')
-		// clearInterval(Game.gameObj.timer);
-		// === CLEAR INTERVAL WON'T WORK :(((( === //
-		// document.querySelector("#timer").remove();
+		// console.log(Game.gameObj.gameOn, '<= should be false')
+
 	};
 };
 const render = function() {

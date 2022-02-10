@@ -13,40 +13,10 @@ const startGameFunction = function () {
 
 const playGame = function() {
 	console.log("play game invoked");
-	let timerInterval;
-	let statInterval;
-	let stopInterval;
 	// === ! interval timers for gameplay ! === //
-	// === ! have to give a real variable to pass to the functions, or it will error out ! === //
-	setInterval(function() {handleTimer(timerInterval)}, 1000);
+	timerInterval = setInterval(function() {handleTimer()}, 1000);
 	setInterval(function() {handleStat()}, 1000);
-	setInterval(function() {stopGameFunction(timerInterval)}, 500);
-	// if(Game.gameObj.gameOn === true) {
-	// 	console.log("game on from play game")
-	// 	timerInterval = setInterval(function() {handleTimer()}, 1000);
-	// 	statInterval = setInterval(function() {handleStat()}, 1000);
-	// 	stopInterval = setInterval(function() {stopGameFunction(timerInterval)}, 500);
-	// };
-	// console.log({stopInterval}, 'stoppyyyy')
-	// if(Game.gameObj.gameOn === false) {
-	// 	console.log("game over from play game")
-	// };
-	// stopGameFunction(timerInterval);
-
-	// if(Game.gameObj.gameOn === true) {
-	// 	console.log("entering the if check")
-	// } else if(Game.gameObj.gameOn === false){
-	// 	console.log("entering the else if check")
-	// } else {
-	// 	console.log("game over from start game function")
-	// };
-
-	// do {
-	// 	console.log("entering the do statement")
-	// 	timerInterval = setInterval(function() {handleTimer()}, 1000);
-	// 	statInterval = setInterval(function() {handleStat()}, 1000);
-	// 	stopInterval = setInterval(function() {stopGameFunction()}, 500);
-	// } while(Game.gameObj.gameOn === true);
+	setInterval(function() {stopGameFunction()}, 500);
 };
 
 const clickStat = function (event) {
@@ -75,23 +45,26 @@ const handleStat = function() {
 	};
 };
 
-const handleTimer = function(params) {
+const handleTimer = function() {
 	// console.log(Game.gameObj.timer, 'timer');
-	console.log(params, 'params in handle timer')
+	// === ! DOM manipulation ! === //
 	const timer = document.querySelector("#timer");
 	// === ! if timer is null, set it to a number datatype ! === //
 	if(Game.gameObj.timer === null) {
 		// === ! start at 0 so the first number that shows on the dom is a 1 ! === //
 		Game.gameObj.timer = 0;
 	};
-	// === ! set innerHTML ! === //
+	// === ! increment timer on gameObj ! === //
 	Game.gameObj.timer++;
 	timer.innerHTML = Game.gameObj.timer;
 	console.log(Game.gameObj.timer, 'handle timer timer');
-	return Game.gameObj.timer;
+	if (Game.gameObj.gameOn === false) {
+		clearInterval(timerInterval);
+		console.log("game off from handle timer")
+	};
 };
 
-const stopGameFunction = function(passedInterval) {
+const stopGameFunction = function() {
 	// === ! only turn the game off if it's on ! === //
 	if (Game.gameObj.gameOn === false) return;
 	console.log(Game.gameObj.gameOn, 'game on? checking from stop game')
@@ -102,9 +75,10 @@ const stopGameFunction = function(passedInterval) {
 		console.log(Game.gameObj.gameOn, '<= should be true')
 		Game.gameObj.gamePowerBtn();
 		console.log(Game.gameObj.gameOn, '<= should be false')
+		// clearInterval(Game.gameObj.timer);
+		// === CLEAR INTERVAL WON'T WORK :(((( === //
+		// document.querySelector("#timer").remove();
 	};
-	// clearInterval(Game.gameObj.timer);
-	console.log(passedInterval, 'passeddddddd')
 };
 const render = function() {
 	// console.log("render function invoked");
@@ -120,6 +94,8 @@ const render = function() {
 
 document.addEventListener("DOMContentLoaded", () => {
 	console.log("play.js loaded");
+	// === ! create global variable for intarvcal clear
+	let timerInterval;
     // === ! create DOM element variables ! === //
     const startBtn = document.querySelector("#start");
     const statBtns = document.querySelectorAll(".stat");

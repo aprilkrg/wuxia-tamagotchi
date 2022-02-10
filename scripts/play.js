@@ -8,7 +8,7 @@ const startGameFunction = function () {
 	startBtn.remove();
 	// === ! when there is a click, re-render in response to the change ! === //
 	render();
-	// playGame();
+	playGame();
 };
 
 const playGame = function() {
@@ -47,7 +47,7 @@ const handleStat = function() {
 };
 
 const handleTimer = function() {
-	// console.log(Game.gameObj.timer, 'timer');
+	// console.log(Game.gameObj.timer, 'handle timer timer');
 	// === ! DOM manipulation ! === //
 	const timer = document.querySelector("#timer");
 	// === ! if timer is null, set it to a number datatype ! === //
@@ -66,21 +66,16 @@ const handleTimer = function() {
 	// === ! increment timer on gameObj ! === //
 	Game.gameObj.timer++;
 	timer.innerHTML = Game.gameObj.timer;
-	// console.log(Game.gameObj.timer, 'handle timer timer');
 };
 
 const stopGameFunction = function() {
 	// === ! only turn the game off if it's on ! === //
 	if (Game.gameObj.gameOn === false) return;
 	// console.log(Game.gameObj.gameOn, 'game on? checking from stop game')
-	// console.log(Game.gameObj.timer, 'timer')
 	// === ! check if relevant obj properties are greater than 1, ie. character is still alive ! === //
 	if (Cultivator.cultivatorObj.playLevel < 1 || Cultivator.cultivatorObj.eatLevel < 1 || Cultivator.cultivatorObj.sleepLevel < 1) {
 		// console.log("stop game function invoked");
-		// console.log(Game.gameObj.gameOn, '<= should be true')
 		Game.gameObj.gamePowerBtn();
-		// console.log(Game.gameObj.gameOn, '<= should be false')
-
 	};
 };
 const render = function() {
@@ -104,7 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const statBtns = document.querySelectorAll(".stat");
     // === ! attach event listeners ! === //
     startBtn.addEventListener("click", startGameFunction);
-    startBtn.addEventListener("click", playGame);
     for (let i = 0; i < statBtns.length; i++) {
 		statBtns[i].addEventListener("click", clickStat);
     };

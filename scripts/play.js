@@ -8,6 +8,13 @@ const startGameFunction = function () {
 	startBtn.remove();
 	// === ! when there is a click, re-render in response to the change ! === //
 	render();
+
+	if(Game.gameObj.gameOn === true) {
+		setInterval(function() {handleTimer()}, 1000);
+		setInterval(function() {handleStat()}, 1000);
+		setInterval(function() {stopGameFunction()}, 500);
+	};
+
 };
 
 const clickStat = function (event) {
@@ -57,7 +64,7 @@ const stopGameFunction = function() {
 	if (Cultivator.cultivatorObj.playLevel < 1 || Cultivator.cultivatorObj.eatLevel < 1 || Cultivator.cultivatorObj.sleepLevel < 1) {
 		console.log("stop game function invoked");
 		console.log(Game.gameObj.gameOn, '<= should be true')
-		Game.gameObj.gameOn = !Game.gameObj.gameOn;
+		Game.gameObj.gamePowerBtn();
 		console.log(Game.gameObj.gameOn, '<= should be false')
 	};
 };
@@ -84,13 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		statBtns[i].addEventListener("click", clickStat);
     };
 	// === ! interval timers for gameplay ! === //
-	do {
-		setInterval(function() {handleTimer()}, 1000);
-		setInterval(function() {handleStat()}, 1000);
-		setInterval(function() {stopGameFunction()}, 500);
-	} while (Game.gameObj.gameOn === true)
 	if (Game.gameObj.gameOn === false) {
 		console.log("game over from the document listener");
-	}
-	
+	};
 });

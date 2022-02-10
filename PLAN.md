@@ -42,6 +42,9 @@ what needs to be rendered?:
 - messages
 - stats
 
+game over logic and message!
+
+
 ### VISUAL IMPROVEMENTS
 - animate the avatar to bounce up and down, or slide right and left
 - use progress bars to display character stats

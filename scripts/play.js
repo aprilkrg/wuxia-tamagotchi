@@ -6,6 +6,7 @@ const startGameFunction = function () {
 	// === ! interval timers for gameplay ! === //
 	setInterval(function() {handleTimer()}, 1000);
 	setInterval(function() {handleStat()}, 1000);
+	setInterval(function() {stopGameFunction()}, 500);
 	// === ! remove start button ! === //
 	const startBtn = document.querySelector("#start");
 	startBtn.remove();
@@ -30,18 +31,12 @@ const clickStat = function (event) {
 const handleStat = function() {
 	// === ! decrement a value on the cultivatorObj ! === //
 	for(let [key, value] of Object.entries(Cultivator.cultivatorObj)) {
-		// console.log(key, value);
-		// let selector = key;
 		// === ! Only loop through the numbers ! === //
-		if(Number.isInteger(value)) {
-			console.log(key, value);
+		if(Number.isInteger(value) && value >= 1) {
+			// console.log(key, value);
 			Cultivator.cultivatorObj[key]--;
-			console.log(Cultivator.cultivatorObj[key], 'orrrrr')
 			render();
-		} else {
-			console.log("hit the else play.js handleStat")
-			console.log(key, value);
-		}
+		};
 	};
 };
 
@@ -57,8 +52,14 @@ const handleTimer = function() {
 	Game.gameObj.timer++;
 };
 
+const stopGameFunction = function() {
+	// === ! check if relevant obj properties are greater than 1, ie. character is still alive ! === //
+	if (Cultivator.cultivatorObj.playLevel < 1 || Cultivator.cultivatorObj.eatLevel < 1 || Cultivator.cultivatorObj.sleepLevel < 1) {
+		console.log("stop game function invoked");
+	};
+};
 const render = function() {
-	console.log("render function invoked");
+	// console.log("render function invoked");
 	// === ! create DOM element variables ! === //
 	const playStat = document.querySelector("#playLevel");
 	const eatStat = document.querySelector("#eatLevel");

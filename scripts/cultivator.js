@@ -7,17 +7,11 @@ class Cultivator {
         this.sect = "Yunmeng Jiang";
         this.goldenCore = true;
         this.trainingLevel = 0;
-        this.playLevel = 0;
-        this.eatLevel = 0;
-        this.sleepLevel = 0;
-        this.timer;
+        this.playLevel = 10;
+        this.eatLevel = 10;
+        this.sleepLevel = 10;
     }
     // === ! Methods ! === //
-    increaseTime() {
-        this.timer = setInterval(function () {
-            console.log("tick");
-        }, 1000);
-    }
     changeStatLevel(statToChange) {
         // console.log(statToChange, 'this is the stat passed in')
         // === ! accepts parameter from play function to change stat ! === //

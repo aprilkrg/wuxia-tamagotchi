@@ -19,9 +19,6 @@ class Game {
         }
         return this.gameOn;
     }
-    checkPlayerStats = () => {
-        
-    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {

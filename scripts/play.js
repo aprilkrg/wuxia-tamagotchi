@@ -34,6 +34,7 @@ const clickStat = function (event) {
 };
 
 const handleStat = function() {
+	if (Game.gameObj.gameOn === false) return;
 	// === ! decrement a value on the cultivatorObj ! === //
 	for(let [key, value] of Object.entries(Cultivator.cultivatorObj)) {
 		// === ! Only loop through the numbers ! === //

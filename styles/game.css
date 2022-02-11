@@ -24,31 +24,44 @@ body {
     /* background: linear-gradient(117deg, 
     rgba(33,37,41,1) 1%, rgba(52,58,64,1) 77%, rgba(73,80,87,1) 100%); */
 }
-.cultivator__card {
-    height: 60vh;
-    width: 80vw;
-    background-color: var(--grey1);
-    position: sticky;
-    top: 50%;
-    left: 50%;
-    transform: translate(-10%, -50%);
-}
-#display, #start {
-    height: 10vh;
-    width: 20vw;
+.button {
     background: var(--green);
     opacity: 60%;
+}
+.button:hover {
+    background-color: var(--green);
+    transition: ease-in-out 330ms;
+    opacity: 100%;
+}
+.cultivator {
     position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2rem; 
+    border: 2px solid yellow;
+}
+.score {
+    display: flex;
+    justify-content: space-evenly;
+}
+.board {
+    min-width: 80vw;
+    justify-content: space-evenly;
+    border: 2px solid lime;
+}
+.stat {
+    display: flex;
+    flex-direction: row;
+    height: 4vh;
+    width: 8vh;
+    font-size: 1rem; 
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+}
+#start {
+    height: 10vh;
+    width: 20vw;
+    font-size: 1rem; 
     font-family: Roboto,  sans-serif;
     font-weight: 600;
-}
-
-#display:hover, #start:hover {
-    background-color: var(--green);
-    transition: ease-in-out 330ms;
-    opacity: 100%;
 }

@@ -42,19 +42,25 @@ have one function for rendering the dom, so that that function can be called eve
 what needs to be rendered?:
 - messages
 - stats
-
 - game over logic √ and - message √
 
 current tasks:
 - any stats not at 0 continue decreasing after the timer stops √CHECK√
 - right now the game timer continues for one extra second after the stats hit 0 √CHECK√
 
-
 ### VISUAL IMPROVEMENTS
+- create styling for classes that create a base style level
+
+
 - animate the avatar to bounce up and down, or slide right and left
 - use progress bars to display character stats
 - color coordinate the buttons with the progress tickets
 - give everything padding
+
+
+
+
+
 
 # version 1.0
 ### THEME IDEAS

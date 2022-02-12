@@ -25,13 +25,9 @@ body {
     rgba(33,37,41,1) 1%, rgba(52,58,64,1) 77%, rgba(73,80,87,1) 100%); */
 }
 .button {
-    background: var(--green);
-    opacity: 60%;
-}
-.button:hover {
-    background-color: var(--green);
-    transition: ease-in-out 330ms;
-    opacity: 100%;
+    font-family: Roboto,  sans-serif;
+    align-items: center;
+    justify-content: center;
 }
 .cultivator {
     display: flex;
@@ -50,18 +46,29 @@ body {
     justify-content: space-evenly;
     border: 2px solid lime;
 }
+.card {
+    min-width: 40vw;
+    width: max-content;
+    justify-content: space-evenly;
+    align-items: center;
+}
 .stat {
     flex-direction: row;
     height: 4vh;
-    width: 8vh;
+    width: 8vw;
     font-size: 1rem; 
-    font-family: Roboto, sans-serif;
     font-weight: 400;
 }
 #start {
+    background: var(--green);
+    opacity: 60%;
     height: 10vh;
     width: 20vw;
     font-size: 1rem; 
-    font-family: Roboto,  sans-serif;
     font-weight: 600;
+}
+#start:hover {
+    background-color: var(--green);
+    transition: ease-in-out 330ms;
+    opacity: 100%;
 }

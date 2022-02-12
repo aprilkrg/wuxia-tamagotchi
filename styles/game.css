@@ -7,6 +7,12 @@
     --grey1: #495057;
     --grey2: #343A40;
     --grey3: #212529;
+
+    --green-blue: #7BE1C9;
+    --yellow-green: #C3E791;
+    --celeste: #B9EEEA;
+    --pink: #fde2e4;
+    --lavender: #cddafd;
 }
 
 * {
@@ -28,6 +34,11 @@ body {
     font-family: Roboto,  sans-serif;
     align-items: center;
     justify-content: center;
+    opacity: 60%;
+}
+.button:hover {
+    transition: ease-in-out 330ms;
+    opacity: 100%;
 }
 .cultivator {
     display: flex;
@@ -67,14 +78,20 @@ body {
 }
 #start {
     background: var(--green);
-    opacity: 60%;
     height: 10vh;
     width: 20vw;
     font-size: 1rem; 
     font-weight: 600;
 }
-#start:hover {
-    background-color: var(--green);
-    transition: ease-in-out 330ms;
-    opacity: 100%;
+#play, #playLevel {
+    color: var(--grey3);
+    background-color: var(--green-blue);
+}
+#eat, #eatLevel {
+    color: var(--grey3);
+    background-color: var(--yellow-green);
+}
+#sleep, #sleepLevel {
+    color: var(--grey3);
+    background-color: var(--lavender);
 }

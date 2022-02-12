@@ -39,7 +39,8 @@ body {
 }
 .score {
     display: flex;
-    justify-content: space-evenly;
+    align-items: center;
+    justify-content: center;
 }
 .board {
     min-width: 80vw;
@@ -58,6 +59,11 @@ body {
     width: 8vw;
     font-size: 1rem; 
     font-weight: 400;
+}
+.time {
+    min-height: 10vh;
+    min-width: 8vh;
+    border: 2px solid aqua;
 }
 #start {
     background: var(--green);

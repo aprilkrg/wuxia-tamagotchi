@@ -34,7 +34,7 @@ body {
     font-family: Roboto,  sans-serif;
     align-items: center;
     justify-content: center;
-    opacity: 60%;
+    opacity: 70%;
 }
 .button:hover {
     transition: ease-in-out 330ms;
@@ -84,14 +84,14 @@ body {
     font-weight: 600;
 }
 #play, #playLevel {
-    color: var(--grey3);
+    color: black;
     background-color: var(--green-blue);
 }
 #eat, #eatLevel {
-    color: var(--grey3);
+    color: black;
     background-color: var(--yellow-green);
 }
 #sleep, #sleepLevel {
-    color: var(--grey3);
+    color: black;
     background-color: var(--lavender);
 }

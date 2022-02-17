@@ -15,7 +15,7 @@ const playGame = function() {
 	console.log("play game invoked");
 	// === ! interval timers for gameplay ! === //
 	timerInterval = setInterval(function() {handleTimer()}, 1000);
-	setInterval(function() {handleStat()}, 1000);
+	statInterval = setInterval(function() {handleStat()}, 1000);
 	setInterval(function() {stopGameFunction()}, 500);
 };
 
@@ -34,6 +34,7 @@ const clickStat = function (event) {
 };
 
 const handleStat = function() {
+	console.log(Game.gameObj.gameOn, 'is game on?')
 	if (Game.gameObj.gameOn === false) return;
 	// === ! decrement a value on the cultivatorObj ! === //
 	for(let [key, value] of Object.entries(Cultivator.cultivatorObj)) {
@@ -59,6 +60,7 @@ const handleTimer = function() {
 	if (Game.gameObj.gameOn === false) {
 		console.log("game off from handle timer");
 		clearInterval(timerInterval);
+		clearInterval(statInterval);
 		const message = document.querySelector("#message");
 		message.innerHTML = "GAME OVER";
 		return;
@@ -92,8 +94,9 @@ const render = function() {
 
 document.addEventListener("DOMContentLoaded", () => {
 	console.log("play.js loaded");
-	// === ! create global variable for intarvcal clear
+	// === ! create global variable for interval clear
 	let timerInterval;
+	let statInterval;
     // === ! create DOM element variables ! === //
     const startBtn = document.querySelector("#start");
     const statBtns = document.querySelectorAll(".stat");

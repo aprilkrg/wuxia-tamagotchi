@@ -20,7 +20,7 @@ const playGame = function() {
 };
 
 const clickStat = function (event) {
-    console.log("change stat function invoked");
+    console.log("click stat function invoked");
     // === ! stop the click from counting if the gameOn is null ! === //
     if (Game.gameObj.gameOn === null) {
 		console.log("the game is off, turn it on before clicking the button");
@@ -98,6 +98,10 @@ const render = function() {
 	playStat.innerHTML = Cultivator.cultivatorObj.playLevel;
 	eatStat.innerHTML = Cultivator.cultivatorObj.eatLevel;
 	sleepStat.innerHTML = Cultivator.cultivatorObj.sleepLevel;
+	// === ! change width ! === //
+	playStat.style.width = Cultivator.cultivatorObj.playLevel + 'rem';
+	eatStat.style.width = Cultivator.cultivatorObj.eatLevel + 'rem';
+	sleepStat.style.width = Cultivator.cultivatorObj.sleepLevel + 'rem';
 };
 
 document.addEventListener("DOMContentLoaded", () => {

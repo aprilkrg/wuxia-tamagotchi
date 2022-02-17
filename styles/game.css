@@ -52,6 +52,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 40rem;
 }
 .board {
     min-width: 80vw;
@@ -87,11 +88,20 @@ body {
     color: black;
     background-color: var(--green-blue);
 }
+#playLevel {
+    width: 10rem;
+}
 #eat, #eatLevel {
     color: black;
     background-color: var(--yellow-green);
 }
+#eatLevel {
+    width: 10rem;
+}
 #sleep, #sleepLevel {
     color: black;
     background-color: var(--lavender);
+}
+#sleepLevel {
+    width: 10rem;
 }

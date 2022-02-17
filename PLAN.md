@@ -49,14 +49,19 @@ current tasks:
 - right now the game timer continues for one extra second after the stats hit 0 √CHECK√
 
 ### VISUAL IMPROVEMENTS
+Worked on:
 - create styling for classes that create a base style level
+- color coordinate the buttons with the progress tickets
 
-
+Still to do:
 - animate the avatar to bounce up and down, or slide right and left
 - use progress bars to display character stats
-- color coordinate the buttons with the progress tickets
 - give everything padding
 
+NEXT BIG TASK:
+create progress bars!
+create a div? and have it's width increase with each number? or use the number to indicate the width
+-- note: need to stop the click from going over 10
 
 
 

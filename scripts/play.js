@@ -23,9 +23,17 @@ const clickStat = function (event) {
     console.log("change stat function invoked");
     // === ! stop the click from counting if the gameOn is null ! === //
     if (Game.gameObj.gameOn === null) {
-        console.log("the game is off, turn it on before clicking the button");
+		console.log("the game is off, turn it on before clicking the button");
         return;
     };
+	// === ! stop the click from counting if the gameOn is false ! === //
+	if(Game.gameObj.gameOn === false) {
+		const statBtns = document.querySelectorAll(".stat");
+		for(let i = 0; i < statBtns.length; i++) {
+			statBtns[i].classList.remove("stat");
+		};
+		return;
+	};
     // // ===== STAT LEVEL BUTTONS ===== //
     const statId = event.target.id + "Level";
     Cultivator.cultivatorObj.changeStatLevel(statId);

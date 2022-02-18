@@ -1,11 +1,6 @@
 const startGameFunction = function () {
-    console.log("start game function invoked");
-    // // ===== START GAME BUTTON ===== //
-    Game.gameObj.gamePowerBtn();
-    console.log("game on:", Game.gameObj.gameOn);
-	// === ! remove start button ! === //
-	const startBtn = document.querySelector("#start");
-	startBtn.remove();
+	console.log("start game invoked");
+    Game.gameObj.gameStart();
 	// === ! when there is a click, re-render in response to the change ! === //
 	render();
 	playGame();
@@ -20,23 +15,9 @@ const playGame = function() {
 };
 
 const clickStat = function (event) {
-    console.log("click stat function invoked");
-    // === ! stop the click from counting if the gameOn is null ! === //
-    if (Game.gameObj.gameOn === null) {
-		console.log("the game is off, turn it on before clicking the button");
-        return;
-    };
-	// === ! stop the click from counting if the gameOn is false ! === //
-	if(Game.gameObj.gameOn === false) {
-		const statBtns = document.querySelectorAll(".stat");
-		for(let i = 0; i < statBtns.length; i++) {
-			statBtns[i].classList.remove("stat");
-		};
-		return;
-	};
-    // // ===== STAT LEVEL BUTTONS ===== //
-    const statId = event.target.id + "Level";
-    Cultivator.cultivatorObj.changeStatLevel(statId);
+    console.log("click stat invoked");
+	// === ! invoke game method ! === //
+	Game.gameObj.clickStat(event);
 	// === ! when there is a click, re-render in response to the change ! === //
 	render();
 };
@@ -56,26 +37,8 @@ const handleStat = function() {
 };
 
 const handleTimer = function() {
-	// console.log(Game.gameObj.timer, 'handle timer timer');
-	// === ! DOM manipulation ! === //
-	const timer = document.querySelector("#timer");
-	// === ! if timer is null, set it to a number datatype ! === //
-	if(Game.gameObj.timer === null) {
-		// === ! start at 0 so the first number that shows on the dom is a 1 ! === //
-		Game.gameObj.timer = 0;
-	};
-	// === ! check for game over condition ! === //
-	if (Game.gameObj.gameOn === false) {
-		console.log("game off from handle timer");
-		clearInterval(timerInterval);
-		clearInterval(statInterval);
-		const message = document.querySelector("#message");
-		message.innerHTML = "GAME OVER";
-		return;
-	};
-	// === ! increment timer on gameObj ! === //
-	Game.gameObj.timer++;
-	timer.innerHTML = Game.gameObj.timer;
+	// === ! starts game timer ! === //
+	Game.gameObj.gameTimer();
 };
 
 const stopGameFunction = function() {

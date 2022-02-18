@@ -58,10 +58,15 @@ Still to do:
 - animate the avatar to bounce up and down, or slide right and left
 - give everything padding
 
-NEXT BIG TASK:
+NEXT BIG TASK: √CHECK√
 create progress bars!
 create a div? and have it's width increase with each number? or use the number to indicate the width
--- note: need to stop the click from going over 10
+-- note: need to stop the click from going over 10 √CHECK√
+
+I'm effecting the cultivator object from the play.js file, instead of letting it handle itself === not very good OOP. Refactor should include more of that game logic happening in the cultivator and game class.
+
+
+
 
 
 

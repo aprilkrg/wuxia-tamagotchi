@@ -52,10 +52,10 @@ current tasks:
 Worked on:
 - create styling for classes that create a base style level
 - color coordinate the buttons with the progress tickets
+- use progress bars to display character stats
 
 Still to do:
 - animate the avatar to bounce up and down, or slide right and left
-- use progress bars to display character stats
 - give everything padding
 
 NEXT BIG TASK:

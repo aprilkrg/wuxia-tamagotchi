@@ -14,6 +14,8 @@ class Cultivator {
     // === ! Methods ! === //
     changeStatLevel(statToChange) {
         // console.log(statToChange, 'this is the stat passed in')
+        // === ! if stat level is at 10 or higher stops the click from counting ! === //
+        if(this[statToChange] >= 10) return;
         // === ! accepts parameter from play function to change stat ! === //
         this[statToChange] += 1;
     }

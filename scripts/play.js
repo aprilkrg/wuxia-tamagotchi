@@ -1,8 +1,8 @@
 const startGameFunction = function () {
     console.log("start game function invoked");
     // // ===== START GAME BUTTON ===== //
-    Game.gameArr[0].gamePowerBtn();
-    console.log("game on:", Game.gameArr[0].gameOn);
+    Game.gameObj.gamePowerBtn();
+    console.log("game on:", Game.gameObj.gameOn);
 	// === ! remove start button ! === //
 	const startBtn = document.querySelector("#start");
 	startBtn.remove();
@@ -94,14 +94,14 @@ const render = function() {
 	const playStat = document.querySelector("#playLevel");
 	const eatStat = document.querySelector("#eatLevel");
 	const sleepStat = document.querySelector("#sleepLevel");
-	// === ! set innerHTML ! === //
-	playStat.innerHTML = Cultivator.cultivatorObj.playLevel;
-	eatStat.innerHTML = Cultivator.cultivatorObj.eatLevel;
-	sleepStat.innerHTML = Cultivator.cultivatorObj.sleepLevel;
 	// === ! change width ! === //
 	playStat.style.width = Cultivator.cultivatorObj.playLevel + 'rem';
 	eatStat.style.width = Cultivator.cultivatorObj.eatLevel + 'rem';
 	sleepStat.style.width = Cultivator.cultivatorObj.sleepLevel + 'rem';
+	// === ! set innerHTML ! === //
+	playStat.innerHTML = Cultivator.cultivatorObj.playLevel;
+	eatStat.innerHTML = Cultivator.cultivatorObj.eatLevel;
+	sleepStat.innerHTML = Cultivator.cultivatorObj.sleepLevel;
 };
 
 document.addEventListener("DOMContentLoaded", () => {

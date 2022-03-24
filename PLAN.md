@@ -65,7 +65,8 @@ create a div? and have it's width increase with each number? or use the number t
 
 I'm effecting the cultivator object from the play.js file, instead of letting it handle itself === not very good OOP. Refactor should include more of that game logic happening in the cultivator and game class.
 
-
+3/24/22
+put in chibi with animation
 
 
 

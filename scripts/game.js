@@ -26,6 +26,14 @@ class Game {
         // === ! remove start button ! === //
         const startBtn = document.querySelector("#start");
         startBtn.remove();
+
+        const avatar = document.querySelector(".bounce-5")
+        avatar.style.display = "flex"
+        console.log(avatar, "AVATAR");
+        // const avatar = document.createElement("image");
+        // avatar.src = ("./images/chibi-cultivator.png");
+        // const msgEl = document.querySelector("#message");
+        // msgEl.append(avatar);
     };
     gameTimer = () => {
         // === ! starts game timer ! === //

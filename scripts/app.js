@@ -1,4 +1,4 @@
-console.log("grandmaster of monstrous cultivation");
+ console.log("grandmaster of monstrous cultivation");
 /**
  * 
  * //  ===  !  objects & classes below  !  ===  //

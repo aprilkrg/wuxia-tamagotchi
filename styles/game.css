@@ -47,31 +47,31 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
 }
 .score {
     display: flex;
     align-items: center;
     justify-content: center;
     min-width: 40rem;
-    border: 2px solid orange;
+    /* border: 2px solid orange; */
 }
 .board {
     min-width: 80vw;
     justify-content: space-evenly;
-    border: 2px solid lime;
+    /* border: 2px solid lime; */
 }
 .time {
     min-height: 10vh;
     min-width: 8vh;
-    border: 2px solid aqua;
+    /* border: 2px solid aqua; */
 }
 .card {
     min-width: 40vw;
     width: max-content;
     justify-content: space-evenly;
     align-items: center;
-    border: 2px solid hotpink;
+    /* border: 2px solid hotpink; */
     
 }
 .stat {
@@ -80,7 +80,7 @@ body {
     width: 8vw;
     font-size: 1rem; 
     font-weight: 400;
-    border: 2px solid rebeccapurple;
+    /* border: 2px solid rebeccapurple; */
 }
 #start {
     background: var(--green);

@@ -51,11 +51,11 @@ const stopGameFunction = function() {
 		Game.gameObj.gamePowerBtn();
 		console.log("this is after game power button was invoked")
 		// === ! remove progress bars after game over ! === //
-		const bars = document.querySelectorAll(".board > p")
-		console.log(bars, 'BAZRSSSSSS')
-		bars.forEach(bar => {
-			bar.style.display = "none"
-		});
+		// const bars = document.querySelectorAll(".board > p")
+		// console.log(bars, 'BAZRSSSSSS')
+		// bars.forEach(bar => {
+		// 	bar.style.display = "none"
+		// });
 	};
 };
 const render = function() {
